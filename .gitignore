@@ -1,0 +1,19 @@
+# Configuracion local y credenciales
+configuracion-local/*.h
+.env
+.env.*
+!.env.example
+*.local
+
+# Archivos generados
+__pycache__/
+*.pyc
+build/
+.pio/
+
+# Datos temporales y archivos de IDE
+*.log
+.vscode/
+.idea/
+Thumbs.db
+
