@@ -17,3 +17,6 @@ build/
 .idea/
 Thumbs.db
 
+# Dependencias descargadas y respaldo de ESP-IDF
+managed_components/
+sdkconfig.old

@@ -1,0 +1,19 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "display/display.c"
+        "interfaz/interfaz.c"
+        "comunicacion/protocolo_estado.c"
+        "comunicacion/receptor_estado.c"
+        "comunicacion/espnow_receptor.c"
+    INCLUDE_DIRS
+        "."
+        "display"
+        "interfaz"
+        "comunicacion"
+    PRIV_REQUIRES
+        nvs_flash
+        esp_netif
+        esp_event
+        esp_wifi
+)
