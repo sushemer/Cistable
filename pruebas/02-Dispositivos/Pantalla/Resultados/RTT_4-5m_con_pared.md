@@ -57,4 +57,5 @@ Con 500 ACK válidos tenemos:
 - RTT promedio: 4.693 ms
 - RTT máximo: 24.188 ms
 - latencia unidireccional estimada: 2.346 ms
+
 Así que, para los paquetes que sí completaron ida + ACK, ESP-NOW está respondiendo rápido. El problema no es la latencia; es la cantidad de ACK que no regresaron dentro de los 500 ms.
