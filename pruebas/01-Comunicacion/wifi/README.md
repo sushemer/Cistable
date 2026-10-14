@@ -56,15 +56,15 @@ Datos Crudos
 - I (141338) wifi softAP: Recibido <- Seq:36 | RSSI:-95 dBm
 - I (143308) wifi softAP: Recibido <- Seq:37 | RSSI:-89 dBm
 - I (145268) wifi softAP: Recibido <- Seq:38 | RSSI:-92 dBm
-W (149618) wifi softAP: ⚠️ ALERTA: Se perdieron 1 paquete(s) intermedio(s)
+- W (149618) wifi softAP: ⚠️ ALERTA: Se perdieron 1 paquete(s) intermedio(s)
 - I (149618) wifi softAP: Recibido <- Seq:40 | RSSI:-89 dBm
 - I (151268) wifi softAP: Recibido <- Seq:41 | RSSI:-89 dBm
 - I (153278) wifi softAP: Recibido <- Seq:42 | RSSI:-89 dBm
-W (159538) wifi softAP: ⚠️ ALERTA: Se perdieron 2 paquete(s) intermedio(s)
+- W (159538) wifi softAP: ⚠️ ALERTA: Se perdieron 2 paquete(s) intermedio(s)
 - I (159538) wifi softAP: Recibido <- Seq:45 | RSSI:-94 dBm
-W (163568) wifi softAP: ⚠️ ALERTA: Se perdieron 1 paquete(s) intermedio(s)
+- W (163568) wifi softAP: ⚠️ ALERTA: Se perdieron 1 paquete(s) intermedio(s)
 - I (163568) wifi softAP: Recibido <- Seq:47 | RSSI:-92 dBm
-W (167588) wifi softAP: ⚠️ ALERTA: Se perdieron 1 paquete(s) intermedio(s)
+- W (167588) wifi softAP: ⚠️ ALERTA: Se perdieron 1 paquete(s) intermedio(s)
 - I (167588) wifi softAP: Recibido <- Seq:49 | RSSI:-92 dBm
-W (177538) wifi softAP: ⚠️ ALERTA: Se perdieron 4 paquete(s) intermedio(s)
+- W (177538) wifi softAP: ⚠️ ALERTA: Se perdieron 4 paquete(s) intermedio(s)
 - I (177538) wifi softAP: Recibido <- Seq:54 | RSSI:-94 dBm
