@@ -5,9 +5,9 @@
 #include "esp_log.h"
 #include "driver/uart.h"
 
-#define RS485_UART_PORT      UART_NUM_2
-#define RS485_TX_PIN         17  // Conectar a TXD del módulo
-#define RS485_RX_PIN         18  // Conectar a RXD del módulo
+#define RS485_UART_PORT       UART_NUM_2
+#define RS485_TX_PIN         17  // TXD del módulo RS485
+#define RS485_RX_PIN         18  // RXD del módulo RS485
 
 static const char *TAG = "QDY30A_RS485";
 
@@ -43,41 +43,60 @@ void init_rs485(void) {
     ESP_ERROR_CHECK(uart_set_mode(RS485_UART_PORT, UART_MODE_UART));
 }
 
-void read_sensor_task(void *pvParameters) {
-    uint8_t rx_buffer[128];
+/**
+ * @brief Lee el valor del sensor Modbus.
+ * 
+ * @param[out] value Puntero donde se almacenará el valor leído de 16 bits.
+ * @return esp_err_t ESP_OK si la lectura fue exitosa, o un código de error si falló.
+ */
+esp_err_t read_sensor(uint16_t *value) {
+    if (value == NULL) {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    uint8_t rx_buffer[64];
     
-    // Trama Modbus RTU para solicitar 10 registros desde el 0x0000:
-    // [0x01]: ID | [0x03]: Leer | [0x00, 0x00]: Registro 0 | [0x00, 0x0A]: Pedir 10 registros
-    uint8_t request[8] = {0x01, 0x03, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00};
+    // Trama Modbus RTU para solicitar 1 registro desde la dirección 0x0004:
+    // [0x01]: ID Esclavo | [0x03]: Función Leer | [0x00, 0x04]: Reg 0x0004 | [0x00, 0x01]: 1 Registro
+    uint8_t request[8] = {0x01, 0x03, 0x00, 0x04, 0x00, 0x01, 0x00, 0x00};
     
     uint16_t crc = modbus_crc16(request, 6);
     request[6] = crc & 0xFF;        // CRC Low
     request[7] = (crc >> 8) & 0xFF; // CRC High
 
-    while (1) {
-        uart_flush_input(RS485_UART_PORT);
-        uart_write_bytes(RS485_UART_PORT, (const char *)request, sizeof(request));
+    uart_flush_input(RS485_UART_PORT);
+    uart_write_bytes(RS485_UART_PORT, (const char *)request, sizeof(request));
 
-        // Esperar respuesta (esperamos 3 bytes header + 20 bytes datos + 2 bytes CRC = 25 bytes)
-        int len = uart_read_bytes(RS485_UART_PORT, rx_buffer, sizeof(rx_buffer), pdMS_TO_TICKS(300));
+    // Respuesta esperada: 7 bytes (1 ID + 1 Func + 1 ByteCount + 2 Datos + 2 CRC)
+    int len = uart_read_bytes(RS485_UART_PORT, rx_buffer, sizeof(rx_buffer), pdMS_TO_TICKS(300));
 
-        if (len >= 25) {
-            uint16_t rx_crc = (rx_buffer[len - 1] << 8) | rx_buffer[len - 2];
-            uint16_t calc_crc = modbus_crc16(rx_buffer, len - 2);
+    if (len >= 7) {
+        uint16_t rx_crc = (rx_buffer[len - 1] << 8) | rx_buffer[len - 2];
+        uint16_t calc_crc = modbus_crc16(rx_buffer, len - 2);
 
-            if (rx_crc == calc_crc && rx_buffer[0] == 0x01 && rx_buffer[1] == 0x03) {
-                ESP_LOGI(TAG, "=== LECTURA DE REGISTROS ===");
-                
-                // Parsear los 10 registros recibidos (cada registro son 2 bytes)
-                for (int i = 0; i < 10; i++) {
-                    uint16_t reg_val = (rx_buffer[3 + (i * 2)] << 8) | rx_buffer[4 + (i * 2)];
-                    ESP_LOGI(TAG, "Registro [0x%04X]: %d", i, reg_val);
-                }
-            } else {
-                ESP_LOGW(TAG, "Error de suma CRC en la respuesta");
-            }
+        if (rx_crc == calc_crc && rx_buffer[0] == 0x01 && rx_buffer[1] == 0x03) {
+            *value = (rx_buffer[3] << 8) | rx_buffer[4];
+            return ESP_OK;
         } else {
-            ESP_LOGE(TAG, "Respuesta incompleta o sin respuesta (%d bytes)", len);
+            ESP_LOGW(TAG, "Error de validación CRC o cabecera Modbus");
+            return ESP_FAIL;
+        }
+    } else {
+        ESP_LOGE(TAG, "Timeout o respuesta incompleta (%d bytes recibidos)", len);
+        return ESP_ERR_TIMEOUT;
+    }
+}
+
+void sensor_task(void *pvParameters) {
+    uint16_t valor = 0;
+
+    while (1) {
+        esp_err_t ret = read_sensor(&valor);
+        
+        if (ret == ESP_OK) {
+            ESP_LOGI(TAG, "Lectura exitosa - Valor leído: %d", valor);
+        } else {
+            ESP_LOGE(TAG, "Error al leer el sensor (código: %s)", esp_err_to_name(ret));
         }
 
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -86,5 +105,5 @@ void read_sensor_task(void *pvParameters) {
 
 void app_main(void) {
     init_rs485();
-    xTaskCreate(read_sensor_task, "read_sensor_task", 4096, NULL, 5, NULL);
+    xTaskCreate(sensor_task, "sensor_task", 4096, NULL, 5, NULL);
 }
