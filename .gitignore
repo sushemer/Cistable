@@ -17,3 +17,7 @@ build/
 .idea/
 Thumbs.db
 
+# Dependencia externa: no pertenece al repositorio Cistable.
+# Debe clonarse localmente dentro de firmware/Apoyo/.
+firmware/Apoyo/esp32_BNO08x/
+
