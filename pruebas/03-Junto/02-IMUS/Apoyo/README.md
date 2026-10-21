@@ -1,17 +1,12 @@
-# Logger de una IMU
+# Loggers para una o dos IMUs
 
-Este directorio contiene el registrador para una sola IMU. Lee las líneas CSV
-que imprime el ESP32 por UART0/USB y las guarda en un libro Excel. No utiliza
-ESP-NOW.
-
+Este directorio contiene dos registradores: uno para una IMU y otro para dos IMUs. Ambos leen lo que imprime el ESP32 por UART0/USB y lo guardan en Excel.
 ## Flujo
-
 ```text
-IMU → ESP32 → UART0/USB → puerto COM → imu_logger_1.py → Excel
+IMU(s) → ESP32 → UART0/USB → puerto COM → logger correspondiente → Excel
 ```
 
 El firmware de referencia imprime:
-
 ```text
 Roll_1,Ay,LTR_Calculado
 12.35,0.42,0.1834
@@ -52,7 +47,6 @@ cd "C:\Users\SUSHEMER\OneDrive\Documentos\GitHub\Bomb\Cistable\pruebas\03-Junto\
 ```
 
 5. Ejecute el logger:
-
 ```powershell
 py imu_logger_1.py --port COM5 --output "..\registros\imu_prueba_01.xlsx"
 ```
@@ -60,7 +54,6 @@ py imu_logger_1.py --port COM5 --output "..\registros\imu_prueba_01.xlsx"
 Cambie `COM5` por el puerto real del ESP32.
 
 ## Ejecución desde la carpeta `02-IMUS`
-
 También puede ejecutarlo desde la carpeta padre:
 
 ```powershell
@@ -92,17 +85,34 @@ El archivo se guarda en:
 El programa crea la carpeta de salida si no existe, pero no sobrescribe un
 archivo existente. Use un nombre nuevo para cada prueba.
 
-## Tare
-
-El `tare` pone a cero la orientación de la IMU en la posición física actual.
-Debe hacerse con el vehículo detenido y la IMU colocada en la posición que se
-considerará nivelada. Este logger solamente lee y guarda; no envía la letra `t`
-al ESP32.
-
-## Limitaciones
+## Limitaciones del logger de una IMU
 
 - Está diseñado para una sola IMU.
 - No utiliza ESP-NOW.
 - No calcula Roll, Ay ni LTR; esos valores deben venir del firmware.
 - No agrega fecha ni hora.
-- Para dos IMUs se creará después otro logger o una versión modular.
+- Para dos IMUs use `imu_cisterna_logger.py`, descrito en la sección siguiente.
+
+## Logger de ESP-CISTERNA para dos IMUs
+
+El archivo `imu_cisterna_logger.py` se usa cuando el ESP-CISTERNA imprime una sola línea con las dos IMUs y el estado de sensores. El nivel de agua que pueda
+aparecer en la línea se ignora por ahora.
+
+Su formato esperado es:
+
+```text
+Enviando sensores: IMU1[roll=1.250, pitch=-0.430, ay=0.120] IMU2[roll=1.310, pitch=-0.390, ay=0.115] nivel=45.000 estado=0x07
+```
+
+Se ejecuta desde `Apoyo` o donde se quiera hacer pero usando bien las direcciones:
+
+```powershell
+py imu_cisterna_logger.py --port COM5 --output "..\registros\cisterna_prueba_01.xlsx"
+```
+
+Este archivo genera una hoja:
+
+- `IMUs`: una fila por IMU y por lectura, usando la columna `imu_id` con los valores `IMU1` o `IMU2`.
+
+La columna `linea_original` conserva el mensaje completo que llegó del ESP32.
+La columna `estado` conserva el estado reportado por el firmware. El guardado también es fijo cada 10 mensajes.
