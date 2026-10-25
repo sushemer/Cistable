@@ -26,7 +26,16 @@ IMU_COLUMNS = [
     "x", "y", "z", "w", "estado_sensor", "linea_serial",
 ]
 EVENT_COLUMNS = ["hora_pc", "linea_serial"]
+COMBINED_COLUMNS = [
+    "hora_pc", "numero_muestra", "tiempo_esp_us", "gps_actualizado",
+    "gps_edad_ms", "gps_estado", "gps_calidad_fix", "gps_satelites",
+    "gps_hdop", "gps_latitud_deg", "gps_longitud_deg", "gps_velocidad_kmh",
+    "gps_rumbo_deg", "imu_roll_deg", "imu_pitch_deg", "imu_yaw_deg",
+    "imu_ax_m_s2", "imu_ay_m_s2", "imu_az_m_s2", "estado_orientacion",
+    "estado_aceleracion",
+]
 SAVE_INTERVAL_S = 5.0
+COMBINED_INTERVAL_S = 0.5
 
 
 def _number(value: str, cast=float):
@@ -126,33 +135,89 @@ def main() -> None:
     gps_sheet = _prepare_sheet(book, "GPS", GPS_COLUMNS)
     imu_sheet = _prepare_sheet(book, "IMU", IMU_COLUMNS)
     event_sheet = _prepare_sheet(book, "Eventos", EVENT_COLUMNS)
+    combined_sheet = _prepare_sheet(book, "Muestras_500ms", COMBINED_COLUMNS)
     book.save(output)
 
     last_save = monotonic()
+    next_combined = monotonic() + COMBINED_INTERVAL_S
+    latest_device_us = None
+    latest_rmc = None
+    latest_gga = None
+    latest_orientation = None
+    latest_acceleration = None
+    last_combined_rmc_us = None
     print(f"Registro prueba 03: puerto {args.puerto} -> {output}")
-    print("GPS e IMU se guardan en hojas separadas. Ctrl+C detiene y guarda.")
+    print("Se guardan GPS e IMU crudos y una muestra combinada cada 500 ms.")
+    print("Ctrl+C detiene y guarda. La muestra combinada no fusiona ni genera alarmas.")
     try:
-        with serial.Serial(args.puerto, 115200, timeout=1) as port:
+        with serial.Serial(args.puerto, 115200, timeout=0.05) as port:
             while True:
                 raw = port.readline()
-                if not raw:
-                    continue
-                line = raw.decode("utf-8", errors="replace").strip()
-                gps_record = parse_gps(line)
-                imu_record = parse_imu(line)
-                if gps_record:
-                    gps_sheet.append([gps_record[column] for column in GPS_COLUMNS])
-                elif imu_record:
-                    imu_sheet.append([imu_record[column] for column in IMU_COLUMNS])
-                elif "GPS_EVENT|" in line or "BNO085" in line or "IMU" in line and "IMU|" not in line:
-                    event_sheet.append([
-                        datetime.now().astimezone().isoformat(timespec="milliseconds"),
-                        line,
-                    ])
-                else:
-                    continue
+                if raw:
+                    line = raw.decode("utf-8", errors="replace").strip()
+                    gps_record = parse_gps(line)
+                    imu_record = parse_imu(line)
+                    if gps_record:
+                        gps_sheet.append([gps_record[column] for column in GPS_COLUMNS])
+                        latest_device_us = max(latest_device_us or 0, gps_record["uptime_esp_us"] or 0)
+                        if gps_record["tipo"] == "GPRMC":
+                            latest_rmc = gps_record
+                        elif gps_record["tipo"] == "GPGGA":
+                            latest_gga = gps_record
+                    elif imu_record:
+                        imu_sheet.append([imu_record[column] for column in IMU_COLUMNS])
+                        latest_device_us = max(latest_device_us or 0, imu_record["recibido_esp_us"] or 0)
+                        if imu_record["tipo"] == "ROTATION_EULER":
+                            latest_orientation = imu_record
+                        elif imu_record["tipo"] == "LINEAR_ACCEL":
+                            latest_acceleration = imu_record
+                    elif ("GPS_EVENT|" in line or "BNO085" in line
+                          or ("IMU" in line and "IMU|" not in line)):
+                        event_sheet.append([
+                            datetime.now().astimezone().isoformat(timespec="milliseconds"),
+                            line,
+                        ])
+                    else:
+                        line = None
+                    if line is not None:
+                        print(line)
 
-                print(line)
+                now = monotonic()
+                while latest_device_us is not None and now >= next_combined:
+                    gps_age_ms = None
+                    if latest_rmc is not None and latest_rmc["uptime_esp_us"] is not None:
+                        gps_age_ms = max(0, latest_device_us - latest_rmc["uptime_esp_us"]) / 1000
+                    gps_updated = (
+                        latest_rmc is not None
+                        and latest_rmc["uptime_esp_us"] != last_combined_rmc_us
+                    )
+                    combined_sheet.append([
+                        datetime.now().astimezone().isoformat(timespec="milliseconds"),
+                        combined_sheet.max_row - 1,
+                        latest_device_us,
+                        int(gps_updated),
+                        gps_age_ms,
+                        latest_rmc["estado_gps"] if latest_rmc else None,
+                        latest_gga["calidad_fix"] if latest_gga else None,
+                        latest_gga["satelites"] if latest_gga else None,
+                        latest_gga["hdop"] if latest_gga else None,
+                        latest_rmc["latitud_deg"] if latest_rmc else None,
+                        latest_rmc["longitud_deg"] if latest_rmc else None,
+                        latest_rmc["velocidad_kmh"] if latest_rmc else None,
+                        latest_rmc["rumbo_deg"] if latest_rmc else None,
+                        latest_orientation["x"] if latest_orientation else None,
+                        latest_orientation["y"] if latest_orientation else None,
+                        latest_orientation["z"] if latest_orientation else None,
+                        latest_acceleration["x"] if latest_acceleration else None,
+                        latest_acceleration["y"] if latest_acceleration else None,
+                        latest_acceleration["z"] if latest_acceleration else None,
+                        latest_orientation["estado_sensor"] if latest_orientation else None,
+                        latest_acceleration["estado_sensor"] if latest_acceleration else None,
+                    ])
+                    if latest_rmc is not None:
+                        last_combined_rmc_us = latest_rmc["uptime_esp_us"]
+                    next_combined += COMBINED_INTERVAL_S
+
                 if monotonic() - last_save >= SAVE_INTERVAL_S:
                     book.save(output)
                     last_save = monotonic()

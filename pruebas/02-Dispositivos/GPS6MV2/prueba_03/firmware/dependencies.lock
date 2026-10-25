@@ -1,21 +1,19 @@
 dependencies:
+  esp32_BNO08x:
+    component_hash: 0f0092e77bf7ef7e4e4bea8a19bc832cfc8e70efede760be19764da5493575b0
+    dependencies: []
+    source:
+      git: https://github.com/myles-parfeniuk/esp32_BNO08x.git
+      path: .
+      type: git
+    version: fdb99db225fc28f17de0d430a486c182aef927a2
   idf:
     source:
       type: idf
     version: 5.5.2
-  rinku404/bno085:
-    component_hash: 87c2b64bced86450539a11cd0e9194df00ceb82fa8b8524309a345f448df616d
-    dependencies:
-    - name: idf
-      require: private
-      version: '>=5.2'
-    source:
-      registry_url: https://components.espressif.com/
-      type: service
-    version: 1.0.2
 direct_dependencies:
+- esp32_BNO08x
 - idf
-- rinku404/bno085
-manifest_hash: 90cd10581d7f00582c7ab4e23e3568e8f5213a1f875bf5f5b9799a33c31efcc1
+manifest_hash: e98e0fb659d67e5c68fe518a6895e4fd445168a022b643eae15528ae3f776e4c
 target: esp32
 version: 2.0.0

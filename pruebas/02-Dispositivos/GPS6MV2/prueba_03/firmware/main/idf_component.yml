@@ -1,4 +1,5 @@
 dependencies:
   idf:
     version: ">=5.2.0"
-  rinku404/bno085: "1.0.2"
+  esp32_BNO08x:
+    git: "https://github.com/myles-parfeniuk/esp32_BNO08x.git"
