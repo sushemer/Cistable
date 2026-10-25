@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from datetime import datetime
 from math import isfinite
 from pathlib import Path
@@ -11,6 +12,15 @@ from time import monotonic
 import serial
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill
+
+
+# Deja disponible la carpeta común para futuras funciones compartidas.
+_archivo = Path(__file__).resolve()
+for _padre in _archivo.parents:
+    _apoyo = _padre / "apoyo"
+    if (_apoyo / "dispositivos.py").is_file():
+        sys.path.insert(0, str(_apoyo))
+        break
 
 
 GPS_COLUMNS = [

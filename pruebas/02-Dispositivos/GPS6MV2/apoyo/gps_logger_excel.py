@@ -7,10 +7,19 @@ Uso:
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import serial
 from serial.serialutil import SerialException
+
+# Encuentra la carpeta común aunque el script se ejecute desde una prueba.
+_archivo = Path(__file__).resolve()
+for _padre in _archivo.parents:
+    _apoyo = _padre / "apoyo"
+    if (_apoyo / "dispositivos.py").is_file():
+        sys.path.insert(0, str(_apoyo))
+        break
 
 from dispositivos import obtener_dispositivo
 from gps_excel import prepare_workbook
