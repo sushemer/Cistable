@@ -21,3 +21,4 @@ Thumbs.db
 # Debe clonarse localmente dentro de firmware/Apoyo/.
 firmware/Apoyo/esp32_BNO08x/
 
+_review_imu/
