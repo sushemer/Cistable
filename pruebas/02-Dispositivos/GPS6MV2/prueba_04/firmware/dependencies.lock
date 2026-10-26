@@ -1,0 +1,19 @@
+dependencies:
+  esp32_BNO08x:
+    component_hash: 0f0092e77bf7ef7e4e4bea8a19bc832cfc8e70efede760be19764da5493575b0
+    dependencies: []
+    source:
+      git: https://github.com/myles-parfeniuk/esp32_BNO08x.git
+      path: .
+      type: git
+    version: fdb99db225fc28f17de0d430a486c182aef927a2
+  idf:
+    source:
+      type: idf
+    version: 5.5.2
+direct_dependencies:
+- esp32_BNO08x
+- idf
+manifest_hash: e98e0fb659d67e5c68fe518a6895e4fd445168a022b643eae15528ae3f776e4c
+target: esp32
+version: 2.0.0
