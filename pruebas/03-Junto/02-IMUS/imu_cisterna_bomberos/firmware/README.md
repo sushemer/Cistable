@@ -15,15 +15,4 @@ Proyecto mínimo para una BNO085 por SPI. No incluye GPS, pantalla, ESP-NOW ni s
 
 PS0 y PS1 deben estar en VCC para seleccionar SPI, de acuerdo con el montaje usado anteriormente.
 
-## Compilar y grabar
-
-Desde una terminal ESP-IDF:
-
-```powershell
-cd "C:\Users\SUSHEMER\OneDrive\Documentos\GitHub\Bomb\Cistable\pruebas\imu_cisterna_bomberos\firmware"
-idf.py set-target esp32
-idf.py build
-idf.py -p COM5 flash monitor
-```
-
-El firmware imprime líneas `IMU_DATA` cada 100 ms. Cierre el monitor con `Ctrl+]` antes de iniciar el logger de Excel.
+El firmware imprime líneas `IMU_DATA` cada 100 ms. El logger de Excel debe ser el único programa conectado al puerto serial durante el registro.

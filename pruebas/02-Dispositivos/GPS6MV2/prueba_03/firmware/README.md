@@ -41,11 +41,7 @@ El firmware registra aceleración lineal (m/s²), velocidad angular del giroscop
 
 El GPS emite `GPSDIAG` v1 con el mismo orden de columnas que la prueba 02. La velocidad se deja explícitamente como `SIN_FILTRO`: esta etapa conserva datos crudos y no aplica el filtro de saltos de velocidad de prueba 02. El logger también genera `Muestras_500ms`, usando la lectura más reciente de GPS e IMU para facilitar el análisis temporal; no es una fusión ni activa alarmas.
 
-## Compilación
-
-En una terminal ESP-IDF, ejecutar: idf.py set-target esp32, idf.py build y luego idf.py flash monitor.
-
-La dependencia `esp32_BNO08x` se descarga desde Git mediante el Component Manager declarado en `main/idf_component.yml`. Esta versión está preparada para `esp32`/DevKit V1; revisar los GPIO antes de compilar y conectar el hardware.
+La dependencia `esp32_BNO08x` se declara en `main/idf_component.yml`. Esta versión está preparada para `esp32`/DevKit V1; revisar los GPIO antes de conectar el hardware.
 
 ## Referencias
 

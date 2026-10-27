@@ -20,20 +20,19 @@ El consolidado `analisis/prueba_03_resultados.xlsx` mantiene los datos de entrad
 
 ## Prueba estática
 
-1. En una terminal ESP-IDF, desde `prueba_03/`, compile con `idf.py -C firmware build` y cargue con `idf.py -C firmware -p COM5 flash`. Sustituya `COM5` por el puerto del ESP32. La salida USB de depuración trabaja a 115200 baudios.
-2. Conecte el GPS por UART2 (TX del GPS a GPIO16 del ESP32; RX del GPS a GPIO17, opcional si solo se recibe) y la BNO085 por SPI según el cableado de `firmware/README.md`.
-3. Instale una vez las dependencias desde esta carpeta: `py -m pip install -r tools/requirements.txt`.
-4. Cierre ESP-IDF Monitor y cualquier programa que use el puerto COM. Desde `prueba_03/`, inicie el registro con:
+1. Conecte el GPS por UART2 (TX del GPS a GPIO16 del ESP32; RX del GPS a GPIO17, opcional si solo se recibe) y la BNO085 por SPI según el cableado de `firmware/README.md`.
+2. Instale una vez las dependencias desde esta carpeta: `py -m pip install -r tools/requirements.txt`.
+3. Cierre cualquier programa que use el puerto COM. Desde `prueba_03/`, inicie el registro con:
 
    ```powershell
    py tools/gps_imu_logger.py COM5 prueba_03_estatica_01.xlsx
    ```
 
    Cambie `COM5` por el puerto del ESP32 y escriba el nombre que quiera para el archivo. El script crea la carpeta de salida si aún no existe. No abra el mismo COM en el monitor y en el registrador a la vez.
-5. Deje el equipo quieto en la ubicación de prueba; detenga con `Ctrl+C`. El libro se guarda cada cinco segundos y al salir, con hojas `GPS`, `IMU`, `Muestras_500ms` y `Eventos`. El GPS no se calibra al cambiarlo de lugar: necesita adquirir fix, lo cual puede tardar varios minutos según cuánto tiempo estuvo apagado y la vista al cielo. No detenga el registro solo porque aún no aparezca fix.
+4. Deje el equipo quieto en la ubicación de prueba; detenga con `Ctrl+C`. El libro se guarda cada cinco segundos y al salir, con hojas `GPS`, `IMU`, `Muestras_500ms` y `Eventos`. El GPS no se calibra al cambiarlo de lugar: necesita adquirir fix, lo cual puede tardar varios minutos según cuánto tiempo estuvo apagado y la vista al cielo. No detenga el registro solo porque aún no aparezca fix.
 
 En `Muestras_500ms` se conserva la última lectura disponible de cada sensor para formar una fila común. `gps_actualizado` indica si llegó una nueva sentencia RMC desde la fila anterior y `gps_edad_ms` indica qué tan antigua es esa lectura GPS. Por eso pueden repetirse velocidad o posición durante medio segundo: no significa que el GPS esté enviando una lectura nueva a 2 Hz.
 
-La primera prueba puede hacerse en ventana y patio. Mantenga anotado dónde estaba la antena y la IMU, si el cielo estaba despejado u obstruido, y las horas de inicio y fin. Este registro solo captura datos; no fusiona sensores ni determina todavía qué lecturas son correctas. La compilación de este proyecto debe verificarse en la instalación ESP-IDF disponible antes de dar por lista la carga al dispositivo.
+La primera prueba puede hacerse en ventana y patio. Mantenga anotado dónde estaba la antena y la IMU, si el cielo estaba despejado u obstruido, y las horas de inicio y fin. Este registro solo captura datos; no fusiona sensores ni determina todavía qué lecturas son correctas.
 
 La búsqueda bibliográfica ampliada y la selección de referencias específicas quedan pendientes de verificar; no se presentan aquí umbrales como si ya estuvieran validados.
