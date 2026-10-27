@@ -1,17 +1,12 @@
 # Prueba 02 del GPS6MV2
-
-Evaluación del GPS HW-248 sin IMU. Las primeras pruebas se harán en un automóvil normal; sus resultados no representan la dinámica del camión cisterna.
+Las primeras pruebas se hicieron en un automóvil normal, en el patio y en una ventana.
 
 ## Objetivo
-
 Revisar la recepción NMEA y evaluar la calidad de posición y velocidad, incluidos posibles saltos o interrupciones. Se conservarán las lecturas originales para compararlas con los diagnósticos del firmware.
 
-## Estado
 
-Los resultados de campo están pendientes. No se han establecido conclusiones ni umbrales definitivos. Los valores de configuración actuales son provisionales y deberán revisarse con los registros; la prueba con IMU corresponde a la prueba 03.
 
 ## Organización
-
 | Ubicación | Contenido |
 |---|---|
 | `firmware/` | Firmware ESP-IDF para el GPS, sin IMU. |
