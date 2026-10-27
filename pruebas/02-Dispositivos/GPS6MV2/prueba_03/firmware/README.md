@@ -37,7 +37,7 @@ Los pines se definen en `main/imu_device.h`. Para SPI, `PS1` y `PS0` se conectan
 
 ## Datos emitidos
 
-El firmware registra aceleración lineal (m/s²), velocidad angular del giroscopio (rad/s) y cuaternión de orientación, junto con el timestamp SH-2 y el tiempo monotónico del ESP32 al atender el callback. Son relojes distintos; se conservan para analizar su relación sin asumir sincronización perfecta. También se registra el estado de precisión del sensor. El script `../tools/gps_imu_logger.py` guarda las filas GPS, IMU y eventos en hojas separadas del mismo Excel. No usar estos datos para validar velocidad hasta contar con una captura completa y alineada.
+El firmware registra aceleración lineal (m/s²), velocidad angular del giroscopio (rad/s) y cuaternión de orientación, junto con el timestamp SH-2 y el tiempo monotónico del ESP32 al atender el callback. Son relojes distintos; se conservan para analizar su relación sin asumir sincronización perfecta. También se registra el estado de precisión del sensor. El script `../../apoyo/gps_imu_logger.py` guarda las filas GPS, IMU y eventos en hojas separadas del mismo Excel. No usar estos datos para validar velocidad hasta contar con una captura completa y alineada.
 
 El GPS emite `GPSDIAG` v1 con el mismo orden de columnas que la prueba 02. La velocidad se deja explícitamente como `SIN_FILTRO`: esta etapa conserva datos crudos y no aplica el filtro de saltos de velocidad de prueba 02. El logger también genera `Muestras_500ms`, usando la lectura más reciente de GPS e IMU para facilitar el análisis temporal; no es una fusión ni activa alarmas.
 

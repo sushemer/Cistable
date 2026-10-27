@@ -7,9 +7,9 @@ El programa imprime `IMU_DATA` cada 100 ms.
 ## Registro en Excel
 En otra terminal:
 ```powershell
-cd "..\Cistable\pruebas\03-Junto\02-IMUS\imu_cisterna_bomberos"
-py -m pip install -r apoyo/requirements.txt
+cd "C:\Users\SUSHEMER\OneDrive\Documentos\GitHub\Bomb\Cistable\pruebas\03-Junto\02-IMUS\imu_cisterna_bomberos"
+py -m pip install -r apoyo\requirements.txt
 py apoyo/imu_cisterna_logger.py COM# registros\registro_atras.xlsx
 ```
-Nota: Es importante que en ningún otro lado se esté "monitoreando"
-Use un archivo diferente para `cabina`, `arriba`, `abajo` o cualquier otra ubicación. 
+Cambie `COM#` por el puerto del ESP32 y use un archivo diferente para `cabina`, `arriba`, `abajo` o cualquier otra ubicación.
+Detenga el registro con `Ctrl+C`. Es importante que ningún otro programa esté monitoreando el mismo puerto serial.

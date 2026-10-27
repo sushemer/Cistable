@@ -38,11 +38,17 @@ GPS por UART2: TX del GPS a GPIO16 del ESP32. BNO085 por SPI:
 | GND | GND |
 
 ## Registrar en Excel
+
+Desde PowerShell, ejecute los comandos desde la carpeta `prueba_04`:
+
 ```powershell
-py -m pip install -r apoyo/requirements.txt
-py apoyo/gps_imu_logger.py COM5 pruebas/prueba_04_ventana_01.xlsx
+cd "C:\Users\SUSHEMER\OneDrive\Documentos\GitHub\Bomb\Cistable\pruebas\02-Dispositivos\GPS6MV2\prueba_04"
+py -m pip install -r apoyo\requirements.txt
+py apoyo\gps_imu_logger.py COM5 pruebas\prueba_04_ventana_01.xlsx
 ```
 
+Cambie `COM5` por el puerto del ESP32 y el nombre del archivo si desea otro.
+El script crea la carpeta de salida si aún no existe.
 
 Detenga con `Ctrl+C`. El archivo se guarda cada cinco segundos y al finalizar.
 
