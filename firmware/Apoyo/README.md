@@ -10,7 +10,7 @@ Esta carpeta contiene los componentes compartidos por los proyectos ESP-IDF del 
 
 ## Preparar la biblioteca BNO08x
 
-Al clonar Cistable por primera vez, descarga los submódulos con:
+Al clonar Cistable por primera vez, se debe descargar los submódulos con:
 
 ```powershell
 git submodule update --init --recursive
