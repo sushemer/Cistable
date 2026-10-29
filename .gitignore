@@ -17,9 +17,5 @@ build/
 .idea/
 Thumbs.db
 
-# Dependencia externa: no pertenece al repositorio Cistable.
-# Debe clonarse localmente dentro de firmware/Apoyo/.
-firmware/Apoyo/esp32_BNO08x/
-
 _review_imu/
 pruebas/03-Junto/02-IMUS/imu_cisterna_bomberos/firmware/components/esp32_BNO08x/
