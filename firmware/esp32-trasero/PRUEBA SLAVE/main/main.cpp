@@ -13,6 +13,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
+#include "esp_mac.h"
 #include "driver/gpio.h"
 #include "driver/spi_master.h"
 #include "driver/uart.h"
@@ -51,7 +52,7 @@
 #define ESPNOW_CHANNEL 1
 
 static const char* TAG = "TANQUE";
-static const uint8_t CABIN_MAC[ESP_NOW_ETH_ALEN] = {0xd4, 0x05, 0x92, 0x79, 0x3e, 0xec};
+static const uint8_t CABIN_MAC[ESP_NOW_ETH_ALEN] = {0xff, 0xff, 0xff, 0xff, 0xff, 0xff};
 
 typedef struct __attribute__((packed)) TankPayload {
     float roll_1;
@@ -246,6 +247,10 @@ static void initialize_esp_now()
     ESP_ERROR_CHECK(esp_wifi_set_channel(ESPNOW_CHANNEL, WIFI_SECOND_CHAN_NONE));
     ESP_ERROR_CHECK(esp_now_init());
     ESP_ERROR_CHECK(esp_now_register_send_cb(esp_now_send_callback));
+
+    uint8_t local_mac[ESP_NOW_ETH_ALEN] = {};
+    ESP_ERROR_CHECK(esp_wifi_get_mac(WIFI_IF_STA, local_mac));
+    ESP_LOGI(TAG, "MAC de estación=" MACSTR " canal=%u; destino ESP-NOW=transmisión general", MAC2STR(local_mac), ESPNOW_CHANNEL);
 
     esp_now_peer_info_t peer = {};
     std::memcpy(peer.peer_addr, CABIN_MAC, ESP_NOW_ETH_ALEN);

@@ -1,8 +1,9 @@
-"""Registra líneas serie y separa los campos importantes de IMU_DATA y MASTERDATA."""
+"""Registra el puerto serie, conserva cada línea y separa los campos reconocidos."""
 
 from __future__ import annotations
 
 import argparse
+import json
 import re
 from datetime import datetime
 from pathlib import Path
@@ -27,7 +28,11 @@ DIRECT_IMU_FIELDS = [
     "imu_id", "imu_sample_time_us", "imu_online", "imu_roll_deg", "imu_pitch_deg", "imu_yaw_deg",
     "imu_ax_m_s2", "imu_ay_m_s2", "imu_az_m_s2", "imu_gx_rad_s", "imu_gy_rad_s", "imu_gz_rad_s",
 ]
-RAW_COLUMNS = ["hora_pc_local", "nivel", "etiqueta", "tipo_registro", *DIRECT_IMU_FIELDS, *MASTER_FIELDS, "mensaje_crudo", "linea_serial"]
+GPS_FIELDS = ["gps_uptime_us", "gps_state", "latitude_deg", "longitude_deg", "gps_speed_kmh", "gps_satellites", "gps_hdop", "gps_speed_valid"]
+RSSI_FIELDS = ["rssi_dbm", "rssi_valid", "espnow_sequence"]
+RAW_COLUMNS = ["hora_pc_local", "nivel", "etiqueta", "tipo_registro", *DIRECT_IMU_FIELDS,
+               *GPS_FIELDS, *RSSI_FIELDS, *MASTER_FIELDS, "nivel_agua", "agua_valida",
+               "campos_extra", "campos_separados", "mensaje_crudo", "linea_serial"]
 
 
 def now_local() -> str:
@@ -91,30 +96,68 @@ def parse_direct_imu(message: str):
     return dict(zip(DIRECT_IMU_FIELDS, [value(item) for item in parts[1:]]))
 
 
-def append_row(ws, level: str, tag: str, message: str, line: str):
+def parse_structured(message: str):
+    """Parsea registros conocidos y deja intactos los desconocidos en mensaje_crudo."""
+    if "GPS_DATA|" in message:
+        parts = message[message.index("GPS_DATA|"):].split("|")
+        if len(parts) == 9:
+            return "GPS_DATA", dict(zip(GPS_FIELDS, [value(item) for item in parts[1:]]))
+    if "RSSI_DATA|" in message:
+        parts = message[message.index("RSSI_DATA|"):].split("|")
+        if len(parts) == 4:
+            return "RSSI_DATA", dict(zip(RSSI_FIELDS, [value(item) for item in parts[1:]]))
+    if "WATER_DATA|" in message:
+        parts = message[message.index("WATER_DATA|"):].split("|")
+        if len(parts) == 4:
+            return "WATER_DATA", {"nivel_agua": value(parts[1]), "agua_valida": value(parts[2]), "banderas": parts[3]}
+    if "GPSDIAG|" in message or "GPSFUSION|" in message:
+        kind = "GPSDIAG" if "GPSDIAG|" in message else "GPSFUSION"
+        return kind, {"registro_gps_crudo": message[message.index(kind + "|"): ]}
     direct = parse_direct_imu(message)
+    if direct:
+        return "IMU_DATA", direct
     master = parse_masterdata(message)
-    direct_values = [direct.get(field) if direct else None for field in DIRECT_IMU_FIELDS]
-    master_values = [master.get(field) if master else None for field in MASTER_FIELDS]
-    kind = "IMU_DATA" if direct else "MASTERDATA" if master else "OTRA_LINEA"
-    ws.append([now_local(), level, tag, kind, *direct_values, *master_values, message, line])
+    if master:
+        return "MASTERDATA", master
+    # Formato flexible: conserva los campos por posición aun si el tipo de
+    # mensaje todavía no está documentado (por ejemplo, telemetría de agua).
+    payload = message.strip()
+    delimiter = "|" if "|" in payload else "," if "," in payload else None
+    if delimiter:
+        tokens = [item.strip() for item in payload.split(delimiter)]
+        return "OTRA_LINEA_SEPARADA", {"campos_separados": tokens, "separador": delimiter}
+    return "OTRA_LINEA", {"campos_separados": [payload] if payload else []}
+
+
+def append_row(ws, level: str, tag: str, message: str, line: str):
+    kind, fields = parse_structured(message)
+    direct_values = [fields.get(field) for field in DIRECT_IMU_FIELDS]
+    gps_values = [fields.get(field) for field in GPS_FIELDS]
+    rssi_values = [fields.get(field) for field in RSSI_FIELDS]
+    master_values = [fields.get(field) for field in MASTER_FIELDS]
+    separated = fields.get("campos_separados")
+    ws.append([now_local(), level, tag, kind, *direct_values, *gps_values, *rssi_values,
+               *master_values, fields.get("nivel_agua"), fields.get("agua_valida"),
+               json.dumps(fields, ensure_ascii=False, default=str) if fields else None,
+               json.dumps(separated, ensure_ascii=False, default=str) if separated is not None else None,
+               message, line])
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Guarda la línea serie completa y separa IMU_DATA y MASTERDATA en columnas.")
-    parser.add_argument("puerto", help="COM del master, por ejemplo COM5")
-    parser.add_argument("archivo", help="Libro .xlsx nuevo, por ejemplo registro_atras.xlsx")
+    parser = argparse.ArgumentParser(description="Guarda cada línea serial en crudo y separa los formatos reconocidos; conserva los demás.")
+    parser.add_argument("puerto", help="Puerto COM del ESP32, por ejemplo COM5")
+    parser.add_argument("archivo", help="Archivo Excel nuevo, por ejemplo registros\\registro_atras.xlsx")
     args = parser.parse_args()
     output = Path(args.archivo).expanduser().resolve()
     if output.suffix.lower() != ".xlsx":
-        parser.error("El archivo de salida debe terminar en .xlsx")
+        parser.error("El archivo de salida debe tener la extensión .xlsx")
     if output.exists():
-        parser.error(f"No se sobrescribirá el archivo existente: {output}")
+        parser.error(f"No se reemplazará un archivo existente: {output}")
     output.parent.mkdir(parents=True, exist_ok=True)
     book, ws = create_book()
     book.save(output)
-    print(f"Registro: {args.puerto} -> {output}")
-    print("Cada fila conserva la línea completa y separa IMU_DATA o MASTERDATA en columnas.")
+    print(f"Registrando {args.puerto} en {output}")
+    print("Cada fila conserva la línea serial completa. Se separan IMU y GPS conocidos; otros mensajes delimitados se guardan por campos y en crudo.")
     last_save = monotonic()
     try:
         with serial.Serial(args.puerto, 115200, timeout=1) as port:
@@ -136,13 +179,13 @@ def main():
                     book.save(output)
                     last_save = monotonic()
     except KeyboardInterrupt:
-        print("\nRegistro detenido.")
+        print("\nRegistro detenido por el usuario.")
     except serial.SerialException as error:
-        print(f"No se pudo abrir {args.puerto}: {error}")
+        print(f"No se pudo abrir el puerto {args.puerto}: {error}")
     finally:
         fit(ws)
         book.save(output)
-        print(f"Libro guardado: {output}")
+        print(f"Archivo Excel guardado: {output}")
 
 
 if __name__ == "__main__":

@@ -20,6 +20,8 @@ static int64_t s_last_rx_us;
 static bool s_no_data_reported;
 static uint32_t s_rx_sequence;
 static TankPayload s_rear_data;
+static int8_t s_last_rssi_dbm;
+static bool s_last_rssi_valid;
 static imu_bno085_sample_t s_front_imu;
 static int64_t s_last_master_record_us;
 
@@ -46,22 +48,34 @@ static void emit_master_record(void)
     const float hdop = have_gps && gps.sample.gga_data_valid ? gps.sample.hdop : nan;
     const uint8_t flags = online ? s_rear_data.sensor_status_flags : 0U;
 
-    ESP_LOGI(TAG, "GPS|estado=%s|lat=%.6f|lon=%.6f|velocidad_kmh=%.3f|sat=%u|hdop=%.2f",
-             have_gps ? gps_validation_state_name(gps.validation.state) : "SIN_DATOS",
-             latitude, longitude, speed, have_gps ? gps.sample.satellites : 0U, hdop);
-    ESP_LOGI(TAG, "IMU|online=%d|roll=%.2f|pitch=%.2f|ay=%.3f",
-             s_front_imu.online && s_front_imu.has_orientation &&
-                     s_front_imu.has_linear_acceleration ? 1 : 0,
-             s_front_imu.online && s_front_imu.has_orientation ? s_front_imu.roll_deg : nan,
-             s_front_imu.online && s_front_imu.has_orientation ? s_front_imu.pitch_deg : nan,
-             s_front_imu.online && s_front_imu.has_linear_acceleration ? s_front_imu.linear_accel_m_s2[1] : nan);
-    ESP_LOGI(TAG, "ESPNOW|online=%d|imu_roll=%.2f|imu_pitch=%.2f|imu_ay=%.3f|agua=%.2f|flags=0x%02X|seq=%" PRIu32,
-             online ? 1 : 0,
+    ESP_LOGI(TAG, "GPS_DATA|%" PRIu64 "|%s|%.6f|%.6f|%.3f|%u|%.2f|%d",
+             (uint64_t)esp_timer_get_time(), have_gps ? gps_validation_state_name(gps.validation.state) : "SIN_DATOS",
+             latitude, longitude, speed, have_gps ? gps.sample.satellites : 0U, hdop,
+             have_gps && gps.speed_valid ? 1 : 0);
+    ESP_LOGI(TAG, "IMU_DATA|1|%" PRIu64 "|%d|%.3f|%.3f|%.3f|%.3f|%.3f|%.3f|%.3f|%.3f|%.3f",
+             (uint64_t)s_front_imu.sample_time_us,
+             s_front_imu.online ? 1 : 0,
+             s_front_imu.has_orientation ? s_front_imu.roll_deg : nan,
+             s_front_imu.has_orientation ? s_front_imu.pitch_deg : nan,
+             s_front_imu.has_orientation ? s_front_imu.yaw_deg : nan,
+             s_front_imu.has_linear_acceleration ? s_front_imu.linear_accel_m_s2[0] : nan,
+             s_front_imu.has_linear_acceleration ? s_front_imu.linear_accel_m_s2[1] : nan,
+             s_front_imu.has_linear_acceleration ? s_front_imu.linear_accel_m_s2[2] : nan,
+             s_front_imu.has_gyro ? s_front_imu.gyro_rad_s[0] : nan,
+             s_front_imu.has_gyro ? s_front_imu.gyro_rad_s[1] : nan,
+             s_front_imu.has_gyro ? s_front_imu.gyro_rad_s[2] : nan);
+    ESP_LOGI(TAG, "IMU_DATA|2|%" PRIu64 "|%d|%.3f|%.3f|nan|nan|%.3f|nan|nan|nan|nan",
+             (uint64_t)esp_timer_get_time(),
+             online && (flags & STATUS_IMU1_OK) ? 1 : 0,
              (flags & STATUS_IMU1_OK) ? s_rear_data.roll_1 : nan,
              (flags & STATUS_IMU1_OK) ? s_rear_data.pitch_1 : nan,
-             (flags & STATUS_IMU1_OK) ? s_rear_data.ay_1 : nan,
-             (flags & STATUS_RS485_OK) ? s_rear_data.water_level : nan,
-             flags, s_rx_sequence);
+             (flags & STATUS_IMU1_OK) ? s_rear_data.ay_1 : nan);
+    ESP_LOGI(TAG, "RSSI_DATA|%d|%d|%" PRIu32,
+             s_last_rssi_valid ? (int)s_last_rssi_dbm : 0,
+             s_last_rssi_valid ? 1 : 0, s_rx_sequence);
+    ESP_LOGI(TAG, "WATER_DATA|%.3f|%d|%02X",
+             (online && (flags & STATUS_RS485_OK)) ? s_rear_data.water_level : nan,
+             online && (flags & STATUS_RS485_OK) ? 1 : 0, flags);
 
     ESP_LOGI(TAG, "MASTERDATA|2|%" PRIu64 "|%s|%.6f|%.6f|%.3f|%u|%.2f|%" PRIu32 "|%d|%.2f|%.2f|%.3f|%.3f|%.3f|%d|%.2f|%.2f|%" PRIu32 "|%" PRIu32 "|%" PRIu32 "|%" PRIu32 "|%.2f|%.2f|%.3f|%.3f|%.3f|%.2f|%.2f|%.3f|%.3f|%.3f|%.3f|%" PRIu32,
              (uint64_t)esp_timer_get_time(), have_gps ? gps_validation_state_name(gps.validation.state) : "SIN_DATOS",
@@ -89,15 +103,20 @@ void app_main(void){
 
     uint8_t local_mac[FIELD_MAC_LENGTH];
     ESP_ERROR_CHECK(field_espnow_get_mac(local_mac));
-    ESP_LOGI(TAG, "Master listo; MAC STA=" MACSTR ", canal=%u", MAC2STR(local_mac), ESPNOW_CHANNEL);
+    ESP_LOGI(TAG, "Master listo; MAC de estación=" MACSTR ", canal=%u", MAC2STR(local_mac), ESPNOW_CHANNEL);
     ESP_LOGI(TAG, "Receptor exclusivo TankPayload de 17 bytes; sin protocolo de 104 bytes ni ACK de aplicacion.");
     s_last_rx_us = 0;
 
     while (true) {
         field_espnow_rx_t received = {0};
         if (field_espnow_receive(&received, pdMS_TO_TICKS(100))) {
+            s_last_rssi_dbm = received.rssi_dbm;
+            s_last_rssi_valid = received.rssi_valid;
             ESP_LOGI(TAG, "ESP-NOW RX de " MACSTR ": %u bytes, RSSI %s%d dBm", MAC2STR(received.source_mac), received.data_len,
                      received.rssi_valid ? "" : "N/D ", received.rssi_valid ? (int)received.rssi_dbm : 0);
+            if (received.rssi_valid && received.data_len == sizeof(TankPayload)) {
+                ESP_LOGI(TAG, "RSSI_RECIBIDO|%d dBm", (int)received.rssi_dbm);
+            }
 
             if (received.data_len == sizeof(TankPayload)) {
                 TankPayload payload = {0};
