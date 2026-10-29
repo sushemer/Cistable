@@ -25,7 +25,7 @@ MASTER_FIELDS = [
     "imu2_roll_deg", "imu2_pitch_deg", "imu2_ay_m_s2", "water_level",
 ]
 DIRECT_IMU_FIELDS = [
-    "imu_id", "imu_sample_time_us", "imu_online", "imu_roll_deg", "imu_pitch_deg", "imu_yaw_deg",
+    "imu_id", "imu_ubicacion", "imu_sample_time_us", "imu_online", "imu_roll_deg", "imu_pitch_deg", "imu_yaw_deg",
     "imu_ax_m_s2", "imu_ay_m_s2", "imu_az_m_s2", "imu_gx_rad_s", "imu_gy_rad_s", "imu_gz_rad_s",
 ]
 GPS_FIELDS = ["gps_uptime_us", "gps_state", "latitude_deg", "longitude_deg", "gps_speed_kmh", "gps_satellites", "gps_hdop", "gps_speed_valid"]
@@ -93,7 +93,9 @@ def parse_direct_imu(message: str):
     parts = message[message.index("IMU_DATA|"):].split("|")
     if len(parts) != 13:
         return None
-    return dict(zip(DIRECT_IMU_FIELDS, [value(item) for item in parts[1:]]))
+    fields = dict(zip(DIRECT_IMU_FIELDS[:1] + DIRECT_IMU_FIELDS[2:], [value(item) for item in parts[1:]]))
+    fields["imu_ubicacion"] = {1: "FRONTAL", 2: "TRASERA"}.get(fields.get("imu_id"), "PENDIENTE")
+    return fields
 
 
 def parse_structured(message: str):

@@ -1,19 +1,9 @@
 # Registro serial de IMU y telemetría
 
-El script `apoyo/imu_cisterna_logger.py` es un registrador serial genérico para
-compartir con el compañero. Sirve si el ESP32 envía solo la IMU, la IMU junto
-con el sensor de agua o mensajes adicionales. No necesita que el sensor de
-agua esté conectado ni que su formato esté definido de antemano.
+El script `apoyo/imu_cisterna_logger.py` es un registrador serial genérico para compartir con el compañero. Sirve si el ESP32 envía solo la IMU, la IMU junto con el sensor de agua o mensajes adicionales. No necesita que el sensor de agua esté conectado ni que su formato esté definido de antemano.
 
-Guarda cada línea completa y separa los formatos conocidos de IMU y GPS. Si
-encuentra una línea con campos separados por `|` o comas cuyo formato aún no
-conoce, conserva los campos por posición en `campos_separados`; la línea
-original también queda en `linea_serial` y `mensaje_crudo`.
+Guarda cada línea completa y separa los formatos conocidos de IMU y GPS. Si encuentra una línea con campos separados por `|` o comas cuyo formato aún no conoce, conserva los campos por posición en `campos_separados`; la línea original también queda en `linea_serial` y `mensaje_crudo`.
 
-Con el firmware de una sola IMU, los datos quedan identificados como
-`IMU_DATA`. Con el master, `IMU_DATA|1` es la IMU frontal y `IMU_DATA|2` la
-trasera; el GPS, RSSI y agua se registran aparte cuando aparecen. No abra otro
-monitor en el mismo puerto COM mientras el logger esté conectado.
 
 ## Ejecutar el logger
 
