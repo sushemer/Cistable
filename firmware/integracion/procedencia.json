@@ -1,0 +1,3404 @@
+[
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/README.md",
+    "destination": "firmware/integracion/cabina/main/modules/README.md",
+    "source_blob": "34d3778596cdd16ffd215f850f91ccc52e3cdead"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/README.md",
+    "destination": "firmware/integracion/cabina/main/modules/gps/README.md",
+    "source_blob": "7aebc1dc04385d782cf7d523732059253adbb87b"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_config.h",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_config.h",
+    "source_blob": "af59d09e57da353a7da2d1e7bf9e87a5358391d9"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_data.c",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_data.c",
+    "source_blob": "c150c3efcccad070cbdc81f65c70976659dee98c"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_data.h",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_data.h",
+    "source_blob": "c4f439b3f1fe22c39bc885ba40d67e2e96605da9"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_device.c",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_device.c",
+    "source_blob": "23c3331c1fc30bfb45cfa4e4f78720dd83dc3e8f"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_device.h",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_device.h",
+    "source_blob": "1962f6e1fb96463ea9b66943e3dac4670dd2bd97"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_nmea.c",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_nmea.c",
+    "source_blob": "340d47b0d5d20c3d83c69b51075cd4812ff677b2"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_nmea.h",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_nmea.h",
+    "source_blob": "8f69268d11a948ddf99bd1c4c145d6319ef6b900"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_speed.c",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_speed.c",
+    "source_blob": "a0c3edbd2a3c1118a889dec1a98c19d5ffb86ce3"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_speed.h",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_speed.h",
+    "source_blob": "089e56bb9ca0ed0cfd04e2aee2beafe21dd3aa74"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_validation.c",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_validation.c",
+    "source_blob": "c779b6b5dffb9cb8d2bbeb085cbada4c1c7844ed"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/driver/gps_validation.h",
+    "destination": "firmware/integracion/cabina/main/modules/gps/driver/gps_validation.h",
+    "source_blob": "e988ba4fac542fe90b7851cd5d0dd6ee06ee339d"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/gps_module.c",
+    "destination": "firmware/integracion/cabina/main/modules/gps/gps_module.c",
+    "source_blob": "ae6116ca9074bc1fda0e89794fcf9ffae1414507"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/gps/gps_module.h",
+    "destination": "firmware/integracion/cabina/main/modules/gps/gps_module.h",
+    "source_blob": "941df436a9a652fa12a977baba81965ddf6d6b32"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/imu/README.md",
+    "destination": "firmware/integracion/cabina/main/modules/imu/README.md",
+    "source_blob": "748a5a2e752e813c5952d7c3bd1c6b1413580e7c"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/imu/imu_module.cpp",
+    "destination": "firmware/integracion/cabina/main/modules/imu/imu_module.cpp",
+    "source_blob": "c9b992f5df5e2100fe8f5618c7fff2ae959c514a"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/esp32-master/PRUEBA MASTER/main/modules/imu/imu_module.h",
+    "destination": "firmware/integracion/cabina/main/modules/imu/imu_module.h",
+    "source_blob": "90f11a93f402384acb7ed18e9b100490a7d393a7"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/Apoyo/field_espnow/CMakeLists.txt",
+    "destination": "firmware/integracion/components/field_espnow/CMakeLists.txt",
+    "source_blob": "4dcbe39d049c318c781450e1a748ac5e1ffa4083"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/Apoyo/field_espnow/field_espnow.c",
+    "destination": "firmware/integracion/components/field_espnow/field_espnow.c",
+    "source_blob": "3f5b5d2bf959e24b57e62620cf6f41ce8078fd49"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/Apoyo/field_espnow/field_espnow.h",
+    "destination": "firmware/integracion/components/field_espnow/field_espnow.h",
+    "source_blob": "9f076f6967d5dacfc8c7c42bb9cad0961f730dd1"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/Apoyo/imu_bno085/CMakeLists.txt",
+    "destination": "firmware/integracion/components/imu_bno085/CMakeLists.txt",
+    "source_blob": "9ff2d8e0f3f23207426aff938eb3c06da9f1eef3"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/Apoyo/imu_bno085/imu_bno085.cpp",
+    "destination": "firmware/integracion/components/imu_bno085/imu_bno085.cpp",
+    "source_blob": "a1d91e268dd7db0c3bdaab7b969df2dbb4f04a18"
+  },
+  {
+    "ref": "origin/TACOS",
+    "commit": "971ba82db8c6f342301b98b517dc52c17c01f32c",
+    "source": "firmware/Apoyo/imu_bno085/include/imu_bno085.h",
+    "destination": "firmware/integracion/components/imu_bno085/include/imu_bno085.h",
+    "source_blob": "007ba9df941bd51710a10c1aa71e8d419198f472"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/CMakeLists.txt",
+    "destination": "firmware/integracion/components/esp32_BNO08x/CMakeLists.txt",
+    "source_blob": "410945526016b0f3f6d183b852d12aa145b5ad31"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/Kconfig.projbuild",
+    "destination": "firmware/integracion/components/esp32_BNO08x/Kconfig.projbuild",
+    "source_blob": "bd8bac41b055671c17d44db3380ea89de4e865da"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/LICENSE",
+    "destination": "firmware/integracion/components/esp32_BNO08x/LICENSE",
+    "source_blob": "2026f0e0e6af06b3103c60f038151b161aa04da8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/README.md",
+    "destination": "firmware/integracion/components/esp32_BNO08x/README.md",
+    "source_blob": "43367b61fc8c46097bb55f9e761773f2656f6676"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2.c",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2.c",
+    "source_blob": "f0522ef08e0d634a99e60ee35c3d43d9d8e6facc"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2.h",
+    "source_blob": "aa5630b64a5b0dcddfe587c16de1a26c5fcb780d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2_SensorValue.c",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2_SensorValue.c",
+    "source_blob": "c2aa2eccbb66f82015fbf61279b54cd89c6ab3b8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2_SensorValue.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2_SensorValue.h",
+    "source_blob": "19a61053d3fbe2f7c900965d86216d8e4355376b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2_err.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2_err.h",
+    "source_blob": "f10ebad51456fb7ce9d86aac19c8d32f675531f0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2_hal.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2_hal.h",
+    "source_blob": "b1cd8089b362dc3a7ec5eacafe5ce300b92dfe2e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2_util.c",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2_util.c",
+    "source_blob": "ec62afed4baf22e98d907193cf41b100e5b3df27"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/sh2_util.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/sh2_util.h",
+    "source_blob": "6992a175cda25c8b81fa7ce89e11cd2a20870739"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/shtp.c",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/shtp.c",
+    "source_blob": "503b5eb5d3b001862987b90cbfad68648054543e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/SH2/shtp.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/SH2/shtp.h",
+    "source_blob": "4e5a10b768f3c034c8f0e000f78d8bd57d54dd0f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/BNO08x.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/BNO08x.hpp",
+    "source_blob": "dc6139b23de6c17183e6629e95a06c47d2ec8175"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/BNO08xGlobalTypes.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/BNO08xGlobalTypes.hpp",
+    "source_blob": "21a8dec921c3181281f746a44bde1a6b010bec1d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/BNO08xPrivateTypes.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/BNO08xPrivateTypes.hpp",
+    "source_blob": "75c3357865bf9a0f3b65710025bd1aa8fbf97da1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/BNO08xSH2HAL.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/BNO08xSH2HAL.hpp",
+    "source_blob": "821b799c64d83ed36a9b8b08e95ccb1346aad3a1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/BNO08xTestHelper.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/BNO08xTestHelper.hpp",
+    "source_blob": "6ce2004bed136133015ec996c06b7badbbd743b8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/BNO08xTestSuite.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/BNO08xTestSuite.hpp",
+    "source_blob": "e65cedd90b1b63c2c15edb8871d0f3226e87573c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/callback/BNO08xCbGeneric.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/callback/BNO08xCbGeneric.hpp",
+    "source_blob": "2a43b9deb6ef4763ad5bc879a9db9c5f307b1cf3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/callback/BNO08xCbParamRptID.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/callback/BNO08xCbParamRptID.hpp",
+    "source_blob": "aa4bf1fbb5720899cd95105cd1df2717eced8e07"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/callback/BNO08xCbParamVoid.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/callback/BNO08xCbParamVoid.hpp",
+    "source_blob": "cbfbc950053b3bbdcc37749c75d4020b23198c95"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xReports.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xReports.hpp",
+    "source_blob": "c6f5a4f1e352126f2ea7f91a00e2a8cc2cb08ca3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRpt.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRpt.hpp",
+    "source_blob": "e59c3e5e1d87cf1b5f0f9ddd5ca4f94ee9dead05"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptARVRStabilizedGameRV.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptARVRStabilizedGameRV.hpp",
+    "source_blob": "2f7cd897660bd30df3b29d247fbd8c6701e8d963"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptARVRStabilizedRV.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptARVRStabilizedRV.hpp",
+    "source_blob": "4300cd356049fe5ae22b86f511295f49e1346437"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptAcceleration.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptAcceleration.hpp",
+    "source_blob": "926c970988217029c5dbefc44c6ab49bc551450c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptActivityClassifier.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptActivityClassifier.hpp",
+    "source_blob": "c9ab07631fc0ac3c4b1dd5d0b3de55559a57e3e5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptCalGyro.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptCalGyro.hpp",
+    "source_blob": "a95ad28336b84e967c9e4c2bbd8a49c77763a980"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptCalMagnetometer.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptCalMagnetometer.hpp",
+    "source_blob": "9b68967e93f0f1f74eda81e20d97c4e1c4988d53"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptGameRV.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptGameRV.hpp",
+    "source_blob": "36533d51749b6faa352cec743a8a33d2e43750ad"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptGravity.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptGravity.hpp",
+    "source_blob": "5c6925517df1629ec5e969f4091362af5441c3bf"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptIGyroRV.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptIGyroRV.hpp",
+    "source_blob": "0c96195c94ec1ba023d1ea08430ff8439f778f96"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptLinearAcceleration.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptLinearAcceleration.hpp",
+    "source_blob": "ea3f95db2cda6c63be5b4b7329b700af0554c9a5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptRV.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptRV.hpp",
+    "source_blob": "e51743dc029e07919f96b526d1be1696ace5795c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptRVGeneric.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptRVGeneric.hpp",
+    "source_blob": "134ca508443e57ea83f15677ecc23b38f650780e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptRVGeomag.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptRVGeomag.hpp",
+    "source_blob": "696430aaf3c1e8b3c469c1a15ecb2f263827684f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptRawMEMSAccelerometer.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptRawMEMSAccelerometer.hpp",
+    "source_blob": "3dded090b3c542885824af872d1dbb1fa2a08dbe"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptRawMEMSGyro.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptRawMEMSGyro.hpp",
+    "source_blob": "cecbd121ed8e82061e4dce5e4aa094704688e195"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptRawMEMSMagnetometer.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptRawMEMSMagnetometer.hpp",
+    "source_blob": "d038df4121a906f884c342a11058da14f437eb93"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptShakeDetector.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptShakeDetector.hpp",
+    "source_blob": "b92eb4d986b0cf9433aea6efa455b3caf29bba10"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptStabilityClassifier.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptStabilityClassifier.hpp",
+    "source_blob": "c745f9b8ba5ea88cd28da935b0659e252bbe362d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptStepCounter.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptStepCounter.hpp",
+    "source_blob": "58d444f5a14b285c3687366affe81ad0873fde7e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptTapDetector.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptTapDetector.hpp",
+    "source_blob": "24e0b2630f9cc6be46efbf889c622396a1b2c411"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptUncalGyro.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptUncalGyro.hpp",
+    "source_blob": "2230148cd23fbf494a5e9f4d7276ada8d704f05b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/include/report/BNO08xRptUncalMagnetometer.hpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/include/report/BNO08xRptUncalMagnetometer.hpp",
+    "source_blob": "d802d144a9f80b31c43b7577756816a3776ac3b5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/BNO08x.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/BNO08x.cpp",
+    "source_blob": "467cdc21c4e790635c6be8460410d742887f2b5a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/BNO08xRpt.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/BNO08xRpt.cpp",
+    "source_blob": "bb8aa52ea19c2bdba9a54c7507c99aa4d07c898b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/BNO08xSH2HAL.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/BNO08xSH2HAL.cpp",
+    "source_blob": "6c4429cbc221ba6dfa72f660146af6f092647968"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptARVRStabilizedGameRV.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptARVRStabilizedGameRV.cpp",
+    "source_blob": "834212474776bee171a1773ffc1596d802edf14b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptARVRStabilizedRV.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptARVRStabilizedRV.cpp",
+    "source_blob": "fa86afcce6136b015e10b6219eb6ca1ea3c206f8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptAcceleration.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptAcceleration.cpp",
+    "source_blob": "25cf0308ad841839b93e68b9745dfbb016c7253e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptActivityClassifier.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptActivityClassifier.cpp",
+    "source_blob": "9966cdef56fcc32662e4a89d3dd13e00250b4640"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptCalGyro.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptCalGyro.cpp",
+    "source_blob": "81a4f14cf48615d5ee3db42f1c4218ebfa1e0ddc"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptCalMagnetometer.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptCalMagnetometer.cpp",
+    "source_blob": "2d216af3899599157dc6df5885ba0ca05f93cfd4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptGameRV.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptGameRV.cpp",
+    "source_blob": "0d14d7bbf7c0bd011f2de3fd83372b464c809c11"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptGravity.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptGravity.cpp",
+    "source_blob": "a86dbb62d16f63ee8111f12a57f45d0e1f37618e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptIGyroRV.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptIGyroRV.cpp",
+    "source_blob": "b359b0e4c588991a3b5f235df26dda0d1ae85d5b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptLinearAcceleration.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptLinearAcceleration.cpp",
+    "source_blob": "10177b415d9ddcda22deadd09d6ca603b60f0f47"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptRV.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptRV.cpp",
+    "source_blob": "fc8eb498a66316f4a356d5644fef7c837753d561"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptRVGeneric.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptRVGeneric.cpp",
+    "source_blob": "7bbdfc1759dedfb13c038e3b6e70bbdfc36e545f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptRVGeomag.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptRVGeomag.cpp",
+    "source_blob": "f37802095a2d4a8b1b1b37a1a7154bb1bb18b0c9"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptRawMEMSAccelerometer.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptRawMEMSAccelerometer.cpp",
+    "source_blob": "76049d811b5cb5b8286588c30261df5215e70114"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptRawMEMSGyro.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptRawMEMSGyro.cpp",
+    "source_blob": "13dff64ab7a61e881ffe73e13ae051138c0f9666"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptRawMEMSMagnetometer.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptRawMEMSMagnetometer.cpp",
+    "source_blob": "4bba5a70e368dd47fc2758b984d1db602f3b6acd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptShakeDetector.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptShakeDetector.cpp",
+    "source_blob": "e41f8d2336396a80b490a8a6cef4f3d9ff6922cd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptStabilityClassifier.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptStabilityClassifier.cpp",
+    "source_blob": "d4a2cb080716b0e2326c30febbd916d0a4a085f4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptStepCounter.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptStepCounter.cpp",
+    "source_blob": "d49be935e86d41e25464da3c1fb74ff7f6ffea8b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptTapDetector.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptTapDetector.cpp",
+    "source_blob": "7de998185064760ee09db33f609b7c677932b146"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptUncalGyro.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptUncalGyro.cpp",
+    "source_blob": "3d364c561aab02f3e44fe54f275eb388bbe7d96f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/source/report/BNO08xRptUncalMagnetometer.cpp",
+    "destination": "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptUncalMagnetometer.cpp",
+    "source_blob": "c2076b483b4c0d58a43e1936147e77a1240081b7"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/display/display.c",
+    "destination": "firmware/integracion/cabina/main/display/display.c",
+    "source_blob": "ca2dd42209148dfb44f0763542ec935d08f1c4de"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/display/display.h",
+    "destination": "firmware/integracion/cabina/main/display/display.h",
+    "source_blob": "11a350e2789105157ab69008ebf7b7cc2c6318cd"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/interfaz.c",
+    "destination": "firmware/integracion/cabina/main/interfaz/interfaz.c",
+    "source_blob": "ba30a5ea5be3037d67c771fb657f38f1d63e7f65"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/interfaz.h",
+    "destination": "firmware/integracion/cabina/main/interfaz/interfaz.h",
+    "source_blob": "3b5d4b6ba2919d66d22391f00b97f9c29d6dac3e"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/LICENCIA_Montserrat.txt",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/LICENCIA_Montserrat.txt",
+    "source_blob": "f435ed8b5e8e747333eee3a0382b35621430ef2b"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/README.md",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/README.md",
+    "source_blob": "5a5ae54c69766ec028284ac054cda56194e001be"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/camion_grande.c",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/camion_grande.c",
+    "source_blob": "4db91792f307614ed9ce475b57488f59a53830c4"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/camion_grande.png",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/camion_grande.png",
+    "source_blob": "a7b5e54081c2758af1b34fd6002537c12975eb4f"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/camion_pequeno.c",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/camion_pequeno.c",
+    "source_blob": "ce5885832592b58479f8c515c69d02a246fb3793"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/camion_pequeno.png",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/camion_pequeno.png",
+    "source_blob": "b81f1bf31dc40f2cf0e1e551e78920ccf13e6e97"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/camiones.h",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/camiones.h",
+    "source_blob": "2b035760f5f9df0368cf9002091e522a019f4583"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/fuente_enie.c",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/fuente_enie.c",
+    "source_blob": "9d96938cf12b9971af12f90822076c5e15944fb9"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/interfaz/recursos/generar_recursos.ps1",
+    "destination": "firmware/integracion/cabina/main/interfaz/recursos/generar_recursos.ps1",
+    "source_blob": "d85efd000fc89421b18cfa17221236f17d7f8026"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Integracion/pantalla.c",
+    "destination": "firmware/integracion/cabina/main/pantalla/pantalla.c",
+    "source_blob": "67d52cb22fb662dd0b4995c690831cb7e2c46ab0"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Integracion/pantalla.h",
+    "destination": "firmware/integracion/cabina/main/pantalla/pantalla.h",
+    "source_blob": "642b09ff48e2bf355c8eaa113bf7a1b3faf8e41e"
+  },
+  {
+    "ref": "origin/Jesus/pantalla-espnow",
+    "commit": "1fc348ebc3679738e4bbd301f4290b13227ef14c",
+    "source": "pruebas/02-Dispositivos/Pantalla/Pantalla_Interfaz/main/estado_sistema.h",
+    "destination": "firmware/integracion/cabina/main/estado_sistema.h",
+    "source_blob": "fb7ecffb75fcc822fc4a365adf0111ad418317e4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/absolute.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/absolute.h",
+    "source_blob": "7bc5ea660cbc33fef07b29ab81fa34e74395ab6c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/algorithm.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/algorithm.h",
+    "source_blob": "3929a57d8edf466258cf80f82fa600a9f2f32bb6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/alignment.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/alignment.h",
+    "source_blob": "c6a4de066836556e4594abb555244b0f47fff5b7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/array.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/array.h",
+    "source_blob": "8615f5af8903a5b7f380c03fd98c88f091ea5005"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/array_view.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/array_view.h",
+    "source_blob": "f388f28770a842e6c617366e752de7b8e1d10c6f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/array_wrapper.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/array_wrapper.h",
+    "source_blob": "72655f98bd375fa5a44b9a759e301ea2a0b75bf2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/atomic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/atomic.h",
+    "source_blob": "9d18ee5ab94ffa3842fd1f5dedd4560d0bdc2a72"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/atomic/atomic_arm.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/atomic/atomic_arm.h",
+    "source_blob": "42606b0bd455d4babf063a5c06a6531ed1683a40"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/atomic/atomic_clang_sync.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/atomic/atomic_clang_sync.h",
+    "source_blob": "23e9360c0d7fb83843b6227aed499fb9ab21a3c5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/atomic/atomic_gcc_sync.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/atomic/atomic_gcc_sync.h",
+    "source_blob": "9e7399aab5b7c62d4d8b7a66e2ec5c94deef4a6b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/atomic/atomic_std.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/atomic/atomic_std.h",
+    "source_blob": "bea19d50042f667e79c3eae8a661e883a88b8c52"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/base64.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/base64.h",
+    "source_blob": "4034248d6a5f86778ede3555fed1e18b23c8f36b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/base64_decoder.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/base64_decoder.h",
+    "source_blob": "848c7e3597130f1b5f68f6831682cb80ae013aeb"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/base64_encoder.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/base64_encoder.h",
+    "source_blob": "cf4735e2ee63698beff94e26fd68c5b178a40dd1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/basic_format_spec.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/basic_format_spec.h",
+    "source_blob": "36c2d74c5b63deb6901f16c58f9a76616cbc8166"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/basic_string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/basic_string.h",
+    "source_blob": "1371e80a6dd78ea699d4410d4c1efeabe793498b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/basic_string_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/basic_string_stream.h",
+    "source_blob": "2b4660552588911a7aa8e78b2413610e8bbff57a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/binary.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/binary.h",
+    "source_blob": "4ddf62730f6f32fd42a72905482f203ee2c49005"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/bip_buffer_spsc_atomic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/bip_buffer_spsc_atomic.h",
+    "source_blob": "5333dc68a2ff168bbd014dcae93f07bec3dc15e2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/bit.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/bit.h",
+    "source_blob": "eb7d581701617e8d3b46db148f955ae7e2b67aec"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/bit_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/bit_stream.h",
+    "source_blob": "7c5b557ef2f075c23e49518206e15b5c43b9560a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/bitset.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/bitset.h",
+    "source_blob": "d827c762a1a7bf4592022f63dcb9887230627f4a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/bloom_filter.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/bloom_filter.h",
+    "source_blob": "5d35128cd804f38e48844311cf709a6dcdb6fc8c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/bresenham_line.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/bresenham_line.h",
+    "source_blob": "a519ea3bb9a3dd99c49bc7fde97dbab714b4a8a1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/buffer_descriptors.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/buffer_descriptors.h",
+    "source_blob": "b34e223b21d552479a0a58212a734792e7885678"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/byte.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/byte.h",
+    "source_blob": "264788f8d0908e57f81d2df06c89245dbbfe7255"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/byte_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/byte_stream.h",
+    "source_blob": "17d58f4e1cc602ae7905f09f96adaa27b97afe71"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/callback.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/callback.h",
+    "source_blob": "486ac2a0cd2c6ff161ef022d8c9cf813772a3da8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/callback_service.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/callback_service.h",
+    "source_blob": "0549368c09a18d08881f4476f66edb36a938eed8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/callback_timer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/callback_timer.h",
+    "source_blob": "55a54930d464a58aebbc99faa75858829ea8c18c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/callback_timer_atomic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/callback_timer_atomic.h",
+    "source_blob": "f3e53b4bb4b3d5cc2363d553106ef3a7dfb2e9d3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/callback_timer_interrupt.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/callback_timer_interrupt.h",
+    "source_blob": "b744a123cbac749481e258d40e6c079136c94ac3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/callback_timer_locked.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/callback_timer_locked.h",
+    "source_blob": "caf788ec4c8236f27b73038d971216a3701006b2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/char_traits.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/char_traits.h",
+    "source_blob": "a85bf670c483237a4344835fff1fe514a8a3b94d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/checksum.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/checksum.h",
+    "source_blob": "4cb83399f8d7d8ad2ee3d09b41feba39f276ce1f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/circular_buffer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/circular_buffer.h",
+    "source_blob": "0902f0daa7b9d2a3bac21f18f00713bd0d94ef8e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/circular_iterator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/circular_iterator.h",
+    "source_blob": "63e43dad1c94a5a9a808adb0bf7a2ad23d1fbd55"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/combinations.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/combinations.h",
+    "source_blob": "fdb32ecabd0dcc49610074e813117982474e192d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/compare.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/compare.h",
+    "source_blob": "63208242701caac67497b4491582f3c19584b423"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/constant.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/constant.h",
+    "source_blob": "fccea714e2be58938dcb3cb440ea33975fc0b169"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/container.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/container.h",
+    "source_blob": "f9200c99b63c9d750ca2b4320a0995f9ae2b2e2c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/correlation.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/correlation.h",
+    "source_blob": "47bfec410c17fe9cee8bcf9b49e52c7d70af2316"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/covariance.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/covariance.h",
+    "source_blob": "9769b79e18e250c3dd895b4e3aaf32c4b63d29dd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc.h",
+    "source_blob": "78ceb5526eb7fa76825e634bc32c90ed6bd71274"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc1.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc1.h",
+    "source_blob": "305f894ec6962e66730da14e5f04f8216328945d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16.h",
+    "source_blob": "f4979892e102f5c495dd1e7332fb574ce6cd2f09"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_a.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_a.h",
+    "source_blob": "79d744ba6fdf5a299b6b6325f482274075db0904"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_arc.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_arc.h",
+    "source_blob": "a771d3e1a4a50bd8057870230d118e8929ec098d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_aug_ccitt.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_aug_ccitt.h",
+    "source_blob": "cfc25da2217bb2cc4089009575e23afd28daa521"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_buypass.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_buypass.h",
+    "source_blob": "9930c4592520494db9d0eb5fc67e1124143b0d61"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_ccitt.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_ccitt.h",
+    "source_blob": "d962bfecd3282fc2f658fcf566a97d349094bfec"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_cdma2000.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_cdma2000.h",
+    "source_blob": "d8087e030add3d578006b15a7d5414c7d763040c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_dds110.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_dds110.h",
+    "source_blob": "c69fb01d8d2743c20b6b0c5cb5c292918e39ecf4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_dectr.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_dectr.h",
+    "source_blob": "f1ff22a934c7fa1c81810f4b1b69ce88392f630c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_dectx.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_dectx.h",
+    "source_blob": "4ec05bcf1c3ff2ba81aea418b7a84fb08fc4d2fe"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_dnp.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_dnp.h",
+    "source_blob": "07dc6fb00bd6b5225c1bbe9524601e1a77efc65f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_en13757.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_en13757.h",
+    "source_blob": "637b1dfa39883df9eefb976843cc2a201e30a29e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_genibus.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_genibus.h",
+    "source_blob": "d60955a01ee91693f1cd2fc0e5f387f28208ba34"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_kermit.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_kermit.h",
+    "source_blob": "6365f5892e400d3bb5a89b98f2de459dfb132ce0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_m17.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_m17.h",
+    "source_blob": "5b9f949e2a107f91256be58d38c9291a3b59f7dc"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_maxim.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_maxim.h",
+    "source_blob": "929d507779d262cfcbf107c3d2658b012ffd7785"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_mcrf4xx.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_mcrf4xx.h",
+    "source_blob": "1340be0af55eb13f658e5a5c0f70d90e5b713fc6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_modbus.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_modbus.h",
+    "source_blob": "be6a9e414288d538dd51a877aca7dae3d42bf185"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_profibus.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_profibus.h",
+    "source_blob": "236f7fd4d18139d8c3a8a69c51c4d06b66551a94"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_riello.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_riello.h",
+    "source_blob": "e29cf252b945ba65945075b7f2c86e35e56096dd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_t10dif.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_t10dif.h",
+    "source_blob": "9cef9d5a96bc2118fb4659908d6a907633be698c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_teledisk.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_teledisk.h",
+    "source_blob": "a47abfa00ffd542b0a92c48745fd888298b4889b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_tms37157.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_tms37157.h",
+    "source_blob": "4bd697da8f67a26a85981543438548c25d22a5b4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_usb.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_usb.h",
+    "source_blob": "2c3b7720aa212d880c49d30ce039c8830ee4faea"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_x25.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_x25.h",
+    "source_blob": "ff3afa6b026568332db4c604ae13d10d864c9d1b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc16_xmodem.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc16_xmodem.h",
+    "source_blob": "9ed59d31d38e2fda7647eb3cd1532647ef29d410"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32.h",
+    "source_blob": "0740f8f7606e1d63babc6eb1e8a43a8c36fc8813"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_bzip2.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_bzip2.h",
+    "source_blob": "de8a8a676e03845754a279f1dc89fb8b4c918b24"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_c.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_c.h",
+    "source_blob": "45120ec0f3ab6fc626951c52c856a4d5db6d39a3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_d.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_d.h",
+    "source_blob": "9d70ba7a69c80ff7d6cce80135bd93371f30f326"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_jamcrc.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_jamcrc.h",
+    "source_blob": "9114d7f8932f08942af49fb710b4bb72d17d2899"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_mpeg2.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_mpeg2.h",
+    "source_blob": "d284060515deb84ac45a99ab3765fb12c6afa44d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_posix.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_posix.h",
+    "source_blob": "6c88434a1d45f6c1f8b2723caff7f9ccf533853d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_q.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_q.h",
+    "source_blob": "ee959cd5a7005c5497683a7eba18f5637e0c3dd5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc32_xfer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc32_xfer.h",
+    "source_blob": "a9aa2e9ef4132cdd8e023f24faeafb32b31460c1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc64_ecma.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc64_ecma.h",
+    "source_blob": "ec76ff303cf1e217e9cda31f4f6893049fb6e546"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_ccitt.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_ccitt.h",
+    "source_blob": "f5ea7d07e80a3ad2321ef20fb3b7b5ed800d62a8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_cdma2000.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_cdma2000.h",
+    "source_blob": "4a312f5e14496861c80ba8567d1f5efd75c5b343"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_darc.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_darc.h",
+    "source_blob": "200f5602a8712b1cecdd6776a8925c8602c0a071"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_dvbs2.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_dvbs2.h",
+    "source_blob": "9777d505b6a90310fd86e2ed6743ab1d183f8503"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_ebu.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_ebu.h",
+    "source_blob": "a53a52affbfcfb8269b79701f2cbf4cc99f717c2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_icode.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_icode.h",
+    "source_blob": "ea5368794dabb4eef7ceb46eaa4be36717a455d8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_itu.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_itu.h",
+    "source_blob": "50cb0cb140deb670b8cf28731b2292ad96201d7f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_j1850.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_j1850.h",
+    "source_blob": "723a295289248cecfedd4b95985580ed79ba5167"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_j1850_zero.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_j1850_zero.h",
+    "source_blob": "04bd7b5561c95aa0d4da5092a6dae8b735bda575"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_maxim.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_maxim.h",
+    "source_blob": "a48a245e8e7b96abc72cf2fa359a3466917b9114"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_rohc.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_rohc.h",
+    "source_blob": "09da1b3eabe3be07b0e9fd5e363ca7b07b116af2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/crc8_wcdma.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/crc8_wcdma.h",
+    "source_blob": "e45d4b5173c30dd73267c11a6ce1dc8d63b02976"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/cstring.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/cstring.h",
+    "source_blob": "4dc5960aa558c2931a13c3071284f59c8cd9d31f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/cyclic_value.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/cyclic_value.h",
+    "source_blob": "392c7a14ebc1d9e8ed1ca77a5d7490f5982cd8e9"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/debounce.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/debounce.h",
+    "source_blob": "6997af8bc8c34ba1cc9dd9909ea1b08a799e61a2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/debug_count.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/debug_count.h",
+    "source_blob": "ebbfb13ef8660af5eb3f0a1383dd42922f99c7da"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/delegate.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/delegate.h",
+    "source_blob": "d03119279ad37a2f582fb93c7c1b2e36bdb600a2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/delegate_observer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/delegate_observer.h",
+    "source_blob": "e2225cf95b943cacd245333b60bb0eb9ca45d840"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/delegate_service.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/delegate_service.h",
+    "source_blob": "2344e58184e018c9d2b79043bf2c537cc4e9de14"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/deprecated/factory.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/deprecated/factory.h",
+    "source_blob": "57f83ecac99f1cc74f01b8fee4a164e079099fe7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/deque.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/deque.h",
+    "source_blob": "606d894461b2dac19c14b61234751c8adc0cb6d6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/doxygen.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/doxygen.h",
+    "source_blob": "4639da8df36feac4d9962da1a1970c7550d6a5c9"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/endianness.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/endianness.h",
+    "source_blob": "69f03770284a578ad4ebf7dead1a6aa5cfc59676"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/enum_type.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/enum_type.h",
+    "source_blob": "787d0ae6ce05975df9e9f3f18beb0227ed89e83c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/error_handler.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/error_handler.h",
+    "source_blob": "b08a0d4bc1bd9dc583d4eaaf5f830d1d624a3f4c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/exception.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/exception.h",
+    "source_blob": "49e6adcaf6464eafe9a1f87e7d549effba10d273"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/expected.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/expected.h",
+    "source_blob": "0dc4a5842db133a27e79db2228e315c5c270085f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/bit_cast.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/bit_cast.h",
+    "source_blob": "eefa3bbda0f3db540ed1ce141dadae9c04dae2b1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/class_traits.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/class_traits.h",
+    "source_blob": "c9456bad49650fe80f20c4cf5aaa42fa1d56c077"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/icache.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/icache.h",
+    "source_blob": "5ee5791c94bba47815a44c82e7dad3684a54c9c8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/mem_cast.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/mem_cast.h",
+    "source_blob": "67d1e019ac7817162c7a2ecd3f25366d393f73c6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/mid_point flt (typo abs(a) should be abs(b).png",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/mid_point flt (typo abs(a) should be abs(b).png",
+    "source_blob": "c8c41a8282ef2ca5d088a5f6d3f9066a959bc7f6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/mid_point ptr.png",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/mid_point ptr.png",
+    "source_blob": "10276a0ecda13d61f322870cc6f21ebbc7d2a450"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/mid_point.png",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/mid_point.png",
+    "source_blob": "57415256a922ea6e61f1f721c5341e5cd98467f1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/experimental/singleton.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/experimental/singleton.h",
+    "source_blob": "9291d85b9d6e97ce3b03ea0fee8ccd9ed1044ba7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/factorial.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/factorial.h",
+    "source_blob": "cfe421fb3debf937f2f77a0524d6b55349fdd5f5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/fibonacci.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/fibonacci.h",
+    "source_blob": "fb4a0d6299549b3c65ff3e562e1fc80949eba121"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/file_error_numbers.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/file_error_numbers.h",
+    "source_blob": "a866ce41753c11a3f236a2f6fa8a173695cbc6de"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/fixed_iterator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/fixed_iterator.h",
+    "source_blob": "74be0851bc034dec46f653e1b237ef09d351229a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/fixed_sized_memory_block_allocator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/fixed_sized_memory_block_allocator.h",
+    "source_blob": "ad4fac3080b445665f74c7de70c1d26e56c8c746"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/flags.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/flags.h",
+    "source_blob": "3b49dc6cea274af1951577dd5bcdf17884d87808"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/flat_map.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/flat_map.h",
+    "source_blob": "c57856a87a8f418730e2f69113c102053faebf8d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/flat_multimap.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/flat_multimap.h",
+    "source_blob": "f261ab6b38cdbf6ad2024d8a834660ba4baca03c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/flat_multiset.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/flat_multiset.h",
+    "source_blob": "fec26c0013b5a70a35a492740aa1e7d98878c9df"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/flat_set.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/flat_set.h",
+    "source_blob": "005a1b771cf54c521eda06cfeae9f076ded1ddbb"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/fnv_1.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/fnv_1.h",
+    "source_blob": "f64c1064dfd8e367a29dd06ebc3bd63409644307"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/format_spec.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/format_spec.h",
+    "source_blob": "c0e96653047a794fa5e13145e72c0fdba7daf6e6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/forward_list.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/forward_list.h",
+    "source_blob": "13bf1e5df80358bef03f1155b7bacd3ab7581d7c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/frame_check_sequence.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/frame_check_sequence.h",
+    "source_blob": "ec67e1bac968fa344f1dd4b4fddc59857f333ed8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/fsm.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/fsm.h",
+    "source_blob": "04715779cb09edd55e9e57b1f8eb7760caf88e11"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/function.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/function.h",
+    "source_blob": "97a1537672c805868922318af85c966e8ed2cfc6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/functional.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/functional.h",
+    "source_blob": "d762506c1e6f47c473deb2ab60ac6df33be4633a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/gamma.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/gamma.h",
+    "source_blob": "3243677aeaf61b8f2ed268fe4cff8ce7446d3d59"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/gcd.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/gcd.h",
+    "source_blob": "aea495e53dc1556b7b525b4c66d882f17b4fa44d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/fsm_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/fsm_generator.h",
+    "source_blob": "d0e029f70541439ddb2217522c050bcff50e452d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate.bat",
+    "source_blob": "b5eed6994c760e48f9c0542a4220ac940385ab57"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_fsm.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_fsm.bat",
+    "source_blob": "ca2eaa3da0ca12ae8bfc3751ab5fd4464074ba69"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_largest.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_largest.bat",
+    "source_blob": "04517fd002cea977dc7e4c3c98ba44dd43298bfd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_message_packet.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_message_packet.bat",
+    "source_blob": "f6487979f8f7800a9b0a6c222157e540cbb7758b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_message_router.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_message_router.bat",
+    "source_blob": "de8b14f01f9c55501dbc8a66056bf3c66033f882"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_smallest.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_smallest.bat",
+    "source_blob": "e374251e339c6bce5aa1b896b51bbab3f95eadcc"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_type_lookup.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_type_lookup.bat",
+    "source_blob": "cfeface70bb3c03cc027f6b1f255bdc7b6cbd808"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_type_select.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_type_select.bat",
+    "source_blob": "5ca16b6f9a9aa075ee915b8e02bca39e982071b0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_type_traits.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_type_traits.bat",
+    "source_blob": "5ac7bd313451037ae8e437566bf192b48a100165"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/generate_variant_pool.bat",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/generate_variant_pool.bat",
+    "source_blob": "d2ede945e656fe623f14c504d3000fff8e87618d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/largest_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/largest_generator.h",
+    "source_blob": "a8cb40837ad03721356596ad1b768363ca9e67f1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/message_packet_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/message_packet_generator.h",
+    "source_blob": "595fa12f9fdf68f695990a7a1ea6aff736c1f247"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/message_router_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/message_router_generator.h",
+    "source_blob": "35d47d709f1e581c497a538ca638bbb0a8857f5c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/smallest_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/smallest_generator.h",
+    "source_blob": "064420db19ef71bc63ad734eaf66893d28213281"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/type_lookup_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/type_lookup_generator.h",
+    "source_blob": "bcc10e2d922e2218b8599376867a8531e4bcd7ff"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/type_select_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/type_select_generator.h",
+    "source_blob": "9ab0f80889d48337af683e0691840a56687a1ad5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/type_traits_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/type_traits_generator.h",
+    "source_blob": "9e5a80a90522ed9cbe14ab5389015c4f5c1e3575"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generators/variant_pool_generator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generators/variant_pool_generator.h",
+    "source_blob": "a212a1e51cdb27a01db8746e22a22127c1459ec3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/generic_pool.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/generic_pool.h",
+    "source_blob": "ef393597540376e521dc6919d8cc6f1dda9e02e5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/hash.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/hash.h",
+    "source_blob": "8066a012396c5c9ed2822a77107066e8d4d9eb52"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/hfsm.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/hfsm.h",
+    "source_blob": "8afe94f46500a3371f0d4a33caa23fcfa2d1a5ea"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/histogram.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/histogram.h",
+    "source_blob": "ada5323223981be0385cf3cf0d9ae4dded781ba6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/ihash.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/ihash.h",
+    "source_blob": "a73f72973e261e3de016912379347969b7f43fee"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/imemory_block_allocator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/imemory_block_allocator.h",
+    "source_blob": "882c71f3aad527f27747375592dd05ae084412ed"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/indirect_vector.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/indirect_vector.h",
+    "source_blob": "0bc67abc390a85edee36c2ba55bf8bc88797edf5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/initializer_list.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/initializer_list.h",
+    "source_blob": "73b9470e6561a175c937c053fd86f469c0a0b84a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/instance_count.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/instance_count.h",
+    "source_blob": "da66edb582f411cca9f45ae79bdf6bbfbcd775a5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/integral_limits.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/integral_limits.h",
+    "source_blob": "8ac9aa80416cf273716c30582f788a551dd15324"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/intrusive_forward_list.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/intrusive_forward_list.h",
+    "source_blob": "84d0aa94e11339aae47446fc0197522936de5990"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/intrusive_links.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/intrusive_links.h",
+    "source_blob": "577f5010887fbff4909c8c38a1018960ecb07df0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/intrusive_list.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/intrusive_list.h",
+    "source_blob": "6bbd906f561e00f3fe0d144beea52ff790011dc6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/intrusive_queue.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/intrusive_queue.h",
+    "source_blob": "6e7c138247021d16409edbe9b485f25ff349cd03"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/intrusive_stack.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/intrusive_stack.h",
+    "source_blob": "fe0a123f245ce93be1fa6b28eb6333a40b21aad5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/invert.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/invert.h",
+    "source_blob": "ee9789c45a12bc0f8f343646fa31c6746b15645c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/io_port.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/io_port.h",
+    "source_blob": "9c7e6e007281ac2ce2eb015ff51fbe4815188c1e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/ipool.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/ipool.h",
+    "source_blob": "ce4c317e09e5461f8784116f6c6ae13623431519"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/ireference_counted_message_pool.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/ireference_counted_message_pool.h",
+    "source_blob": "1b9377377fe1293348e6e33140864839e11432c1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/iterator.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/iterator.h",
+    "source_blob": "80535132c53beb852dd71c1b6957989f20e0f1b1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/jenkins.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/jenkins.h",
+    "source_blob": "6e368779b55aa48838b850ad130ce09c53867ed5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/largest.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/largest.h",
+    "source_blob": "0c52af2e1a9552d06ff276f7aa9e4270df5c94f3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/lcm.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/lcm.h",
+    "source_blob": "43bb002159558a682b19856079e7b003734230d3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/limiter.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/limiter.h",
+    "source_blob": "23e5fa5781a51bc03eeccfbf30b05c0615457fa9"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/limits.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/limits.h",
+    "source_blob": "ac31ca6be8540deb1ec7a1f076c95b67a541ea07"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/list.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/list.h",
+    "source_blob": "4a773bcc1482269b403db15c60ba239a9520cd74"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/log.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/log.h",
+    "source_blob": "b492d5a8933dd5463d149879b73de2bb77bdde54"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/macros.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/macros.h",
+    "source_blob": "0f6497e340ae0b179c03bac82d27101499dd2745"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/map.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/map.h",
+    "source_blob": "482742ba96ff4be27810c7667d62b66ce095f2d3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/math.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/math.h",
+    "source_blob": "b6686f34bfd51eab4be17cd87316fddd32de927a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/math_constants.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/math_constants.h",
+    "source_blob": "dd99f14730d7f1b2b5c38e5985281754d0ca89a9"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mean.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mean.h",
+    "source_blob": "5be39378e0964463add8b79cd3c0eac3bf047198"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mem_cast.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mem_cast.h",
+    "source_blob": "33b7902176440286fbff67d3315d4769a7857d9a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/memory.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/memory.h",
+    "source_blob": "b285068bf5a8c487ee798a8803739c7aa83d159b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/memory_model.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/memory_model.h",
+    "source_blob": "fbee968dc1e812cdc5b391cb2d9f97c6fc71ce56"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message.h",
+    "source_blob": "9c664abc26b9b7ab9145fcfc902f5d1d4885f0c7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_broker.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_broker.h",
+    "source_blob": "a8ce0ab57cc6ccd36b35487bcfa7f07cc8fd6e94"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_bus.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_bus.h",
+    "source_blob": "1d698e786221626427c83cc8bd96b6cf371ecbd8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_packet.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_packet.h",
+    "source_blob": "35650a6bb448a587f415885eb317a11b141e0fdd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_router.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_router.h",
+    "source_blob": "3f846ef90b6dcd7405f9c63fdd2d425dd45ec3bc"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_router_registry.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_router_registry.h",
+    "source_blob": "e538435a8093ea5299fbb8055528ef77c6f82dca"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_timer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_timer.h",
+    "source_blob": "f272877b6d2a9f7bca9317c93155daa6c8e19fb1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_timer_atomic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_timer_atomic.h",
+    "source_blob": "2710ea29d7ab09e708974ad465d9b37e4b9ac2e7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_timer_interrupt.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_timer_interrupt.h",
+    "source_blob": "6f26789ade176fe30a5fa25b1cc23017eef696e4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_timer_locked.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_timer_locked.h",
+    "source_blob": "5639dc2fa8ed420ee3f4d7bb9bf499934a878cc8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/message_types.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/message_types.h",
+    "source_blob": "7a422850e01229b25f2cc7178ef36adca8cc4be7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/multi_array.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/multi_array.h",
+    "source_blob": "72ec636ccfeea1eb3aa1e5ff87b3122a25abecdb"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/multi_range.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/multi_range.h",
+    "source_blob": "e8297ca836e1cc3573b328084418868e21fd2171"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/multi_span.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/multi_span.h",
+    "source_blob": "8e974ee3171a1c659a53830cc2b722f4c9b5e50c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/multi_vector.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/multi_vector.h",
+    "source_blob": "cc0c745a2301c1df6701a985738eab2a02172b2f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/multimap.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/multimap.h",
+    "source_blob": "5a586a5c43409dcb149b56f02a9a6c86e16db1e0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/multiset.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/multiset.h",
+    "source_blob": "ae024e3e9a23b098ca8943d31a94648b69e084a2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/murmur3.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/murmur3.h",
+    "source_blob": "8ef6aae17dd6ff9cd3c80ac856786eaf4dbb373e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mutex.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mutex.h",
+    "source_blob": "105c377b49e8e350a25968ecbbb27f49727d5200"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mutex/mutex_arm.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mutex/mutex_arm.h",
+    "source_blob": "3b01d5a4470993a9d7efee03abcb9844c67c6e3c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mutex/mutex_clang_sync.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mutex/mutex_clang_sync.h",
+    "source_blob": "5f7eff75e16c02a2e435320706e882e7d60d885d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mutex/mutex_cmsis_os2.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mutex/mutex_cmsis_os2.h",
+    "source_blob": "42f17715018d2c9fc4c819c2252ae478039ce5b4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mutex/mutex_freertos.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mutex/mutex_freertos.h",
+    "source_blob": "909d0ba90209af0b17169c85b8cadbd2876434e0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mutex/mutex_gcc_sync.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mutex/mutex_gcc_sync.h",
+    "source_blob": "894315654fe097a517e64e59b20f5ae939180209"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/mutex/mutex_std.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/mutex/mutex_std.h",
+    "source_blob": "c5a1ddb3ea6322f78bc35fb9d53c99c85c96ce35"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/negative.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/negative.h",
+    "source_blob": "4563f4f286ecfe5746417921efdc03ac42c0ea01"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/nth_type.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/nth_type.h",
+    "source_blob": "f870bb7cb83ffddb22f25a9ce976ad3330f6db04"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/null_type.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/null_type.h",
+    "source_blob": "31ae246ae32845785a1009517de4c16f66c336f6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/nullptr.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/nullptr.h",
+    "source_blob": "df52ea80f273d2a27915324b1c16c7d71699fdcd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/numeric.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/numeric.h",
+    "source_blob": "dbb43696c6182b014b54a31a0bf3135aff550cfd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/observer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/observer.h",
+    "source_blob": "e6da54beb6e6229bfdcd1ece464c00fe97b54998"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/optional.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/optional.h",
+    "source_blob": "002d010a9b74650aad85841c36bbd5d67cf09a3b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/overload.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/overload.h",
+    "source_blob": "7ee793617cc0c0ca4cb7cd81aed256d59e3635fb"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/packet.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/packet.h",
+    "source_blob": "caf0996ab7f37fa174fb5d0cbf00ddf76ad77336"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/parameter_pack.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/parameter_pack.h",
+    "source_blob": "a5e5ee7f27011738f226a0d0a4ca172e6af3ce01"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/parameter_type.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/parameter_type.h",
+    "source_blob": "169af65950518c906d4723358b6237f6a2a269da"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/pearson.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/pearson.h",
+    "source_blob": "296707065462d16109a4c8a85e44a1d3f2cb6737"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/permutations.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/permutations.h",
+    "source_blob": "b1c41ab0f2897f86be6cebc9977345b08d840928"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/placement_new.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/placement_new.h",
+    "source_blob": "58390fd1bcaadfcbdb77730b6a39c9ac81f147f4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/platform.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/platform.h",
+    "source_blob": "e66a0e08d1ffcc45f9084c51c2430c2698f881ba"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/poly_span.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/poly_span.h",
+    "source_blob": "682525615c4730ded502d277ae9f3eae54cd91f3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/pool.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/pool.h",
+    "source_blob": "86269b32d3e31145baf3785ba415c5bb95feaa36"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/power.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/power.h",
+    "source_blob": "9f217dba1f2889a689c2a776aec27cd96a677007"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/priority_queue.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/priority_queue.h",
+    "source_blob": "a920d7535e6a3daadff2cebe364e3461ffeccf84"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/addressof.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/addressof.h",
+    "source_blob": "fc864e0cdb15bfb251ee7442b2fd18e8694fadc3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/bitset_legacy.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/bitset_legacy.h",
+    "source_blob": "593f415b7170d908ee446fb4062774cabc402650"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/bitset_new.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/bitset_new.h",
+    "source_blob": "323a4e4799153c69c446580b9f859fefff17a459"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/choose_namespace.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/choose_namespace.h",
+    "source_blob": "494d030f3150b2b9f16f9d73a72e9d029b4a2d6a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/comparator_is_transparent.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/comparator_is_transparent.h",
+    "source_blob": "439417d20880f85984c081dadef4cb02e498bd26"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/crc_implementation.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/crc_implementation.h",
+    "source_blob": "d94f0f1815e45631806b3d28fb39e9046f2c8e9e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/crc_parameters.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/crc_parameters.h",
+    "source_blob": "705684c06f37939f1f1e678944e33ea1f1157252"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/delegate_cpp03.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/delegate_cpp03.h",
+    "source_blob": "74da0e497382df12b782b291c6a54407818e80f0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/delegate_cpp11.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/delegate_cpp11.h",
+    "source_blob": "8f438602c734fb8636f3c713612283d0cb004d98"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_array_bounds_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_array_bounds_push.h",
+    "source_blob": "f3fbab07669687db486b8b9288720eb27e3ad0ef"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_cxx_20_compat_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_cxx_20_compat_push.h",
+    "source_blob": "85c864bab775e320791f3d08e34cc96766419b8a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_deprecated_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_deprecated_push.h",
+    "source_blob": "8d6b172274c735d8c64384f59681c67f055832d1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_float_equal_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_float_equal_push.h",
+    "source_blob": "4db9b4b4eddb40d647b36b434155aef64ede0ab8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_null_dereference_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_null_dereference_push.h",
+    "source_blob": "3f48168c15678c3c91b863b977073ee8bb730ae0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_pessimizing_move_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_pessimizing_move_push.h",
+    "source_blob": "9bf81e31d2dda85716d169ef5d3ae96dc32ae060"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_pop.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_pop.h",
+    "source_blob": "a46215385e8e2cd0add68e10f0f5621b30971ad4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_self_assign_overloaded_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_self_assign_overloaded_push.h",
+    "source_blob": "803fbde7f258f8682b5485bfba054f7b401c72b0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_stringop_overread_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_stringop_overread_push.h",
+    "source_blob": "6d635f0495bac85c27191a7d44db28f9dc1af276"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_uninitialized_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_uninitialized_push.h",
+    "source_blob": "8ed4bc96cc528096a4c0daed8109087b97f61d63"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_unused_function_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_unused_function_push.h",
+    "source_blob": "a47fb29936179f149805d52a2731ec6554b9faa0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/diagnostic_useless_cast_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/diagnostic_useless_cast_push.h",
+    "source_blob": "9c9f0f0d1f5b4e98bd8dae8bd0ccb9491a1e6ed7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/dynamic_extent.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/dynamic_extent.h",
+    "source_blob": "afcc96875bd698ba7a630b5784723c41472e3139"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/ivectorpointer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/ivectorpointer.h",
+    "source_blob": "52f938fe3f5530a6a178d618aab4f82176091aea"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/minmax_pop.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/minmax_pop.h",
+    "source_blob": "e149da82ab13d8af5054b5d7c82ad4576b564b57"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/minmax_push.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/minmax_push.h",
+    "source_blob": "a21acaaa52fee7daccf780bd6cb0344e3c17dca8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/pvoidvector.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/pvoidvector.h",
+    "source_blob": "02c05fe7801bd58c0e114276e9cf6bad53430143"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/to_string_helper.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/to_string_helper.h",
+    "source_blob": "2c3cbed5c7830ed3387714fe5ec131594243ba42"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/variant_legacy.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/variant_legacy.h",
+    "source_blob": "dc2dbd7017cdcdce583ca7752635b1d1f64e4629"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/variant_variadic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/variant_variadic.h",
+    "source_blob": "443346694f6d52f195469c0fab226876df4834d8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/private/vector_base.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/private/vector_base.h",
+    "source_blob": "f137c61f84ca1eb56789f25ff80d7d33162bdfe4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/arduino_arm.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/arduino_arm.h",
+    "source_blob": "626d2ebf18130fd961b3d21b3016f725162bd780"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/armv5.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/armv5.h",
+    "source_blob": "e1811d543381273acbd99cd11f6c655a04161fcf"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/armv5_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/armv5_no_stl.h",
+    "source_blob": "97583e3fe28dd91d14550dd9fa51829b356879d4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/armv6.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/armv6.h",
+    "source_blob": "93e9e87641a1aefc8cb56c3ffc396c78c015fac7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/armv6_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/armv6_no_stl.h",
+    "source_blob": "cd0d103dc59e9cfae4781fcb3566dbc3971e196a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/armv7.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/armv7.h",
+    "source_blob": "05ff49656c96dec7b2eecc5f07cd0a4042830e5c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/armv7_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/armv7_no_stl.h",
+    "source_blob": "1c177300b6bc6e7e980a4120cbb8b56a6695cc17"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/auto.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/auto.h",
+    "source_blob": "85e0d6f641956e06e8afc6ae912b707b6e0689ef"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/clang_generic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/clang_generic.h",
+    "source_blob": "c98cf35812b5b12522ce4aba99549df959d294fd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/clang_generic_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/clang_generic_no_stl.h",
+    "source_blob": "90479a6a02bc4c033d3d2e32a9777908d1f8ac3a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp03.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp03.h",
+    "source_blob": "57e8c63585425baba6eeee7b754c10e92874c736"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp03_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp03_no_stl.h",
+    "source_blob": "fba6a267cd6c115f551de1860e345e9f76fd3a4a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp11.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp11.h",
+    "source_blob": "ad17f37b238b7ba05b280092b47fbef619751bce"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp11_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp11_no_stl.h",
+    "source_blob": "5482cff967e2e64c2a44b02a527560949402d344"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp14.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp14.h",
+    "source_blob": "4c2e3d2d4ec7e869beb6e16c369ce55bac113643"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp14_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp14_no_stl.h",
+    "source_blob": "4e08450ec20315f1d9f480c3926bbee388e5a8b0"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp17.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp17.h",
+    "source_blob": "69aed50938d253d1b2b29086829a25e69def0fdf"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/cpp17_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/cpp17_no_stl.h",
+    "source_blob": "5bac2b3982c18bf0556fa9a4f2e6888fb71184e5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/determine_builtin_support.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/determine_builtin_support.h",
+    "source_blob": "725927f324805a339270602c3b85e53ac2b3bdc7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/determine_compiler.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/determine_compiler.h",
+    "source_blob": "39cb9a43a5b00035cd6bbfe8c38c6e7d999f2440"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/determine_compiler_language_support.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/determine_compiler_language_support.h",
+    "source_blob": "d2841d7bcfb72c512e2b533e3340f386b93b8f58"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/determine_compiler_version.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/determine_compiler_version.h",
+    "source_blob": "6705c0581297428866c5d0fe5c529b99d7e17b3b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/determine_development_os.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/determine_development_os.h",
+    "source_blob": "b3f78943c0164426c391c7c4257c6e7f2ada9e1f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/gcc_generic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/gcc_generic.h",
+    "source_blob": "5b1520ee8075bc042eae6ed67a0d32d746b5b6ba"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/gcc_generic_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/gcc_generic_no_stl.h",
+    "source_blob": "c798b3fd355b25a625c70058b1e9ac1b92fa4c66"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/gcc_linux_x86.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/gcc_linux_x86.h",
+    "source_blob": "4132e0f30479663fcd6f20b2e6c71bdf590b6bd2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/gcc_linux_x86_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/gcc_linux_x86_no_stl.h",
+    "source_blob": "651b5fc4b17881c66b20758839605fa584b5a464"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/gcc_windows_x86.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/gcc_windows_x86.h",
+    "source_blob": "bf2b1fc89647ed9f143005311d4d763ab5c6967c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/gcc_windows_x86_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/gcc_windows_x86_no_stl.h",
+    "source_blob": "d9d9f92338c18837eee7463d5942407a29e113d8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/msvc_x86.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/msvc_x86.h",
+    "source_blob": "5b9b15acdf6e1fff154b4cec2a2805ad7388ddb8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/msvc_x86_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/msvc_x86_no_stl.h",
+    "source_blob": "f500629329db9254d4b8b6fc5fc42572398d70ce"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/segger_gcc_stlport.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/segger_gcc_stlport.h",
+    "source_blob": "74fc10d8b6cbf00ccf03ae837c1e3539bf188375"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/ticc.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/ticc.h",
+    "source_blob": "50aa64461508ca9c93627696ab16e026acc5cf6f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/profiles/ticc_no_stl.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/profiles/ticc_no_stl.h",
+    "source_blob": "e0b2c20c6ff1b7eeb6f75c5a4d34b3ae4d6d79c4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/pseudo_moving_average.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/pseudo_moving_average.h",
+    "source_blob": "60f27a38f90d4c21a05a9db88724eaee61cec93b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/quantize.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/quantize.h",
+    "source_blob": "6f03e2d7018d5467b12482628a27107addb4bfd9"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/queue.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/queue.h",
+    "source_blob": "b704d8a1c0a495546b8ebd03a327d0dfc33b010e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/queue_lockable.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/queue_lockable.h",
+    "source_blob": "21841adc1de0b2aa12dd177c0ad858d6b71161f8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/queue_mpmc_mutex.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/queue_mpmc_mutex.h",
+    "source_blob": "6e80d14f68d18e25343ae73a4a9273107e0c579f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/queue_spsc_atomic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/queue_spsc_atomic.h",
+    "source_blob": "d06dce2d9eac104bb5854949d0f0c9a5a9785b17"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/queue_spsc_isr.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/queue_spsc_isr.h",
+    "source_blob": "0e9be3f19e816e9f08dd4e36c8a4a0db63f6b187"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/queue_spsc_locked.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/queue_spsc_locked.h",
+    "source_blob": "0ac26b5dd54ddb3478ad7724f9649aacd9e3a7b7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/radix.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/radix.h",
+    "source_blob": "88a6273880be6bbcd08d0649f2b691317e5faaf5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/random.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/random.h",
+    "source_blob": "2a48050696804b7f7c18693e7d98a610fd280d5a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/ratio.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/ratio.h",
+    "source_blob": "8c7fa81d90fa92ef3d74f428836f52ebdbc74d60"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/reference_counted_message.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/reference_counted_message.h",
+    "source_blob": "fd615df1c48d74963011fe3f0109b7900c26800d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/reference_counted_message_pool.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/reference_counted_message_pool.h",
+    "source_blob": "fe18a1eecfdef80b856663c1ff638b2457b2d23e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/reference_counted_object.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/reference_counted_object.h",
+    "source_blob": "198da27ad279b18711c19823cba010b18e1fe62e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/reference_flat_map.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/reference_flat_map.h",
+    "source_blob": "4aa8e1fb56fc98164f977bc3b53b82cb14fe3c96"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/reference_flat_multimap.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/reference_flat_multimap.h",
+    "source_blob": "1fb8d8275c20e8fd5503de61f3d0330ba4d1c26e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/reference_flat_multiset.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/reference_flat_multiset.h",
+    "source_blob": "9d43848df9e84cb0638f07e90278b18e29d6853a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/reference_flat_set.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/reference_flat_set.h",
+    "source_blob": "dfb654247650401219d52b6316e78b541a77f6af"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/rescale.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/rescale.h",
+    "source_blob": "924542a5672d1fdb864457cff62d716c66f7ec67"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/result.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/result.h",
+    "source_blob": "496667c8e096aa5bb90c03015ed7cb94d5cb7323"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/rms.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/rms.h",
+    "source_blob": "d65f0809abe815c8c5080988c0b4afca26c46c85"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/scaled_rounding.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/scaled_rounding.h",
+    "source_blob": "d8a97da34b2681683f53386e2f7e175e427ab078"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/scheduler.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/scheduler.h",
+    "source_blob": "7930b6667577987ea7a8cbf6ba4abc49e1ebe70c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/set.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/set.h",
+    "source_blob": "ccca8563d12cbab819747a0dc1580149a5c59d71"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/shared_message.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/shared_message.h",
+    "source_blob": "43d8f783c6c606f295669dda68d8c4f1b83cd26a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/singleton.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/singleton.h",
+    "source_blob": "00e8a698f51a8cde23b5520efbf202768d0abb13"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/smallest.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/smallest.h",
+    "source_blob": "a3f1b2b5d538abb1fdd5a27f772f67f1393a04e5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/span.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/span.h",
+    "source_blob": "f1077ea77c9747274ed7b92c4947e4d8644feb93"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/sqrt.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/sqrt.h",
+    "source_blob": "31cc8d47cfac9ba728fff5ab441ef48f3518671b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/stack.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/stack.h",
+    "source_blob": "a292218a3a09f4c224891c5f2977ed020ff751a7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/standard_deviation.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/standard_deviation.h",
+    "source_blob": "14076d159675363498b10d6e9a8ac86ba3d186b3"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/state_chart.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/state_chart.h",
+    "source_blob": "a55230ff5a0463f4d25fb3e80fff32c8919413ee"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/static_assert.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/static_assert.h",
+    "source_blob": "d443ec868e00a5f2caeb1d2fcfcd2c46ac11c3df"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/string.h",
+    "source_blob": "1fbc19d264486a6fe88db3a9d77abc9b11bf9615"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/string_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/string_stream.h",
+    "source_blob": "e6af1e6d1569be953205d55cc1e2081d14917aa7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/string_utilities.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/string_utilities.h",
+    "source_blob": "459c5cb008e0c43bc5600d2fda72d8036a77343d"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/string_view.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/string_view.h",
+    "source_blob": "7ddce503410ea7ec3377a1140a9e12dbfe485a36"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/stringify.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/stringify.h",
+    "source_blob": "0b888feb8bff40b770d9f942dffb89d883d041f4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/successor.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/successor.h",
+    "source_blob": "98cc33cc7fd3cf3b394acada3538145dd78faf13"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/task.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/task.h",
+    "source_blob": "35badb279de548656b16b5712a617c58d4c4f7ed"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/threshold.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/threshold.h",
+    "source_blob": "05fb5476b978308daab7e3a218557226a731e7e8"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/timer.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/timer.h",
+    "source_blob": "ed96cdecb92fdfafa0c52123db9a56665a996f59"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/to_arithmetic.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/to_arithmetic.h",
+    "source_blob": "c7b2632f9c49fd30e26877ec6be012f1ce951178"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/to_string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/to_string.h",
+    "source_blob": "2493be7a3ecd00d207b0fd821e6f839d57402b74"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/to_u16string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/to_u16string.h",
+    "source_blob": "f6844483e72e6c291aae32bc0f0af29b269422d5"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/to_u32string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/to_u32string.h",
+    "source_blob": "f80bae874282317aca2e28b5a9ebbc04bf77897c"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/to_u8string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/to_u8string.h",
+    "source_blob": "18a5caff60623ff3de2ba7254653de4aa4dd09b2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/to_wstring.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/to_wstring.h",
+    "source_blob": "585ac19b20de7c7e5f2460b7fedfbba9b091fe1b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/type_def.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/type_def.h",
+    "source_blob": "c124aa7e16b59b7bfb70a63a117bb26a4b0fc371"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/type_lookup.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/type_lookup.h",
+    "source_blob": "3180309544ea1a7632d1c8a459067e4c62885dde"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/type_select.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/type_select.h",
+    "source_blob": "3fd22dcccfb16b022919d29c722d8c924a5b2ead"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/type_traits.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/type_traits.h",
+    "source_blob": "7c62c7e92277017a2c093194c1cbcef9bc85840b"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u16format_spec.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u16format_spec.h",
+    "source_blob": "6b50b645e5d7d34466731297aefaec7d210da0e1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u16string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u16string.h",
+    "source_blob": "c0fea3a21d9c1e823f8cadfabf52cdc342b40dbd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u16string_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u16string_stream.h",
+    "source_blob": "859fd559aa5da49bb8b3042c99ad5f21a1f5f888"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u32format_spec.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u32format_spec.h",
+    "source_blob": "1df2e4038a6597c5fd418f8fe76da8a382fb38fc"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u32string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u32string.h",
+    "source_blob": "766a0cbc39a41df1b8e2d17aad0c827e69ec7f05"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u32string_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u32string_stream.h",
+    "source_blob": "b2266af726d1e55e882de0708a31d5738386d363"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u8format_spec.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u8format_spec.h",
+    "source_blob": "6c66956b2c5d23dbe9a046d68ebaa1ca576f76fd"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u8string.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u8string.h",
+    "source_blob": "015ef3c157646399ea4f31c233caef5ee44401c6"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/u8string_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/u8string_stream.h",
+    "source_blob": "675f8022a15942e63cf19a3e4ed66d4742c726d9"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/unaligned_type.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/unaligned_type.h",
+    "source_blob": "9b4ae6629dc77c5ee41a60230935ef99dcf79d01"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/unordered_map.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/unordered_map.h",
+    "source_blob": "d8ed62a5b5be5b224cc76f7de7fa9882a214f73f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/unordered_multimap.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/unordered_multimap.h",
+    "source_blob": "bb1ac4bfa09c32aa285acdc7fc31ae731c307343"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/unordered_multiset.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/unordered_multiset.h",
+    "source_blob": "212344b98bf07b20e264a3dd37146213e3960d0a"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/unordered_set.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/unordered_set.h",
+    "source_blob": "2b426ac591f540af0fe9819334d9e1ec212ef6c1"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/user_type.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/user_type.h",
+    "source_blob": "c0e209d36054d501c066459fa4a7c0770fae941e"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/utility.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/utility.h",
+    "source_blob": "52cf0d37c6e13ada2e91ef2dc2f8b0a7f5d2c664"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/variance.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/variance.h",
+    "source_blob": "73310774fc1e63b22d75b84102aec8a9a77dc158"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/variant.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/variant.h",
+    "source_blob": "a34f5e5b39146d5fcb188f6988501666cf6809d4"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/variant_pool.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/variant_pool.h",
+    "source_blob": "d97b735a935502e7ee2663f3291a3e8ffa7c8ef2"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/vector.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/vector.h",
+    "source_blob": "80994bd584c8213871d47c20a8d47a333ad5b3c7"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/version.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/version.h",
+    "source_blob": "db5ed6d77dc5a803ac8a55845489d9615f9fe946"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/visitor.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/visitor.h",
+    "source_blob": "2975c6785a1f7e72dc6430aac8e60f933186507f"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/wformat_spec.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/wformat_spec.h",
+    "source_blob": "d7b2e1d7980ac4456726476fe1c352813b974bbc"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/wstring.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/wstring.h",
+    "source_blob": "683359de2575683e8a77431b7bab1bd7a2d70865"
+  },
+  {
+    "ref": "origin/Pruebas-Gael",
+    "commit": "9b0f0d40c4b67b82a5bc6b909ea8e916f2d30b0f",
+    "source": "firmware/esp32-trasero/PRUEBA SLAVE/components/esp32_BNO08x/etl/wstring_stream.h",
+    "destination": "firmware/integracion/components/esp32_BNO08x/etl/wstring_stream.h",
+    "source_blob": "e0a8bb8f952ef4fd537e34947692725d0de5558d"
+  }
+]

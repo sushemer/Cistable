@@ -20,3 +20,6 @@ Thumbs.db
 # Dependencias descargadas y respaldo de ESP-IDF
 managed_components/
 sdkconfig.old
+
+# Vehicle trials remain local (raw, CSV, GPS and notes).
+/capturas/

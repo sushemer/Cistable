@@ -1,0 +1,3 @@
+**/sdkconfig
+# Registry lock is reproducible input; generated sdkconfig stays local.
+__pycache__/

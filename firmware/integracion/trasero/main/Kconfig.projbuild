@@ -1,0 +1,12 @@
+menu "Cistable rear bench diagnostics"
+config CI_REAR_WATER_ENABLED
+    bool "Adquirir sensor Modbus real (desactivar en ensayo pipa virtual sin sonda)"
+    default y
+config CI_REAR_DIAG_PERIOD_MS
+    int "Rear diagnostic period in ms (0 disables capture)"
+    range 0 60000
+    default 1000
+    help
+        Nonzero values below 100 are clamped to 100 ms. Latest-only snapshot
+        printed by a separate low priority task, not the acquisition tasks.
+endmenu

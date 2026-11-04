@@ -1,0 +1,9 @@
+# Preserve imported snapshots byte-for-byte instead of reformatting third-party
+# code/licenses. Only inherited whitespace diagnostics are excluded here.
+firmware/integracion/components/esp32_BNO08x/** whitespace=-trailing-space,-blank-at-eof
+firmware/integracion/cabina/main/interfaz/recursos/LICENCIA_Montserrat.txt whitespace=-trailing-space
+firmware/integracion/cabina/main/modules/gps/driver/** whitespace=-blank-at-eof
+firmware/integracion/cabina/main/modules/gps/gps_module.h whitespace=-blank-at-eof
+firmware/integracion/cabina/main/modules/imu/imu_module.h whitespace=-blank-at-eof
+firmware/integracion/cabina/main/interfaz/interfaz.c whitespace=-trailing-space
+firmware/integracion/components/field_espnow/field_espnow.c whitespace=-trailing-space

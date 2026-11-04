@@ -1,0 +1,22 @@
+[
+  "firmware/integracion/cabina/main/modules/README.md",
+  "firmware/integracion/cabina/main/modules/gps/README.md",
+  "firmware/integracion/cabina/main/modules/gps/driver/gps_config.h",
+  "firmware/integracion/cabina/main/modules/gps/gps_module.c",
+  "firmware/integracion/cabina/main/modules/imu/README.md",
+  "firmware/integracion/cabina/main/modules/imu/imu_module.cpp",
+  "firmware/integracion/components/field_espnow/CMakeLists.txt",
+  "firmware/integracion/components/field_espnow/field_espnow.c",
+  "firmware/integracion/components/field_espnow/field_espnow.h",
+  "firmware/integracion/components/imu_bno085/imu_bno085.cpp",
+  "firmware/integracion/components/imu_bno085/include/imu_bno085.h",
+  "firmware/integracion/components/esp32_BNO08x/source/report/BNO08xRptLinearAcceleration.cpp",
+  "firmware/integracion/cabina/main/display/display.c",
+  "firmware/integracion/cabina/main/display/display.h",
+  "firmware/integracion/cabina/main/interfaz/interfaz.c",
+  "firmware/integracion/cabina/main/interfaz/interfaz.h",
+  "firmware/integracion/cabina/main/interfaz/recursos/generar_recursos.ps1",
+  "firmware/integracion/cabina/main/pantalla/pantalla.c",
+  "firmware/integracion/cabina/main/pantalla/pantalla.h",
+  "firmware/integracion/cabina/main/estado_sistema.h"
+]

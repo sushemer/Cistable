@@ -1,0 +1,287 @@
+menu "Cistable integration (experimental)"
+choice CI_MODEL_PROFILE
+    prompt "Perfil de calculo Cistable"
+    default CI_MODE_REAL
+config CI_MODE_REAL
+    bool "Pipa real: requisitos fisicos existentes, sin parametros inventados"
+config CI_PIPA_VIRTUAL
+    bool "PIPA_VIRTUAL_ENTRADAS_REALES (automovil -> pipa virtual experimental)"
+config CI_DEMO
+    bool "Synthetic demonstration, visible watermark; no live data mixed"
+endchoice
+menu "Montaje IMU trasero"
+    help
+        Sensor -> vehiculo: X adelante, Y izquierda/conductor, Z arriba.
+        r va desde el origen de referencia al IMU. mm / 1000 -> m.
+        Cada perfil conserva valores independientes. Recompilar y flashear.
+if CI_PIPA_VIRTUAL
+config CI_VIRTUAL_LEVER
+    bool "Activar correccion de brazo de palanca (automovil)"
+    default n
+    help
+        Desactivado: aceleracion LINEAL alineada se aplica directamente al
+        origen de la PIPA VIRTUAL. Hipotesis experimental; no reconstruye CG
+        del automovil. No desactiva ejes, gravedad, gyro o alpha.
+config CI_VIRTUAL_R_X_MM
+    int "Automovil r X, mm, origen elegido -> IMU"
+    range -10000 10000
+    default 0
+config CI_VIRTUAL_R_Y_MM
+    int "Automovil r Y, mm, positivo izquierda"
+    range -10000 10000
+    default 0
+config CI_VIRTUAL_R_Z_MM
+    int "Automovil r Z, mm, positivo arriba"
+    range -10000 10000
+    default 0
+config CI_VIRTUAL_RIGID
+    bool "Si hay traslado, asumir cuerpo rigido comun para r del automovil"
+    default n
+config CI_VIRTUAL_MOUNT_CONFIRMED
+    bool "Ejes del IMU en automovil configurados y comprobados"
+    default n
+config CI_VIRTUAL_ROLL_DEG
+    int "Rotacion fija sensor -> vehiculo: roll X (grados)"
+    range -180 180
+    default 0
+config CI_VIRTUAL_PITCH_DEG
+    int "Rotacion fija sensor -> vehiculo: pitch Y (grados)"
+    range -90 90
+    default 0
+config CI_VIRTUAL_YAW_DEG
+    int "Rotacion fija sensor -> vehiculo: yaw Z (grados)"
+    range -180 180
+    default 0
+endif
+if !CI_PIPA_VIRTUAL
+config CI_REAL_LEVER
+    bool "Activar correccion de brazo de palanca (pipa real)"
+    default y
+    help
+        Referencia: centro geometrico de cisterna -> IMU en bastidor.
+        Confirmado: diferencial centrado lateralmente. Si se desactiva,
+        no se autoriza inferir excitacion del origen real: LTR real bloqueado.
+config CI_REAL_R_X_MM
+    int "Pipa r X, mm, positivo adelante"
+    range -10000 10000
+    default 640
+config CI_REAL_R_Y_MM
+    int "Pipa r Y, mm, positivo izquierda/conductor"
+    range -10000 10000
+    default -420
+config CI_REAL_R_Z_MM
+    int "Pipa r Z, mm, positivo arriba"
+    range -10000 10000
+    default -940
+config CI_REAL_RIGID
+    bool "Asumir solidaridad chasis/cisterna (experimental)"
+    default n
+config CI_REAL_MOUNT_CONFIRMED
+    bool "Ejes del montaje lateral en bastidor configurados y comprobados"
+    default n
+config CI_REAL_ROLL_DEG
+    int "Pipa rotacion fija sensor -> vehiculo: roll X, grados"
+    range -180 180
+    default 0
+config CI_REAL_PITCH_DEG
+    int "Pipa rotacion fija sensor -> vehiculo: pitch Y, grados"
+    range -90 90
+    default 0
+config CI_REAL_YAW_DEG
+    int "Pipa rotacion fija sensor -> vehiculo: yaw Z, grados"
+    range -180 180
+    default 0
+endif
+endmenu
+menu "Parametros fisicos PIPA VIRTUAL (estimados/configurados)"
+    depends on CI_PIPA_VIRTUAL
+config CI_VIRTUAL_WIDTH_M
+    string "Ancho INTERIOR, m"
+    default "2.210475"
+config CI_VIRTUAL_HEIGHT_M
+    string "Altura INTERIOR, m"
+    default "1.210475"
+config CI_VIRTUAL_LENGTH_M
+    string "Largo INTERIOR, m"
+    default "3.030475"
+config CI_VIRTUAL_BOTTOM_M
+    string "Fondo interior sobre suelo virtual, m"
+    default "1.1647625"
+config CI_VIRTUAL_FILL_PERCENT
+    int "Llenado CONFIGURADO POR VOLUMEN, porcentaje"
+    range 20 80
+    default 50
+config CI_VIRTUAL_TRACK_M
+    string "Via agregada virtual, m (hipotesis de apoyo)"
+    default "1.81"
+config CI_VIRTUAL_CHASSIS_MASS_KG
+    string "Chasis/cabina virtual, kg (supuesto, excluye cisterna y agua)"
+    default "5000"
+config CI_VIRTUAL_CHASSIS_CG_M
+    string "Altura CG chasis/cabina sobre suelo virtual, m"
+    default "1.0"
+config CI_VIRTUAL_SHELL_MASS_KG
+    string "Cisterna vacia, kg (estimacion recuperada)"
+    default "924"
+config CI_VIRTUAL_PLATFORM_MASS_KG
+    string "Plataforma/bomba/accesorios, kg (supuesto, excluye cisterna y diesel)"
+    default "600"
+config CI_VIRTUAL_PLATFORM_CG_M
+    string "Altura CG plataforma/bomba sobre suelo, m"
+    default "1.3"
+config CI_VIRTUAL_DIESEL_MASS_KG
+    string "Diesel, kg (209 L x 0.832 kg/L, no duplicar)"
+    default "173.888"
+config CI_VIRTUAL_DIESEL_CG_M
+    string "Altura CG diesel sobre suelo, m (supuesto)"
+    default "0.8"
+config CI_VIRTUAL_CREW_MASS_KG
+    string "Personas/equipo, kg (escenario virtual)"
+    default "200"
+config CI_VIRTUAL_CREW_CG_M
+    string "Altura CG personas/equipo sobre suelo, m (supuesto)"
+    default "1.2"
+config CI_VIRTUAL_OVERRIDE_CG
+    bool "Introducir CG seco XYZ total en lugar del promedio por componentes"
+    default n
+config CI_VIRTUAL_CG_X_M
+    string "CG seco total X desde centro geometrico, m"
+    default "0"
+config CI_VIRTUAL_CG_Y_M
+    string "CG seco total Y desde centro geometrico, m"
+    default "0"
+config CI_VIRTUAL_CG_Z_M
+    string "CG seco total Z sobre suelo virtual, m"
+    default "1.13"
+config CI_VIRTUAL_ZETA
+    string "Razon de amortiguamiento zeta, adimensional (supuesto)"
+    default "0.05"
+config CI_VIRTUAL_MASS_SCALE
+    string "Multiplicador de masa modal para sensibilidad (1 nominal)"
+    default "1"
+config CI_VIRTUAL_MAX_ANGLE_MRAD
+    int "Dominio pequeno del pendulo equivalente, milirradianes"
+    range 50 300
+    default 200
+config CI_VIRTUAL_LATENCY_MS
+    int "Cota provisional de transporte/observacion, ms (supuesto experimental)"
+    range 1 80
+    default 20
+endmenu
+menu "Parametros pipa real (pendientes hasta completar con fundamento)"
+    depends on CI_MODE_REAL
+config CI_REAL_WIDTH_M
+    string "Ancho interior, m"
+    default "2.210475"
+config CI_REAL_HEIGHT_M
+    string "Altura interior, m"
+    default "1.210475"
+config CI_REAL_LENGTH_M
+    string "Longitud interior, m"
+    default "3.030475"
+config CI_REAL_BOTTOM_M
+    string "Fondo interior sobre suelo, m"
+    default "1.1647625"
+config CI_REAL_DRY_MASS_KG
+    string "Masa seca total kg (nan = pendiente; documentar componentes incluidos)"
+    default "nan"
+config CI_REAL_CG_X_M
+    string "CG seco X desde centro geometrico, m"
+    default "nan"
+config CI_REAL_CG_Y_M
+    string "CG seco Y desde centro geometrico, m"
+    default "nan"
+config CI_REAL_CG_Z_M
+    string "CG seco Z SOBRE SUELO, m"
+    default "nan"
+config CI_REAL_TRACK_M
+    string "Via efectiva, m (nan = pendiente)"
+    default "nan"
+endmenu
+choice CI_DEMO_MODE
+    prompt "Demonstration scenario"
+    depends on CI_DEMO
+    default CI_DEMO_CONTINUOUS
+config CI_DEMO_CONTINUOUS
+    bool "Continuous visual demo: recurring synthetic settled stops"
+config CI_DEMO_EXPIRY
+    bool "Expiry test: one settled stop, then no refresh (SIN DATOS)"
+endchoice
+config CI_DIAG_PERIOD_MS
+    int "Structured bench diagnostic period, ms (0 disables capture)"
+    range 0 60000
+    default 1000
+    help
+        Nonzero values below 100 are clamped to 100 ms. Dedicated low-priority
+        task, latest-only snapshots; acquisition does not wait for console.
+        Disarm/recovery events use a separate bounded queue with drop counter.
+config CI_ENABLE_CABIN_IMU
+    bool "Habilitar BNO085 de cabina (nuevo montaje ESP32-S3)"
+    default y if !CI_DEMO
+    default n
+config CI_ENABLE_GPS
+    bool "Habilitar GPS UART2 (nuevo montaje ESP32-S3)"
+    default y if !CI_DEMO
+    default n
+config CI_ENABLE_BUTTON
+    bool "Habilitar boton opcional de seleccion (ESP32-S3)"
+    default n
+config CI_BUTTON_GPIO
+    int "GPIO del boton a GND, pull-up interno (reservar USB19/20 y memoria26..37)"
+    range 0 48
+    default 21
+menu "Cableado cabina ESP32-S3 N16R8 (placa por comprobar)"
+config CI_LCD_SPI_HOST
+    int "Controlador SPI de pantalla (2 o 3)"
+    range 2 3
+    default 2
+config CI_IMU_SPI_HOST
+    int "Controlador SPI de BNO085 (distinto de pantalla)"
+    range 2 3
+    default 3
+config CI_LCD_SCLK
+    int "Pantalla SCK"
+    range 0 48
+    default 12
+config CI_LCD_MOSI
+    int "Pantalla SDI/MOSI"
+    range 0 48
+    default 11
+config CI_LCD_DC
+    int "Pantalla DC/RS"
+    range 0 48
+    default 9
+config CI_LCD_RST
+    int "Pantalla RST"
+    range 0 48
+    default 8
+config CI_LCD_CS
+    int "Pantalla CS"
+    range 0 48
+    default 10
+config CI_IMU_MOSI
+    int "Cabin IMU MOSI"
+    default 6
+config CI_IMU_MISO
+    int "Cabin IMU MISO"
+    default 7
+config CI_IMU_SCLK
+    int "Cabin IMU SCLK"
+    default 5
+config CI_IMU_CS
+    int "Cabin IMU CS"
+    default 4
+config CI_IMU_INT
+    int "Cabin IMU INT"
+    default 15
+config CI_IMU_RST
+    int "Cabin IMU reset"
+    default 16
+config CI_GPS_RX
+    int "Cabin RX connected to GPS TX"
+    default 18
+config CI_GPS_TX
+    int "Cabin TX connected to GPS RX"
+    default 17
+endmenu
+endmenu
