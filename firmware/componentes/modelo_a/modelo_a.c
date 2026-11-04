@@ -5,12 +5,12 @@
 #define PI 3.14159265358979323846
 #define P(n,u,v,o,s) {n,u,s,v,o,false}
 const ma_parameter ma_model_a_parameters[] = {
-    P("width","m",2.20,MA_MEASURED,"notas: exterior provisional"),
-    P("height","m",1.24,MA_MEASURED,"notas: exterior provisional"),
+    {"width","m","confirmado por usuario 2026-11-03; antes 2.20",2.22,MA_MEASURED,true},
+    {"height","m","confirmado por usuario 2026-11-03; antes 1.24",1.22,MA_MEASURED,true},
     P("length","m",3.04,MA_MEASURED,"notas: exterior provisional"),
     P("thickness","m",0.0047625,MA_REPORTED,"notas: 3/16 inch; verificar espesor"),
     P("base","m",1.16,MA_MEASURED,"notas: base exterior"),
-    P("center_noted","m",1.73,MA_MEASURED,"discrepa con 1.78 derivado"),
+    P("center_noted","m",1.73,MA_MEASURED,"discrepa con 1.77 derivado de base y altura confirmadas"),
     P("wheelbase","m",3.92,MA_MEASURED,"centros; placa dice 5.30"),
     P("front_spacing","m",2.01,MA_MEASURED,"referencia transversal pendiente"),
     P("rear_spacing","m",1.81,MA_MEASURED,"referencia transversal pendiente"),
@@ -30,7 +30,12 @@ const ma_parameter ma_model_a_parameters[] = {
     P("occupants_equipment_mass","kg",NAN,MA_PENDING,"medir"),
     P("component_centers_of_gravity","m",NAN,MA_PENDING,"medir todos; no duplicar combustible"),
     P("aggregate_track","m",NAN,MA_PENDING,"justificar modelo por ejes"),
-    P("imu_positions","m",NAN,MA_PENDING,"montaje simetrico propuesto cerca de 1.52 m longitudinal; medir"),
+    {"rear_r_x","m","usuario confirma centro geometrico cisterna -> IMU chasis; X adelante",0.64,MA_MEASURED,true},
+    {"rear_r_y","m","usuario confirma diferencial centrado lateralmente; Y izquierda",-0.42,MA_MEASURED,true},
+    {"rear_r_z","m","usuario confirma centro geometrico cisterna -> IMU chasis; Z arriba",-0.94,MA_MEASURED,true},
+    P("baffle_rear_zone","m",1.00,MA_REPORTED,"atras hacia delante; no aislamiento hidraulico"),
+    P("baffle_middle_zone","m",1.04,MA_REPORTED,"atras hacia delante"),
+    P("baffle_front_zone","m",1.00,MA_REPORTED,"atras hacia delante"),
     P("pendulum_parameters","SI",NAN,MA_PENDING,"identificacion futura")
 };
 const size_t ma_model_a_parameter_count = sizeof(ma_model_a_parameters)/sizeof(ma_model_a_parameters[0]);
@@ -41,12 +46,17 @@ const char *ma_status_name(ma_status s) {
     case MA_VALID: return "datos validos";
     case MA_STALE: return "datos antiguos";
     case MA_INCOMPLETE: return "configuracion incompleta";
-    case MA_SIMULATED: return "simulado/experimental";
+    case MA_SIMULATED: return "simulado";
+    case MA_EXPERIMENTAL: return "experimental, no validado";
+    case MA_OUT_OF_DOMAIN: return "amplitud de pendulo fuera de dominio";
+    case MA_LTR_LIMIT: return "limite LTR experimental registrado";
+    case MA_NUMERICAL_ERROR: return "error numerico del modelo";
+    case MA_NO_SUPPORT: return "reaccion normal no positiva";
     case MA_UNAVAILABLE: return "modelo no disponible";
     default: return "entrada invalida";
     }
 }
-ma_tank ma_model_a_tank(void) { return (ma_tank){2.20,1.24,3.04,0.0047625,1.16}; }
+ma_tank ma_model_a_tank(void) { return (ma_tank){2.22,1.22,3.04,0.0047625,1.16}; }
 double ma_simulation_1300_us_gal_m3(void) { return 1300.0*3.785411784/1000.0; }
 static bool positive(double x) { return isfinite(x) && x>0; }
 static bool geometry_ok(const ma_geometry *g) {
@@ -67,6 +77,13 @@ ma_status ma_geometry_make(const ma_tank *t, ma_geometry *o) {
     g.capacity_m3=PI*g.width_m*g.height_m*g.length_m/4;
     if (!geometry_ok(&g)) return MA_INVALID;
     *o=g; return MA_VALID;
+}
+ma_status ma_geometry_from_interior(double w,double h,double l,double bottom,ma_geometry *out) {
+    if(!out) return MA_INVALID;
+    ma_geometry g={w,h,l,bottom,PI*w*h*l/4};
+    *out=(ma_geometry){NAN,NAN,NAN,NAN,NAN};
+    if(!geometry_ok(&g)) return MA_INVALID;
+    *out=g;return MA_VALID;
 }
 static ma_water no_water(ma_status s) {
     return (ma_water){s,s,NAN,NAN,NAN,NAN,NAN,NAN};
@@ -115,7 +132,7 @@ ma_status ma_depth_at_volume(const ma_geometry *g, double v, double *out) {
     *out=(lo+hi)/2; return MA_VALID;
 }
 ma_status ma_freshness(ma_stamp s, uint64_t now, ma_clock clock, uint64_t age) {
-    if (s.status!=MA_VALID && s.status!=MA_SIMULATED) return s.status;
+    if (s.status!=MA_VALID && s.status!=MA_SIMULATED && s.status!=MA_EXPERIMENTAL) return s.status;
     if (s.clock==MA_CLOCK_UNKNOWN || s.clock!=clock) return MA_INCOMPLETE;
     if (now<s.time_us) return MA_INVALID;
     return now-s.time_us>age?MA_STALE:s.status;
@@ -134,13 +151,13 @@ ma_status ma_imu_accel_difference(const ma_two_imus *p, uint64_t now, ma_clock c
     uint64_t age, uint64_t skew, ma_vec3 *o) {
     if (!o) return MA_INVALID;
     *o=(ma_vec3){NAN,NAN,NAN};
-    if (!p || p->left.id!=IMU_IZQUIERDA || p->right.id!=IMU_DERECHA) return MA_INVALID;
-    const ma_imu_sample *l=&p->left,*r=&p->right;
+    if (!p || p->rear.id!=IMU_TRASERA || p->cabin.id!=IMU_CABINA) return MA_INVALID;
+    const ma_imu_sample *l=&p->rear,*r=&p->cabin;
     ma_status ls=ma_freshness(l->acceleration_mps2.stamp,now,clock,age);
     ma_status rs=ma_freshness(r->acceleration_mps2.stamp,now,clock,age);
-    if (ls!=MA_VALID && ls!=MA_SIMULATED) return ls;
-    if (rs!=MA_VALID && rs!=MA_SIMULATED) return rs;
-    if (ls!=rs) return MA_INVALID; /* no mixed simulation/real comparison */
+    if (ls!=MA_VALID && ls!=MA_SIMULATED && ls!=MA_EXPERIMENTAL) return ls;
+    if (rs!=MA_VALID && rs!=MA_SIMULATED && rs!=MA_EXPERIMENTAL) return rs;
+    if ((ls==MA_SIMULATED)!=(rs==MA_SIMULATED)) return MA_INVALID;
     if (l->mounting_status!=MA_VALID || r->mounting_status!=MA_VALID ||
         l->accel_kind!=MA_ACCEL_LINEAR || r->accel_kind!=MA_ACCEL_LINEAR) return MA_INCOMPLETE;
     uint64_t lt=l->acceleration_mps2.stamp.time_us, rt=r->acceleration_mps2.stamp.time_us;
@@ -151,7 +168,7 @@ ma_status ma_imu_accel_difference(const ma_two_imus *p, uint64_t now, ma_clock c
     ma_vec3 b=rotate(r->sensor_to_vehicle,r->acceleration_mps2.value);
     ma_vec3 d={a.x-b.x,a.y-b.y,a.z-b.z};
     if (!vec_ok(d)) return MA_INVALID;
-    *o=d; return ls;
+    *o=d; return ls==MA_EXPERIMENTAL||rs==MA_EXPERIMENTAL?MA_EXPERIMENTAL:ls;
 }
 ma_status ma_estimate_water(const ma_geometry *g, const ma_water_input *i,
     const ma_water_policy *p, uint64_t now, ma_clock clock, ma_water *o) {
@@ -159,7 +176,7 @@ ma_status ma_estimate_water(const ma_geometry *g, const ma_water_input *i,
     *o=no_water(MA_INVALID);
     if (!i || !p) return MA_INVALID;
     ma_status s=ma_freshness(i->stamp,now,clock,p->max_age_us);
-    if (s!=MA_VALID && s!=MA_SIMULATED) { *o=no_water(s); return s; }
+    if (s!=MA_VALID && s!=MA_SIMULATED && s!=MA_EXPERIMENTAL) { *o=no_water(s); return s; }
     if (i->quantity==MA_WATER_RAW_REGISTER) { *o=no_water(MA_INCOMPLETE); return MA_INCOMPLETE; }
     if (i->calibration_status!=MA_VALID || !p->stationary || !p->level || !p->settled) {
         *o=no_water(MA_INCOMPLETE); return MA_INCOMPLETE;
@@ -175,15 +192,4 @@ ma_status ma_estimate_water(const ma_geometry *g, const ma_water_input *i,
     ma_status result=ma_water_at_depth(g,h+i->sensor_above_bottom_m+i->offset_m,1000,o);
     if (result==MA_VALID) { o->status=s; if (o->cg_status==MA_VALID) o->cg_status=s; return s; }
     return result;
-}
-ma_ltr ma_truck_ltr(const ma_vehicle *v) {
-    ma_ltr o={MA_INCOMPLETE,NAN,NAN};
-    if (!v || v->status!=MA_VALID || !v->mass_accounting_complete || !v->track_model_justified ||
-        !positive(v->fixed_mass_kg) || !positive(v->fixed_cg_ground_m) || !positive(v->aggregate_track_m)) return o;
-    o.status=MA_UNAVAILABLE; return o;
-}
-ma_pendulum_output ma_pendulum_step(const ma_pendulum_parameters *p,
-    const ma_pendulum_state *s, const ma_pendulum_input *i) {
-    (void)p; (void)s; (void)i;
-    return (ma_pendulum_output){MA_UNAVAILABLE,NAN,NAN};
 }

@@ -1,4 +1,12 @@
+> Historial de revisión/desarrollo: las referencias a target ESP32 clásico,
+> GPIO antiguos y sus binarios no son preparación vigente. Hardware actual: [ambos S3](hardware-esp32s3.md).
+
 # Modelo A provisional — entrega modular
+
+**Nota 2026-11-03:** este documento conserva la entrega anterior como historial.
+La arquitectura ahora es un IMU de cabina y uno trasero en chasis; dimensiones
+confirmadas 2.22 x 1.22 m. LTR y dinámica ya tienen implementación parametrizada.
+Consultar [integración actual](integracion-cabina.md) para API, fuentes y pruebas vigentes.
 
 No es un modelo validado de alerta de volcadura. No produce estado verde ni
 umbrales de riesgo. No se modificaron pantalla, drivers, paquetes ESP-NOW,
