@@ -1,0 +1,319 @@
+{
+  "schema": 1,
+  "scope": "Software only; hardware pending. Paths relative to repository. Build artifacts retained locally, regenerate from sources.",
+  "idf": "6.1.0",
+  "idf_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "source_hashes_rechecked": 484,
+  "firmware_source_changes": [],
+  "protected_source_hashes": {
+    "firmware/componentes/modelo_a/CMakeLists.txt": "6b399a8b5072d92f6682a79a187ee7731eb6452cad4d4fb6e95e10f8e44568d1",
+    "firmware/componentes/modelo_a/dinamica.c": "aa0cee8b956a40b88d2a7012424be7965482d490cf848b86e474642a3fc40dfc",
+    "firmware/componentes/modelo_a/modelo_a.c": "9c635d1db5f940f2abeefcb901087b095b4802ac6accc72a2965deaac897eef5",
+    "firmware/componentes/modelo_a/include/modelo_a.h": "7d3753cb65048f0d767c3095e7b21c13ad27866250f123c70e069a6605cd36e5",
+    "firmware/componentes/control_cabina/CMakeLists.txt": "a8f589ef9c5b6e6ee0d0ff019e9ad382a161fb79daf9323c140785ddbf542f8a",
+    "firmware/componentes/control_cabina/control_cabina.c": "55f1c2280cefe994bb5c1eaffb1497952ad0745c04eed3ffb804ebca9d0a651d",
+    "firmware/componentes/control_cabina/include/control_cabina.h": "3df91acbbf592ca55ca43c6da8550c8fe7e5b30a755d0813d547ded381c48de2",
+    "firmware/integracion/cabina/main/pipa_virtual.c": "9efd402410f68b1fa399fc6379dcc002d226a9f7531f397d0f8191481c1108e0",
+    "firmware/integracion/cabina/main/pipa_virtual.h": "9e77a86a4292b2e4bfa111a4e08107a6f64269acf0d7e338ec81052da34f3437",
+    "firmware/integracion/cabina/main/configuracion_modelo.c": "83329fa6141d77b5e4473906f09e3e034161228e568b5fdf259e2d74fe76e1d8",
+    "firmware/integracion/cabina/main/configuracion_modelo.h": "0a034d43b10d4ad7864dec30672253f67fc0846b8272302d270f1a33c0ad5397",
+    "firmware/componentes/telemetria/telemetria.c": "1ad7001a58403629a7d9f962bb518e155dbf35ba08f68f1e49e7b532d280cb88",
+    "firmware/componentes/telemetria/include/telemetria.h": "bec6de88e1bd833d3f431c9118c42bdfd9924e7a12ab540142d0aa2bcb979be7",
+    "firmware/integracion/components/captura/captura.c": "0cba0f83e1fcf90672ad72d1481081775aa9905bb4e24af2dfdbd65418140b51"
+  },
+  "profiles": [
+    {
+      "project": "cabina",
+      "profile": "normal",
+      "target": "esp32s3",
+      "returncode": 0,
+      "app_bytes": 1444352,
+      "artifacts": [
+        {
+          "path": "firmware/integracion/cabina/sdkconfig",
+          "sha256": "90a092858362c5e27a6deca17a55275ed53994db9a976cc2aedc26eefd0d6e8b"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/normal/cistable_cabina_integrada.bin",
+          "sha256": "f33c9d2027638df556411b2d2d552433030912f8330b7411d59766466d0a4c35"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/normal/bootloader/bootloader.bin",
+          "sha256": "2d37b834687c9155fb903b614afba4a4b04f85055f77e0aa323184637ed1c55f"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/normal/partition_table/partition-table.bin",
+          "sha256": "5295e8c42d6fb5f95e4e8a185932c6191d27cfc5078322475347e40e71af815a"
+        }
+      ]
+    },
+    {
+      "project": "cabina",
+      "profile": "virtual100",
+      "target": "esp32s3",
+      "returncode": 0,
+      "app_bytes": 1451520,
+      "artifacts": [
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual100/sdkconfig",
+          "sha256": "28580b9d3f8e6c4f6b9e6d9374cc9183bfc080a3362578a00715de2e58d25d83"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual100/cistable_cabina_integrada.bin",
+          "sha256": "d1c293d3847885db1dcc0059cf86bc98e30e2807a18af4ae8caa8b3d50ffdb00"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual100/bootloader/bootloader.bin",
+          "sha256": "99c7c9f1cb111beac19adb8f63d4321b870597a319d541240aeb193d99521ba6"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual100/partition_table/partition-table.bin",
+          "sha256": "5295e8c42d6fb5f95e4e8a185932c6191d27cfc5078322475347e40e71af815a"
+        }
+      ]
+    },
+    {
+      "project": "cabina",
+      "profile": "virtual50",
+      "target": "esp32s3",
+      "returncode": 0,
+      "app_bytes": 1451520,
+      "artifacts": [
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual50/sdkconfig",
+          "sha256": "5d606681b00687f51445427f51aa803d93762c4c6ba96907435da7074fbac39a"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual50/cistable_cabina_integrada.bin",
+          "sha256": "b2af2ce306ed5169322e2fd881ce38011993074a522cdc9cc26b99ddb927b84a"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual50/bootloader/bootloader.bin",
+          "sha256": "d0b2fa40502363ce2a0bb4dbb522878568ad32aabaead17fd171e29bc92c2210"
+        },
+        {
+          "path": "firmware/integracion/cabina/build/s3/virtual50/partition_table/partition-table.bin",
+          "sha256": "5295e8c42d6fb5f95e4e8a185932c6191d27cfc5078322475347e40e71af815a"
+        }
+      ]
+    },
+    {
+      "project": "trasero",
+      "profile": "normal",
+      "target": "esp32s3",
+      "returncode": 0,
+      "app_bytes": 857968,
+      "artifacts": [
+        {
+          "path": "firmware/integracion/trasero/sdkconfig",
+          "sha256": "69620dba5813ffaf995932629e7735a4c43c0e6029cf2a0916325bb7b668ee86"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/normal/cistable_trasero_v2.bin",
+          "sha256": "4f3634602e7ea594bd3083372b6e95c1d5fc487e246b9645b0225770f941f181"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/normal/bootloader/bootloader.bin",
+          "sha256": "7a8008b95c6350bee6e8ec2c8ea83df1be71f4345475fabd6248aaf8e72772ca"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/normal/partition_table/partition-table.bin",
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "project": "trasero",
+      "profile": "capture100",
+      "target": "esp32s3",
+      "returncode": 0,
+      "app_bytes": 834960,
+      "artifacts": [
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture100/sdkconfig",
+          "sha256": "f6b87fbe6039b0f93e91db6c6ebbe0a1ec21dea0cd860d22a71674a69e9c2051"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture100/cistable_trasero_v2.bin",
+          "sha256": "28d8a0fcb58099191a5c8a932a1803644a1365e6652beae98bb78b54a5e4751b"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture100/bootloader/bootloader.bin",
+          "sha256": "05e5b940576194dfca55384a198669c7103464866c6a672057e89cd072c98023"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture100/partition_table/partition-table.bin",
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "project": "trasero",
+      "profile": "capture50",
+      "target": "esp32s3",
+      "returncode": 0,
+      "app_bytes": 834960,
+      "artifacts": [
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture50/sdkconfig",
+          "sha256": "612f879d4ec286b010d814cdfc3c2a3a9d6329c589b0ae179dcf8defff4d1b99"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture50/cistable_trasero_v2.bin",
+          "sha256": "79f17eac4662cd9371c830b56dc3e8d4eade67674f386f3f2839002a4d9b3243"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture50/bootloader/bootloader.bin",
+          "sha256": "3f6f2672703ebffe3fa6bbc30c96294f17ad5b82a97f0000af8cac1ed111d1bb"
+        },
+        {
+          "path": "firmware/integracion/trasero/build/s3/capture50/partition_table/partition-table.bin",
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    }
+  ],
+  "host_steps": [
+    {
+      "step": "compile-geometry",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "run-geometry",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "compile-integration",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "run-integration",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "compile-continuity",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "run-continuity",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "compile-virtual",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "run-virtual",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "compile-bench",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "run-bench",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "compile-scenarios",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "step": "run-scenarios",
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "software": [
+    {
+      "check": "gpio",
+      "returncode": 0
+    },
+    {
+      "check": "decoder",
+      "returncode": 0
+    },
+    {
+      "check": "absent-water",
+      "returncode": 0
+    },
+    {
+      "check": "variants",
+      "returncode": 0
+    }
+  ],
+  "hardware": "NOT TESTED",
+  "clean_checkout_builds": [
+    {
+      "project": "cabina",
+      "profile": "virtual100",
+      "returncode": 0,
+      "seconds": 668.18847489357
+    },
+    {
+      "project": "trasero",
+      "profile": "capture100",
+      "returncode": 0,
+      "seconds": 341.38997054100037
+    }
+  ],
+  "new_profile_regression": {
+    "test": "test_preparar_captura.py",
+    "returncode": 0
+  },
+  "clean_checkout_flags": [
+    {
+      "project": "cabina",
+      "profile": "virtual100",
+      "flags": {
+        "IDF_TARGET": "\"esp32s3\"",
+        "ESPTOOLPY_FLASHSIZE_16MB": "y",
+        "ESPTOOLPY_FLASHMODE_QIO": "y",
+        "SPIRAM_MODE_OCT": "y",
+        "SPIRAM_MEMTEST": "y",
+        "CI_FULL_CAPTURE": "y",
+        "CI_BENCH_50HZ": "n_or_not_applicable",
+        "CI_PIPA_VIRTUAL": "y",
+        "CI_ENABLE_GPS": "y",
+        "CI_ENABLE_CABIN_IMU": "y",
+        "CI_VIRTUAL_MOUNT_CONFIRMED": "n_or_not_applicable",
+        "CI_VIRTUAL_LEVER": "n_or_not_applicable",
+        "CI_REAR_WATER_ENABLED": "n_or_not_applicable",
+        "CI_VIRTUAL_FILL_PERCENT": "50",
+        "ESP_CONSOLE_UART_BAUDRATE": "921600"
+      }
+    },
+    {
+      "project": "trasero",
+      "profile": "capture100",
+      "flags": {
+        "IDF_TARGET": "\"esp32s3\"",
+        "ESPTOOLPY_FLASHSIZE_16MB": "y",
+        "ESPTOOLPY_FLASHMODE_QIO": "y",
+        "SPIRAM_MODE_OCT": "y",
+        "SPIRAM_MEMTEST": "y",
+        "CI_FULL_CAPTURE": "y",
+        "CI_BENCH_50HZ": "n_or_not_applicable",
+        "CI_PIPA_VIRTUAL": "n_or_not_applicable",
+        "CI_ENABLE_GPS": "n_or_not_applicable",
+        "CI_ENABLE_CABIN_IMU": "n_or_not_applicable",
+        "CI_VIRTUAL_MOUNT_CONFIRMED": "n_or_not_applicable",
+        "CI_VIRTUAL_LEVER": "n_or_not_applicable",
+        "CI_REAR_WATER_ENABLED": "n_or_not_applicable",
+        "CI_VIRTUAL_FILL_PERCENT": "n_or_not_applicable",
+        "ESP_CONSOLE_UART_BAUDRATE": "921600"
+      }
+    }
+  ]
+}

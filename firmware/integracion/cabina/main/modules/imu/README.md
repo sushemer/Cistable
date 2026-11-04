@@ -1,0 +1,16 @@
+> Documento importado: GPIO y target originales son **historial**. Usar [hardware S3 vigente](../../../../../../docs/hardware-esp32s3.md) y Kconfig de integración para cablear.
+
+# IMU frontal del master
+
+`imu_module.cpp` implementa `imu_module_start()` para configurar e iniciar la BNO085 frontal y `imu_module_get_sample()` para copiar su muestra más reciente. El componente común `imu_bno085` inicializa el driver C++, habilita orientación, aceleración lineal y giro, y los publica desde una tarea de lectura. No calcula LTR, no hace tare ni fusiona datos con el GPS.
+
+| Dato | Unidad |
+|---|---|
+| Roll, pitch, yaw (Game Rotation Vector) | grados |
+| Aceleración lineal | m/s² |
+| Giro calibrado | rad/s |
+| sample_time_us | tiempo monotónico local de recepción |
+
+Se solicita un reporte cada 10 ms (100 Hz). La lectura se marca fuera de línea si pasan más de 500 ms sin una muestra nueva.
+
+Configuración física obligatoria de la BNO085: conectar `PS0=1` y `PS1=1` a `VCC` para seleccionar el modo SPI. Verificar también que CS, HINT y RESET compartan tierra con el ESP32.
