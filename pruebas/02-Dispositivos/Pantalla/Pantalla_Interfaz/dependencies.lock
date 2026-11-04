@@ -84,5 +84,5 @@ direct_dependencies:
 - espressif/esp_lcd_touch_stmpe610
 - lvgl/lvgl
 manifest_hash: aaf266a2d35ede6f604e8538b3439dfe464455e51040644c7b249c11c2f75cfe
-target: esp32
+target: esp32s3
 version: 3.0.0

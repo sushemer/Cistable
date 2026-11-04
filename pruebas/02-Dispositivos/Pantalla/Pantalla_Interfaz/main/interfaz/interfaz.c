@@ -28,6 +28,10 @@ static void mostrar_pantalla(int pantalla)
     for (int i = 0; i < NUM_PANTALLAS; i++) {
         lv_obj_add_flag(pantallas[i], LV_OBJ_FLAG_HIDDEN);
     }
+
+    // Pantalla de espera visible para validar el LCD sin datos ESP-NOW.
+    lv_obj_set_style_bg_color(pantallas[SIN_DATOS], lv_color_hex(0x003B5C), 0);
+    lv_obj_set_style_bg_opa(pantallas[SIN_DATOS], LV_OPA_COVER, 0);
     lv_obj_remove_flag(pantallas[pantalla], LV_OBJ_FLAG_HIDDEN);
 }
 
@@ -114,8 +118,8 @@ void interfaz_init(lv_display_t *disp)
     lv_bar_set_value(barra_nivel, 78, LV_ANIM_OFF);
     crear_texto(pantallas[NIVEL], "CISTERNA", 268, &lv_font_montserrat_24);
 
-    crear_texto(pantallas[SIN_DATOS], "SIN DATOS", 110, &lv_font_montserrat_48);
-    lv_obj_t *aviso = crear_texto(pantallas[SIN_DATOS], "ESPERANDO DATOS VALIDOS",
+    crear_texto(pantallas[SIN_DATOS], "ESPERANDO DATOS", 90, &lv_font_montserrat_48);
+    lv_obj_t *aviso = crear_texto(pantallas[SIN_DATOS], "ESP-NOW - CANAL 1",
                                 190, &lv_font_montserrat_24);
     lv_obj_set_style_text_color(aviso, lv_color_hex(0xCCCCCC), 0);
 

@@ -36,12 +36,12 @@ static const char *TAG = "example";
 //////////////////// Please update the following configuration according to your LCD spec //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (20 * 1000 * 1000)
-#define EXAMPLE_PIN_NUM_SCLK           18
-#define EXAMPLE_PIN_NUM_MOSI           19
+#define EXAMPLE_PIN_NUM_SCLK           12
+#define EXAMPLE_PIN_NUM_MOSI           11
 #define EXAMPLE_PIN_NUM_MISO           -1
-#define EXAMPLE_PIN_NUM_LCD_DC         21
-#define EXAMPLE_PIN_NUM_LCD_RST        22
-#define EXAMPLE_PIN_NUM_LCD_CS         4
+#define EXAMPLE_PIN_NUM_LCD_DC         9
+#define EXAMPLE_PIN_NUM_LCD_RST        8
+#define EXAMPLE_PIN_NUM_LCD_CS         10
 #define EXAMPLE_PIN_NUM_TOUCH_CS       15
 
 // The pixel number in horizontal and vertical
@@ -100,7 +100,6 @@ static void example_lvgl_port_update_callback(lv_display_t *disp)
 
 static void example_lvgl_flush_cb(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
 {
-    example_lvgl_port_update_callback(disp);
     esp_lcd_panel_handle_t panel_handle = lv_display_get_user_data(disp);
     int offsetx1 = area->x1;
     int offsetx2 = area->x2;
@@ -221,6 +220,7 @@ lv_display_t *display_init(void)
     // set the callback which can copy the rendered image to an area of the display
     lv_display_set_flush_cb(display, example_lvgl_flush_cb);
     lv_display_set_rotation(display, LV_DISPLAY_ROTATION_90);
+    example_lvgl_port_update_callback(display);
 
     ESP_LOGI(TAG, "Install LVGL tick timer");
     // Tick interface for LVGL (using esp_timer to generate 2ms periodic event)

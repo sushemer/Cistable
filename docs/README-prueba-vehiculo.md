@@ -27,6 +27,8 @@ Cabina: ESP32-S3 de Peralta con BNO085, GPS y ST7796S; se cablea de nuevo. Trase
 
 Pantalla sin touch ni SD; BL/VCC no tienen una tensión deducible del nombre ST7796S. Identificar breakout de pantalla, carrier BNO y modelo de GPS antes de conectar alimentación. El módulo WROOM usa 3.3 V y su lógica es 3.3 V; esto no determina la entrada VIN/5V de una placa de desarrollo. No aplicar lógica de 5 V a GPIO. Conservar alimentación previamente comprobada de Chris. [Tabla completa, restricciones de memoria/arranque y fuentes primarias](hardware-esp32s3.md).
 
+Sí existe un antecedente de alimentación de pantalla: el [README de la prueba original](../pruebas/02-Dispositivos/Pantalla/README.md) registra **VCC y BL a VIN, 4.8–4.9 V medidos**. Corresponde al módulo de aquel ensayo, no a una medición actual del S3. Confirmar que es la misma pantalla y comprobar la alimentación de la placa actual; no sustituir ese dato por una afirmación de que VCC y BL son de 3.3 V. BL no tiene GPIO/PWM asignado en el firmware integrado.
+
 Preparar placas/periféricos disponibles, cables de datos USB, computadora con dos puertos identificados, alimentación comprobada y sujeciones firmes. No hacen falta sensores adicionales. Identificar cada COM conectando una placa a la vez: `[System.IO.Ports.SerialPort]::GetPortNames()`. COM5 cabina y COM6 trasero son ejemplos: reemplazarlos. Confirmar qué conector va al puente UART0; no deducirlo por su posición en una foto.
 
 ## B. Perfiles y alcance

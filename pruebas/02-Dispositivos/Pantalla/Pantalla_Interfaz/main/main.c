@@ -286,7 +286,8 @@ void app_main(void)
     display_lock();
     interfaz_init(display);
 #if USAR_ESPNOW
-    interfaz_mostrar_inicio();
+    // Pantalla de prueba visible mientras no llegan paquetes ESP-NOW.
+    interfaz_mostrar_sin_datos();
 #else
     paso = 0;
     mostrar_paso_simulado();

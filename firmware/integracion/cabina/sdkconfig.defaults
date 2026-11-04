@@ -11,6 +11,9 @@ CONFIG_SPIRAM_MEMTEST=y
 CONFIG_SPIRAM_USE_CAPS_ALLOC=y
 # CONFIG_SPIRAM_IGNORE_NOTFOUND is not set
 CONFIG_FREERTOS_HZ=1000
+# app_main -> ci_live_model_config -> ci_virtual_derive -> geometry exceeds
+# the IDF default 3584-byte main stack (3744 bytes before math/runtime calls).
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
 CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y
 CONFIG_LV_CONF_SKIP=y
 CONFIG_LV_FONT_MONTSERRAT_24=y

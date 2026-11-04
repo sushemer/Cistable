@@ -33,6 +33,7 @@ class CleanProfiles(unittest.TestCase):
                     self.assertIn('CONFIG_ESP_CONSOLE_UART_BAUDRATE=921600', text)
                     self.assertIn('CONFIG_CI_BENCH_50HZ=y' if rate == 50 else '# CONFIG_CI_BENCH_50HZ is not set', text)
                     if project == 'cabina':
+                        self.assertIn('CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192', text)
                         self.assertIn('CONFIG_CI_PIPA_VIRTUAL=y', text)
                         self.assertIn('# CONFIG_CI_VIRTUAL_MOUNT_CONFIRMED is not set', text)
                         self.assertIn('# CONFIG_CI_VIRTUAL_LEVER is not set', text)

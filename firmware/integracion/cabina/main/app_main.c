@@ -164,6 +164,11 @@ void app_main(void) {
 #endif
     ESP_ERROR_CHECK(field_espnow_init(1)); /* The only radio init and RX callback. */
 #endif
+    /* IDF reports this high-water mark in bytes. Keep the boot observation in
+     * the capture too; it covers initialization, not a full dynamic stress test. */
+    snprintf(wiring_text,sizeof(wiring_text),"HW_STACK|task=main|allocated_bytes=%u|min_free_bytes=%u|scope=initialization",
+        (unsigned)CONFIG_ESP_MAIN_TASK_STACK_SIZE,(unsigned)uxTaskGetStackHighWaterMark(NULL));
+    config_record(wiring_text);
     ESP_LOGW(TAG,"ESP32-S3 N16R8 esperado, placa sin verificar: IMU/GPS/LCD independientes. Boton opcional GPIO%d; deshabilitado implica Modelo A.",CONFIG_CI_BUTTON_GPIO);
     int input_flags=fcntl(STDIN_FILENO,F_GETFL,0);
     if(input_flags>=0) fcntl(STDIN_FILENO,F_SETFL,input_flags|O_NONBLOCK);

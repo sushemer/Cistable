@@ -36,13 +36,13 @@ static const char *TAG = "example";
 //////////////////// Please update the following configuration according to your LCD spec //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (20 * 1000 * 1000)
-#define EXAMPLE_PIN_NUM_SCLK           18
-#define EXAMPLE_PIN_NUM_MOSI           19
-#define EXAMPLE_PIN_NUM_MISO           -1
-#define EXAMPLE_PIN_NUM_LCD_DC         21
-#define EXAMPLE_PIN_NUM_LCD_RST        22
-#define EXAMPLE_PIN_NUM_LCD_CS         4
-#define EXAMPLE_PIN_NUM_TOUCH_CS       15
+#define EXAMPLE_PIN_NUM_SCLK           12 //18
+#define EXAMPLE_PIN_NUM_MOSI           11 // 19
+#define EXAMPLE_PIN_NUM_MISO           -1 // -1
+#define EXAMPLE_PIN_NUM_LCD_DC         9 // 21 
+#define EXAMPLE_PIN_NUM_LCD_RST        8 // 22
+#define EXAMPLE_PIN_NUM_LCD_CS         10 // 4
+#define EXAMPLE_PIN_NUM_TOUCH_CS       15 // 15
 
 // The pixel number in horizontal and vertical
 #define EXAMPLE_LCD_H_RES              320

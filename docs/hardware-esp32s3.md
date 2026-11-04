@@ -81,6 +81,16 @@ acredita su tensión de alimentación. ST7796S identifica al controlador, no la
 alimentación de VCC/LED-BL del breakout. BNO085 identifica al circuito, no el
 regulador del carrier. Antes de conectar VCC de cabina identificar etiquetas y
 placas/manuales disponibles; no se inventa una tensión para esos módulos.
+
+Antecedente recuperado de la [prueba original de pantalla](../pruebas/02-Dispositivos/Pantalla/README.md):
+**VCC y BL se conectaron a VIN, con 4.8–4.9 V medidos en aquel montaje**, y BL
+permanecía encendido sin PWM. Ese dato sí está documentado; no equivale a una
+medición de alimentación de la placa S3 actual ni se aplica a todo ST7796S.
+Confirmar que se conserva el mismo módulo antes de reutilizar esa alimentación.
+Las fotos actuales muestran el conector SPI y los selectores IM0/IM1/IM2,
+pero no una especificación legible de tensión o referencia inequívoca del PCB.
+No dar por hecho que un pin llamado VIN/5V de otra placa es la misma salida.
+
 En Chris conservar sólo las conexiones y alimentación previamente comprobadas.
 No se proponen compras ni sensores adicionales.
 
