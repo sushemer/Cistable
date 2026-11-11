@@ -9,9 +9,117 @@
 #include "freertos/task.h"
 #include "espnow_receptor.h"
 #include <string.h>
+#include "esp_timer.h"
+#include "driver/gpio.h"
 
 #define USAR_ESPNOW 1
 #define EJECUTAR_PRUEBAS_TEMPORALES 0
+#define PIN_BOTON_SELECCION 23
+#define BOTON_DEBOUNCE_US 30000LL
+#define BOTON_LARGA_US 1000000LL
+
+typedef enum {
+    FASE_CALIBRACION,
+    FASE_SELECCION_CAMION,
+    FASE_OPERATIVA
+} fase_local_t;
+
+static fase_local_t fase = FASE_CALIBRACION;
+static modelo_camion_t camion_seleccionado = CAMION_1;
+static int64_t inicio_calibracion_us;
+static int64_t cero_visible_desde_us;
+static uint8_t segundo_visible = 15;
+static bool boton_candidato;
+static bool boton_estable;
+static bool boton_habilitado;
+static bool boton_pulsado;
+static int64_t boton_cambio_us;
+static int64_t boton_presionado_us;
+
+static void preparar_boton_seleccion(void)
+{
+    const gpio_config_t config = {
+        .pin_bit_mask = 1ULL << PIN_BOTON_SELECCION,
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    ESP_ERROR_CHECK(gpio_config(&config));
+}
+
+// Sondeo no bloqueante. Exige liberacion estable al entrar a seleccion.
+static void actualizar_boton_seleccion(void)
+{
+    int64_t ahora = esp_timer_get_time();
+    bool presionado = gpio_get_level(PIN_BOTON_SELECCION) == 0;
+    if (presionado != boton_candidato) {
+        boton_candidato = presionado;
+        boton_cambio_us = ahora;
+    }
+    if (ahora - boton_cambio_us < BOTON_DEBOUNCE_US) return;
+    if (!boton_habilitado) {
+        if (!presionado) {
+            boton_estable = false;
+            boton_habilitado = true;
+        }
+        return;
+    }
+    if (presionado != boton_estable) {
+        boton_estable = presionado;
+        if (presionado) {
+            boton_pulsado = true;
+            boton_presionado_us = boton_cambio_us;
+        } else if (boton_pulsado) {
+            boton_pulsado = false;
+            // Duracion hasta el comienzo de la liberacion ya confirmada.
+            if (boton_cambio_us - boton_presionado_us >= BOTON_LARGA_US) {
+                fase = FASE_OPERATIVA;
+            } else {
+                camion_seleccionado = camion_seleccionado == CAMION_1 ? CAMION_2 : CAMION_1;
+                interfaz_mostrar_seleccion(camion_seleccionado);
+            }
+        }
+    }
+    if (boton_estable && boton_pulsado && ahora - boton_presionado_us >= BOTON_LARGA_US) {
+        boton_pulsado = false;
+        fase = FASE_OPERATIVA;
+    }
+}
+
+// Un solo consumidor: tarea RX, o timer de simulacion cuando no se usa radio.
+// Llamar con bloqueo LVGL. No espera, ni consulta/modifica receptor_estado.
+static bool actualizar_fase_local(void)
+{
+    bool seleccion_previa = fase == FASE_SELECCION_CAMION;
+    if (seleccion_previa) {
+        actualizar_boton_seleccion();
+        if (fase == FASE_OPERATIVA) {
+            ESP_LOGI("arranque", "CAMION %u confirmado", (unsigned)camion_seleccionado + 1);
+            interfaz_confirmar_seleccion(camion_seleccionado);
+        }
+    }
+    if (fase == FASE_CALIBRACION) {
+        int64_t ahora = esp_timer_get_time();
+        int64_t transcurrido = ahora - inicio_calibracion_us;
+        uint8_t restante = transcurrido >= 15000000LL ? 0 :
+                          (uint8_t)(15 - transcurrido / 1000000LL);
+        if (restante != segundo_visible) {
+            interfaz_mostrar_calibracion(restante);
+            segundo_visible = restante;
+            if (restante == 0) cero_visible_desde_us = ahora;
+        }
+        if (restante == 0 && ahora - cero_visible_desde_us >= 200000LL) {
+            fase = FASE_SELECCION_CAMION;
+            boton_candidato = gpio_get_level(PIN_BOTON_SELECCION) == 0;
+            boton_cambio_us = ahora;
+            boton_habilitado = false;
+            boton_pulsado = false;
+            interfaz_mostrar_seleccion(camion_seleccionado);
+        }
+    }
+    return seleccion_previa && fase == FASE_OPERATIVA;
+}
 
 #if EJECUTAR_PRUEBAS_TEMPORALES
 
@@ -162,6 +270,7 @@ static void probar_protocolo(void)
 
 #if !USAR_ESPNOW
 static unsigned paso;
+static int64_t proximo_paso_us;
 static const uint32_t duraciones_ms[] = {2000, 3000, 3000, 3000, 4000, 3000};
 static const estado_sistema_t estados_simulados[] = {
     { MODO_EN_MOVIMIENTO, RIESGO_SEGURO,     78 },
@@ -224,9 +333,16 @@ static void mostrar_paso_simulado(void)
 // Ejecutado por lv_timer_handler(), bajo el bloqueo LVGL existente.
 static void simulacion_cb(lv_timer_t *timer)
 {
-    paso = (paso + 1) % 6;
-    mostrar_paso_simulado();
-    lv_timer_set_period(timer, duraciones_ms[paso]);
+    (void)timer;
+    bool confirmado = actualizar_fase_local();
+    if (fase != FASE_OPERATIVA) return;
+    int64_t ahora = esp_timer_get_time();
+    if (confirmado || ahora >= proximo_paso_us) {
+        // El arranque es local: la simulacion operativa recorre solo pasos 1..5.
+        paso = confirmado ? 1 : (paso % 5) + 1;
+        mostrar_paso_simulado();
+        proximo_paso_us = ahora + (int64_t)duraciones_ms[paso] * 1000;
+    }
 }
 #else
 // PENDIENTE: sustituir por la MAC STA real del emisor antes de la prueba.
@@ -257,6 +373,11 @@ static void tarea_recepcion(void *argumento)
             }
         }
         receptor_estado_actualizar_timeout();
+        display_lock();
+        bool confirmado = actualizar_fase_local();
+        display_unlock();
+        if (fase != FASE_OPERATIVA) continue;
+        if (confirmado) mostrado = false;
         estado_sistema_t actual;
         if (receptor_estado_obtener(&actual)) {
             bool cambio = !mostrado || actual.modo != anterior.modo ||
@@ -281,16 +402,16 @@ void app_main(void)
     probar_receptor();
 #endif
     lv_display_t *display = display_init();
+    preparar_boton_seleccion();
 
     ESP_LOGI("example", "Display LVGL Meter Widget");
     display_lock();
     interfaz_init(display);
-#if USAR_ESPNOW
-    interfaz_mostrar_inicio();
-#else
+    interfaz_mostrar_calibracion(15);
+    inicio_calibracion_us = esp_timer_get_time();
+#if !USAR_ESPNOW
     paso = 0;
-    mostrar_paso_simulado();
-    lv_timer_t *timer = lv_timer_create(simulacion_cb, duraciones_ms[paso], NULL);
+    lv_timer_t *timer = lv_timer_create(simulacion_cb, 50, NULL);
     LV_ASSERT_MALLOC(timer);
 #endif
     display_unlock();
