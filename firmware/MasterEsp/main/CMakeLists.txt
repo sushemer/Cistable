@@ -4,6 +4,8 @@ idf_component_register(
          "modules/gps/driver/gps_nmea.c" "modules/gps/driver/gps_speed.c"
          "modules/gps/driver/gps_validation.c" "modules/display/display_module.c"
          "modules/display/display_port.c" "modules/display/interface.c"
+         "modules/display/recursos/camion_pequeno.c"
+         "modules/display/recursos/camion_grande.c"
          "modules/pendulum/pendulum_module.c"
          "modules/imu/imu_module.cpp"
     INCLUDE_DIRS "." "modules/gps" "modules/gps/driver" "modules/display"

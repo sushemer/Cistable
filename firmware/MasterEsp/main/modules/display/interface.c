@@ -2,68 +2,119 @@
 
 #include <math.h>
 
-static lv_obj_t *s_title, *s_speed, *s_status, *s_ltr, *s_roll, *s_water;
+#include "driver/gpio.h"
+#include "recursos/camiones.h"
 
-static lv_obj_t *make_label(lv_obj_t *parent, int x, int y, int width,const lv_font_t *font, const char *initial){
-    lv_obj_t *label = lv_label_create(parent);
-    lv_label_set_text(label, initial);
-    lv_obj_set_pos(label, x, y);
-    lv_obj_set_width(label, width);
-    lv_obj_set_style_text_font(label, font, 0);
-    lv_obj_set_style_text_color(label, lv_color_white(), 0);
-    return label;
+#define TRUCK_SELECT_BUTTON_GPIO GPIO_NUM_1
+
+static lv_obj_t *s_risk_panel;
+static lv_obj_t *s_risk_text;
+static lv_obj_t *s_truck_small;
+static lv_obj_t *s_truck_large;
+static unsigned s_selected_truck;
+static bool s_button_was_pressed;
+
+static const lv_color_t COLOR_SAFE = LV_COLOR_MAKE(0x00, 0xA6, 0x3E);
+static const lv_color_t COLOR_CAUTION = LV_COLOR_MAKE(0xFF, 0xB0, 0x00);
+static const lv_color_t COLOR_DANGER = LV_COLOR_MAKE(0xD5, 0x00, 0x00);
+static const lv_color_t COLOR_NO_DATA = LV_COLOR_MAKE(0x45, 0x4B, 0x50);
+
+static void apply_truck_selection(void)
+{
+    const bool small_selected = s_selected_truck == 0U;
+    lv_obj_set_style_image_opa(s_truck_small, small_selected ? LV_OPA_COVER : LV_OPA_30, 0);
+    lv_obj_set_style_image_opa(s_truck_large, small_selected ? LV_OPA_30 : LV_OPA_COVER, 0);
 }
 
-void interface_init(lv_display_t *display){
+static void select_next_truck(void)
+{
+    s_selected_truck = (s_selected_truck + 1U) % 2U;
+    apply_truck_selection();
+}
+
+void interface_poll_truck_button(void)
+{
+    const bool pressed = gpio_get_level(TRUCK_SELECT_BUTTON_GPIO) == 0;
+    if (pressed && !s_button_was_pressed) {
+        select_next_truck();
+    }
+    s_button_was_pressed = pressed;
+}
+
+void interface_init(lv_display_t *display)
+{
     lv_obj_t *screen = lv_display_get_screen_active(display);
-    lv_obj_set_style_bg_color(screen, lv_color_hex(0x101820), 0);
-    lv_obj_set_style_text_color(screen, lv_color_white(), 0);
+    lv_obj_set_style_bg_color(screen, lv_color_black(), 0);
+    lv_obj_set_style_bg_opa(screen, LV_OPA_COVER, 0);
     lv_obj_remove_flag(screen, LV_OBJ_FLAG_SCROLLABLE);
-    s_title = make_label(screen, 12, 8, 456, LV_FONT_DEFAULT, "CISTABLE | CABINA");
-    s_speed = make_label(screen, 20, 52, 440, LV_FONT_DEFAULT, "Speed: --.- mph");
-    s_status = make_label(screen, 20, 116, 440, LV_FONT_DEFAULT, "Esperando datos");
-    s_ltr = make_label(screen, 20, 158, 440, LV_FONT_DEFAULT, "LTR: --");
-    s_roll = make_label(screen, 20, 198, 440, LV_FONT_DEFAULT, "Roll: --.- deg");
-    s_water = make_label(screen, 20, 238, 440, LV_FONT_DEFAULT, "Agua: -- gal");
+
+    gpio_config_t button_config = {
+        .pin_bit_mask = 1ULL << TRUCK_SELECT_BUTTON_GPIO,
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    ESP_ERROR_CHECK(gpio_config(&button_config));
+
+    s_risk_panel = lv_obj_create(screen);
+    lv_obj_remove_style_all(s_risk_panel);
+    lv_obj_set_pos(s_risk_panel, 24, 24);
+    lv_obj_set_size(s_risk_panel, 432, 190);
+    lv_obj_set_style_bg_opa(s_risk_panel, LV_OPA_COVER, 0);
+    lv_obj_set_style_radius(s_risk_panel, 12, 0);
+    lv_obj_remove_flag(s_risk_panel, LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_CLICKABLE);
+
+    s_risk_text = lv_label_create(s_risk_panel);
+    lv_obj_set_style_text_font(s_risk_text, LV_FONT_DEFAULT, 0);
+    lv_obj_set_style_text_align(s_risk_text, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_center(s_risk_text);
+
+    s_truck_small = lv_image_create(screen);
+    lv_image_set_src(s_truck_small, &camion_pequeno);
+    lv_obj_align(s_truck_small, LV_ALIGN_BOTTOM_LEFT, 60, -18);
+
+    s_truck_large = lv_image_create(screen);
+    lv_image_set_src(s_truck_large, &camion_grande);
+    lv_obj_align(s_truck_large, LV_ALIGN_BOTTOM_RIGHT, -60, -18);
+
+    lv_label_set_text(s_risk_text, "SIN DATOS");
+    lv_obj_set_style_bg_color(s_risk_panel, COLOR_NO_DATA, 0);
+    lv_obj_set_style_text_color(s_risk_text, lv_color_white(), 0);
+    apply_truck_selection();
 }
 
-void interface_update(const gps_module_snapshot_t *gps, const display_telemetry_t *telemetry){
+void interface_update(const gps_module_snapshot_t *gps,
+                      const display_telemetry_t *telemetry)
+{
     (void)gps;
     if (telemetry == NULL) return;
-    const bool moving = telemetry->speed_kmh >= 3.0f;
+
+    const bool has_sensor_data = telemetry->imu_local_ok || telemetry->imu_remote_ok;
     const float abs_ltr = fabsf(telemetry->ltr);
-    const bool blink = (lv_tick_get() / 500U) % 2U != 0U;
-    lv_color_t color = lv_color_hex(0xFFFFFF);
-    const char *status = "DETENIDO";
+    const float abs_roll = fabsf(telemetry->roll_deg);
+    const bool moving = telemetry->speed_kmh >= 3.0f;
 
-    if (telemetry->static_risk && !moving) {
-        status = blink ? "RIESGO ESTATICO" : "DETENGA Y ASEGURE";
-        color = lv_color_hex(blink ? 0xFF2020 : 0xFFC107);
-    } else if (moving && abs_ltr >= 0.60f) {
-        status = "PELIGRO CRITICO";
-        color = lv_color_hex(0xFF2020);
-    } else if (moving && abs_ltr >= 0.35f) {
-        status = "PRECAUCION";
-        color = lv_color_hex(0xFFC107);
-    } else if (moving) {
-        status = "SEGURO";
-        color = lv_color_hex(0x20D060);
+    lv_color_t panel_color = COLOR_NO_DATA;
+    lv_color_t text_color = lv_color_white();
+    const char *status = "SIN DATOS";
+    if (has_sensor_data) {
+        if ((moving && abs_ltr >= 0.60f) || abs_roll >= 15.0f) {
+            status = "PELIGRO";
+            panel_color = COLOR_DANGER;
+        } else if ((moving && abs_ltr >= 0.35f) || abs_roll >= 8.0f || telemetry->static_risk) {
+            status = "PRECAUCION";
+            panel_color = COLOR_CAUTION;
+            text_color = lv_color_black();
+        } else {
+            status = "SEGURO";
+            panel_color = COLOR_SAFE;
+        }
     }
 
-    lv_obj_set_style_text_color(s_title, color, 0);
-    lv_obj_set_style_text_color(s_status, color, 0);
-    lv_obj_set_style_text_color(s_ltr, color, 0);
-    lv_obj_set_style_text_color(s_roll, color, 0);
-    lv_label_set_text_fmt(s_speed, "Speed: %.1f mph", telemetry->speed_kmh * 0.6213711922f);
-    lv_label_set_text_fmt(s_status, "%s | IMU %s/%s", status,
-                          telemetry->imu_local_ok ? "OK" : "FALLA",
-                          telemetry->imu_remote_ok ? "OK" : "FALLA");
-    lv_label_set_text_fmt(s_ltr, "LTR: %+.3f", telemetry->ltr);
-    lv_label_set_text_fmt(s_roll, "Roll: %+.1f deg", telemetry->roll_deg);
-    if (telemetry->water_ok) {
-        lv_label_set_text_fmt(s_water, "Agua: %.1f gal (%.0f%%)",
-                              telemetry->water_gallons, telemetry->water_percent);
-    } else {
-        lv_label_set_text(s_water, "Agua: sin lectura");
-    }
+    lv_obj_set_style_bg_color(s_risk_panel, panel_color, 0);
+    lv_obj_set_style_text_color(s_risk_text, text_color, 0);
+    lv_label_set_text(s_risk_text, status);
+    lv_obj_center(s_risk_text);
+    apply_truck_selection();
 }

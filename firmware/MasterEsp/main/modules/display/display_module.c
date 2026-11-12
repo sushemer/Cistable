@@ -22,6 +22,7 @@ void display_module_start(void){
 void display_module_update(const gps_module_snapshot_t *gps,
                            const display_telemetry_t *telemetry){
     display_lock();
+    interface_poll_truck_button();
     interface_update(gps, telemetry);
     display_unlock();
 }
