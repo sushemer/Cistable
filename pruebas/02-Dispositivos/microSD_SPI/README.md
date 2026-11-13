@@ -76,7 +76,7 @@ La numeración toma el archivo mayor existente y crea el siguiente, incluso si
 se borra un archivo intermedio. El formato es:
 
 ```text
-registro;time_us;origen;linea_original
+registro;time_us;fecha_hora_local;origen;linea_original
 ```
 
 Estas líneas son simuladas y sirven únicamente para comprobar la tarjeta, el

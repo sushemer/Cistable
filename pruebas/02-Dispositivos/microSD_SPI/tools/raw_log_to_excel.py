@@ -16,20 +16,20 @@ KEY_VALUE_RE = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)=([^,\s]+)")
 
 SHEETS = {
     "IMU1": ("IMU1_Frontal", [
-        "registro", "time_us", "roll_deg", "pitch_deg", "yaw_deg",
+        "registro", "time_us", "fecha_hora_local", "roll_deg", "pitch_deg", "yaw_deg",
         "accel_x", "accel_y", "accel_z", "gyro_x", "gyro_y", "gyro_z",
         "ltr", "ltr_valido",
     ]),
     "IMU2": ("IMU2_Trasera", [
-        "registro", "time_us", "roll_deg", "pitch_deg", "ay_m_s2",
+        "registro", "time_us", "fecha_hora_local", "roll_deg", "pitch_deg", "ay_m_s2",
         "ltr", "ltr_valido", "status_flags",
     ]),
     "IMU_A": ("IMU_A_Combinada", [
-        "registro", "time_us", "roll_deg", "ay_m_s2", "ltr",
+        "registro", "time_us", "fecha_hora_local", "roll_deg", "ay_m_s2", "ltr",
         "sensores_usados", "calculo_valido",
     ]),
     "GPS": ("GPS", [
-        "registro", "time_us", "lat_deg", "lon_deg", "speed_kmh",
+        "registro", "time_us", "fecha_hora_local", "lat_deg", "lon_deg", "speed_kmh",
         "fix", "satellites", "hdop", "ltr", "telemetry_roll_deg",
     ]),
 }
@@ -71,15 +71,20 @@ def read_raw(path: Path):
     for raw in path.read_text(encoding="utf-8", errors="replace").splitlines():
         if not raw or raw.startswith("registro;"):
             continue
-        parts = raw.split(";", 3)
-        if len(parts) != 4:
+        parts = raw.split(";", 4)
+        if len(parts) not in (4, 5):
             yield {"tipo": "OTRO", "linea_original": raw}
             continue
-        record, time_us, origin, original = parts
+        if len(parts) == 5:
+            record, time_us, local_time, origin, original = parts
+        else:
+            record, time_us, origin, original = parts
+            local_time = ""
         parsed = parse_line(original)
         parsed.update({
             "registro": parse_value(record),
             "time_us": parse_value(time_us),
+            "fecha_hora_local": local_time,
             "origen": origin,
             "linea_original": original,
         })
@@ -130,28 +135,28 @@ def create_workbook(raw_path: Path, output_path: Path):
         summary.append([
             sheet_name,
             f'=COUNTA(\'{sheet_name}\'!A:A)-1',
-            f'=COUNTIF(\'{sheet_name}\'!L:L,1)' if kind == "IMU1" else
-            f'=COUNTIF(\'{sheet_name}\'!G:G,1)' if kind in ("IMU2", "IMU_A") else
-            f'=COUNTIF(\'{sheet_name}\'!F:F,1)',
-            f'=IFERROR(AVERAGE(\'{sheet_name}\'!L:L),"")' if kind == "IMU1" else
-            f'=IFERROR(AVERAGE(\'{sheet_name}\'!F:F),"")' if kind == "IMU2" else
-            f'=IFERROR(AVERAGE(\'{sheet_name}\'!E:E),"")' if kind == "IMU_A" else
-            f'=IFERROR(AVERAGE(\'{sheet_name}\'!I:I),"")',
+            f'=COUNTIF(\'{sheet_name}\'!N:N,1)' if kind == "IMU1" else
+            f'=COUNTIF(\'{sheet_name}\'!H:H,1)' if kind in ("IMU2", "IMU_A") else
+            f'=COUNTIF(\'{sheet_name}\'!G:G,1)',
+            f'=IFERROR(AVERAGE(\'{sheet_name}\'!M:M),"")' if kind == "IMU1" else
+            f'=IFERROR(AVERAGE(\'{sheet_name}\'!G:G),"")' if kind == "IMU2" else
+            f'=IFERROR(AVERAGE(\'{sheet_name}\'!F:F),"")' if kind == "IMU_A" else
+            f'=IFERROR(AVERAGE(\'{sheet_name}\'!J:J),"")',
         ])
 
     event_ws = wb.create_sheet("Estados_Eventos")
-    event_headers = ["registro", "time_us", "origen", "evento", "detalle", "linea_original"]
+    event_headers = ["registro", "time_us", "fecha_hora_local", "origen", "evento", "detalle", "linea_original"]
     event_ws.append(event_headers)
     for row in rows:
         if row.get("tipo") == "EVENT":
             event_ws.append([
-                row.get("registro", ""), row.get("time_us", ""), row.get("origen", ""),
+                row.get("registro", ""), row.get("time_us", ""), row.get("fecha_hora_local", ""), row.get("origen", ""),
                 row.get("event", ""), row.get("detail", ""), row.get("linea_original", ""),
             ])
     style_sheet(event_ws, event_headers)
 
     raw_ws = wb.create_sheet("Crudo")
-    raw_headers = ["registro", "time_us", "origen", "linea_original"]
+    raw_headers = ["registro", "time_us", "fecha_hora_local", "origen", "linea_original"]
     raw_ws.append(raw_headers)
     for row in rows:
         raw_ws.append([row.get(header, "") for header in raw_headers])
