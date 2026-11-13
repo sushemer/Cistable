@@ -25,8 +25,7 @@ static bool s_last_rssi_valid;
 static imu_bno085_sample_t s_front_imu;
 static int64_t s_last_master_record_us;
 
-static void apply_tank_payload(const TankPayload *payload)
-{
+static void apply_tank_payload(const TankPayload *payload){
     s_rear_data = *payload;
     s_rx_sequence++;
     s_last_rx_us = esp_timer_get_time();
@@ -36,8 +35,7 @@ static void apply_tank_payload(const TankPayload *payload)
              payload->sensor_status_flags, s_rx_sequence);
 }
 
-static void emit_master_record(void)
-{
+static void emit_master_record(void){
     gps_module_snapshot_t gps = {0};
     const bool have_gps = gps_module_get_snapshot(&gps);
     const bool online = s_last_rx_us > 0 && esp_timer_get_time() - s_last_rx_us <= 3000000;
