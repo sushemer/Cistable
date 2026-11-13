@@ -9,6 +9,9 @@ configuracion-local/*.h
 __pycache__/
 *.pyc
 build/
+sdkconfig
+sdkconfig.old
+.pytest_cache/
 .pio/
 
 # Datos temporales y archivos de IDE
