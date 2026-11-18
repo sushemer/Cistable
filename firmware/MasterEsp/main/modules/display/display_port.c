@@ -44,7 +44,8 @@ static const char *TAG = "example";
 /* Pinout del LCD ST7796S en SPI2, libre de conflicto con GPS y la IMU frontal. */
 #define EXAMPLE_PIN_NUM_SCLK           12
 #define EXAMPLE_PIN_NUM_MOSI           11
-#define EXAMPLE_PIN_NUM_MISO           -1
+/* Keep MISO on the shared SPI2 bus for the microSD logger. */
+#define EXAMPLE_PIN_NUM_MISO           13
 #define EXAMPLE_PIN_NUM_LCD_DC         9
 #define EXAMPLE_PIN_NUM_LCD_RST        8
 #define EXAMPLE_PIN_NUM_LCD_CS         10
@@ -173,7 +174,11 @@ lv_display_t *display_init(void)
         .quadhd_io_num = -1,
         .max_transfer_sz = EXAMPLE_LCD_H_RES * 80 * sizeof(uint16_t),
     };
-    ESP_ERROR_CHECK(spi_bus_initialize(LCD_HOST, &buscfg, SPI_DMA_CH_AUTO));
+    /* The SD logger may initialize SPI2 first. Reuse that bus when present. */
+    esp_err_t spi_result = spi_bus_initialize(LCD_HOST, &buscfg, SPI_DMA_CH_AUTO);
+    if (spi_result != ESP_OK && spi_result != ESP_ERR_INVALID_STATE) {
+        ESP_ERROR_CHECK(spi_result);
+    }
 
     ESP_LOGI(TAG, "Install panel IO");
     esp_lcd_panel_io_handle_t io_handle = NULL;

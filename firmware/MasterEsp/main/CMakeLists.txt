@@ -8,7 +8,8 @@ idf_component_register(
          "modules/display/recursos/camion_grande.c"
          "modules/pendulum/pendulum_module.c"
          "modules/imu/imu_module.cpp"
+         "modules/sd_logger/sd_logger.c"
     INCLUDE_DIRS "." "modules/gps" "modules/gps/driver" "modules/display"
-                 "modules/ltr" "modules/pendulum"
-    REQUIRES field_espnow imu_bno085 esp_timer esp_wifi driver lvgl esp_lcd_st7796
+                 "modules/ltr" "modules/pendulum" "modules/sd_logger"
+    REQUIRES field_espnow imu_bno085 esp_timer esp_wifi driver fatfs sdmmc lvgl esp_lcd_st7796
 )

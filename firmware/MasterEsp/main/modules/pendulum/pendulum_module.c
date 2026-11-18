@@ -38,15 +38,29 @@ bool pendulum_simulate_step(const pendulum_model_t *model,
                             float inertia_about_pivot_kg_m2,
                             float dt_s)
 {
+    return pendulum_simulate_vehicle_step(model, state, inertia_about_pivot_kg_m2,
+                                          0.0f, 0.0f, dt_s);
+}
+
+bool pendulum_simulate_vehicle_step(const pendulum_model_t *model,
+                                    pendulum_state_t *state,
+                                    float inertia_about_pivot_kg_m2,
+                                    float chassis_roll_rad,
+                                    float lateral_accel_m_s2,
+                                    float dt_s)
+{
     if (model == NULL || state == NULL || !valid_positive(model->mass_kg) ||
         !valid_positive(model->pivot_to_cg_m) || !valid_positive(model->gravity_m_s2) ||
         !valid_positive(inertia_about_pivot_kg_m2) || !valid_positive(dt_s) ||
-        !isfinite(model->damping_coefficient) || !isfinite(state->angle_rad) ||
+        !isfinite(model->damping_coefficient) || !isfinite(chassis_roll_rad) ||
+        !isfinite(lateral_accel_m_s2) || !isfinite(state->angle_rad) ||
         !isfinite(state->angular_rate_rad_s)) return false;
 
+    const float absolute_angle_rad = state->angle_rad + chassis_roll_rad;
     const float angular_acceleration =
-        -(model->mass_kg * model->gravity_m_s2 * model->pivot_to_cg_m /
-          inertia_about_pivot_kg_m2) * sinf(state->angle_rad) -
+        -(model->mass_kg * model->pivot_to_cg_m / inertia_about_pivot_kg_m2) *
+            (model->gravity_m_s2 * sinf(absolute_angle_rad) +
+             lateral_accel_m_s2 * cosf(absolute_angle_rad)) -
         model->damping_coefficient * state->angular_rate_rad_s;
     state->angular_rate_rad_s += angular_acceleration * dt_s;
     state->angle_rad += state->angular_rate_rad_s * dt_s;
