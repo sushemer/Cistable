@@ -27,6 +27,9 @@
 #define SD_LOGGER_RUN_PREFIX     "RAW_"
 #define SD_LOGGER_RAW_EXTENSION  ".LOG"
 
+#define SD_LOGGER_STARTUP_ATTEMPTS 3U
+#define SD_LOGGER_STARTUP_RETRY_MS 1000U
+
 static const char *TAG = "SD_LOGGER";
 static FILE *s_raw_file;
 static FILE *s_imu1_file;
@@ -38,7 +41,7 @@ static FILE *s_other_file;
 static char s_run_path[64];
 static unsigned s_record = 0;
 #define SD_LOGGER_CSV_SEPARATOR ','
-#define SD_LOGGER_FIRST_ATTEMPT BIT0
+#define SD_LOGGER_STARTUP_COMPLETE BIT0
 
 // La cola evita acceso simultáneo de sensor_task/gui_task a FAT y esperas de disco.
 typedef struct {
@@ -138,6 +141,15 @@ static void write_structured_row(FILE *file, unsigned record, int64_t time_us,
         field_value(line, "ay_m_s2=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "sensors_used=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "max_safe_speed_kmh=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "min_turn_radius_m=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "predicted_ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "speed_turn_risk=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "dynamic_risk=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "pitch_deg=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "pitch_ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "predicted_pitch_ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "pitch_risk=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
     } else if (strcmp(origin, "GPS") == 0) {
         field_value(line, "time_us=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "SIM=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
@@ -157,6 +169,15 @@ static void write_structured_row(FILE *file, unsigned record, int64_t time_us,
         field_value(line, "espnow_status=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "static_risk=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "max_safe_speed_kmh=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "min_turn_radius_m=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "predicted_ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "speed_turn_risk=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "dynamic_risk=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "pitch_deg=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "pitch_ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "predicted_pitch_ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "pitch_risk=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
     }
 
     csv_text(file, line);
@@ -287,9 +308,9 @@ static bool open_log_file(void)
     fprintf(s_raw_file, "registro;time_us;fecha_hora_local;origen;linea_original\n");
     fprintf(s_imu1_file, "registro,time_us,fecha,hora,imu_time_us,sim,roll_deg,pitch_deg,yaw_deg,accel_x,accel_y,accel_z,gyro_x,gyro_y,gyro_z,ltr,valid,linea_original\n");
     fprintf(s_imu2_file, "registro,time_us,fecha,hora,imu_time_us,sim,roll_deg,pitch_deg,ay_m_s2,water_level_cm,status_flags,ltr,valid,linea_original\n");
-    fprintf(s_imu_a_file, "registro,time_us,fecha,hora,imu_time_us,sim,roll_deg,ay_m_s2,ltr,sensors_used,linea_original\n");
+    fprintf(s_imu_a_file, "registro,time_us,fecha,hora,imu_time_us,sim,roll_deg,ay_m_s2,ltr,sensors_used,max_safe_speed_kmh,min_turn_radius_m,predicted_ltr,speed_turn_risk,dynamic_risk,pitch_deg,pitch_ltr,predicted_pitch_ltr,pitch_risk,linea_original\n");
     fprintf(s_gps_file, "registro,time_us,fecha,hora,gps_time_us,sim,lat_deg,lon_deg,speed_kmh,speed_mph,fix,satellites,hdop,ltr,telemetry_roll_deg,linea_original\n");
-    fprintf(s_event_file, "registro,time_us,fecha,hora,sim,gps_status,imu_status,espnow_status,ltr,static_risk,linea_original\n");
+    fprintf(s_event_file, "registro,time_us,fecha,hora,sim,gps_status,imu_status,espnow_status,ltr,static_risk,max_safe_speed_kmh,min_turn_radius_m,predicted_ltr,speed_turn_risk,dynamic_risk,pitch_deg,pitch_ltr,predicted_pitch_ltr,pitch_risk,linea_original\n");
     fprintf(s_other_file, "registro,time_us,fecha,hora,linea_original\n");
 
     FILE *all_files[] = {s_raw_file, s_imu1_file, s_imu2_file, s_imu_a_file,
@@ -308,7 +329,7 @@ static bool open_log_file(void)
     return true;
 }
 
-static bool mount_with_pins(int sck_gpio, int mosi_gpio, int miso_gpio, int cs_gpio)
+static bool mount_with_pins(int cs_gpio)
 {
     esp_vfs_fat_sdmmc_mount_config_t mount_config = {
         .format_if_mount_failed = false,
@@ -320,25 +341,7 @@ static bool mount_with_pins(int sck_gpio, int mosi_gpio, int miso_gpio, int cs_g
     host.slot = SD_LOGGER_SPI_HOST;
     host.max_freq_khz = SD_LOGGER_MAX_FREQ_KHZ;
 
-    spi_bus_config_t bus_config = {
-        .mosi_io_num = mosi_gpio,
-        .miso_io_num = miso_gpio,
-        .sclk_io_num = sck_gpio,
-        .quadwp_io_num = -1,
-        .quadhd_io_num = -1,
-        .max_transfer_sz = SD_LOGGER_MAX_TRANSFER_BYTES,
-    };
-
-    esp_err_t error = ESP_OK;
-    // Si la pantalla ya abrió SPI2, devuelve ESP_ERR_INVALID_STATE y se
-    // reutiliza el bus. Si la pantalla está desactivada, aquí se crea el bus.
-    // La tarjeta transfiere sectores de 512 bytes; el bus sin DMA limita la
-    // transferencia y provoca errores al montar, así que se usa el DMA SDSPI.
-    error = spi_bus_initialize(host.slot, &bus_config, SDSPI_DEFAULT_DMA);
-    if (error != ESP_OK && error != ESP_ERR_INVALID_STATE) {
-        ESP_LOGE(TAG, "No se pudo inicializar SPI de microSD: %s", esp_err_to_name(error));
-        return false;
-    }
+    esp_err_t error;
 
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
     slot_config.gpio_cs = cs_gpio;
@@ -365,12 +368,9 @@ static bool mount_log(void)
     ESP_LOGI(TAG, "Probando SPI microSD principal: SCK=%d MOSI=%d MISO=%d CS=%d",
              SD_LOGGER_SCK_GPIO, SD_LOGGER_MOSI_GPIO,
              SD_LOGGER_MISO_GPIO, SD_LOGGER_CS_GPIO);
-    if (mount_with_pins(SD_LOGGER_SCK_GPIO, SD_LOGGER_MOSI_GPIO,
-                        SD_LOGGER_MISO_GPIO, SD_LOGGER_CS_GPIO)) {
+    if (mount_with_pins(SD_LOGGER_CS_GPIO)) {
         return true;
     }
-    // El modo de prueba y el modo integrado usan perfiles fijos distintos;
-    // no se prueban pines alternativos a ciegas.
     return false;
 }
 
@@ -407,22 +407,36 @@ static bool write_line(const sd_log_message_t *message)
 static void writer_task(void *arg)
 {
     (void)arg;
-    gpio_set_direction(SD_LOGGER_CS_GPIO, GPIO_MODE_OUTPUT);
-    gpio_set_level(SD_LOGGER_CS_GPIO, 1);
-    if (SD_LOGGER_LCD_CS_GPIO >= 0) {
-        gpio_set_direction(SD_LOGGER_LCD_CS_GPIO, GPIO_MODE_OUTPUT);
-        gpio_set_level(SD_LOGGER_LCD_CS_GPIO, 1);
-    }
-    while (true) {
-        const bool mounted = mount_log();
-        s_ready = mounted;
-        xEventGroupSetBits(s_events, SD_LOGGER_FIRST_ATTEMPT);
-        if (!mounted) {
-            ESP_LOGW(TAG, "MicroSD no disponible; reintento en 5 segundos");
-            vTaskDelay(pdMS_TO_TICKS(5000));
-            continue;
+    esp_log_level_set("sdmmc_cmd", ESP_LOG_DEBUG);
+    bool mounted = false;
+    for (unsigned attempt = 1; attempt <= SD_LOGGER_STARTUP_ATTEMPTS; ++attempt) {
+        mounted = mount_log();
+        if (mounted) break;
+        if (attempt < SD_LOGGER_STARTUP_ATTEMPTS) {
+            vTaskDelay(pdMS_TO_TICKS(SD_LOGGER_STARTUP_RETRY_MS));
         }
-        ESP_LOGI(TAG, "MicroSD lista; escritura en segundo plano a 4 MHz");
+    }
+    s_ready = mounted;
+    xEventGroupSetBits(s_events, SD_LOGGER_STARTUP_COMPLETE);
+    if (!mounted) {
+        ESP_LOGW(TAG, "MicroSD no disponible tras %u intentos; se habilita la pantalla y se detienen los reintentos para compartir SPI",
+                 (unsigned)SD_LOGGER_STARTUP_ATTEMPTS);
+        vTaskDelete(NULL);
+        return;
+    }
+
+    ESP_LOGI(TAG, "MicroSD lista; escritura en segundo plano a %u kHz",
+             (unsigned)SD_LOGGER_MAX_FREQ_KHZ);
+    while (true) {
+        if (!s_ready) {
+            mounted = mount_log();
+            s_ready = mounted;
+            if (!mounted) {
+                ESP_LOGW(TAG, "MicroSD desconectada; reintento en 5 segundos");
+                vTaskDelay(pdMS_TO_TICKS(5000));
+                continue;
+            }
+        }
         sd_log_message_t message;
         while (xQueueReceive(s_queue, &message, portMAX_DELAY) == pdTRUE) {
             if (!write_line(&message)) break;
@@ -460,7 +474,7 @@ bool sd_logger_start(void)
 void sd_logger_wait_startup(void)
 {
     if (s_events != NULL) {
-        xEventGroupWaitBits(s_events, SD_LOGGER_FIRST_ATTEMPT, pdFALSE, pdTRUE, portMAX_DELAY);
+        xEventGroupWaitBits(s_events, SD_LOGGER_STARTUP_COMPLETE, pdFALSE, pdTRUE, portMAX_DELAY);
     }
 }
 
@@ -491,4 +505,3 @@ void sd_logger_logf(const char *tag, const char *format, ...)
     ESP_LOGI(tag, "%s", line);
     if (length >= 0 && (size_t)length < sizeof(line)) (void)sd_logger_write_line(line);
 }
-

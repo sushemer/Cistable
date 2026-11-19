@@ -31,3 +31,9 @@ bool ltr_calculate(const ltr_config_t *config,
                    float roll_deg,
                    float lateral_accel_m_s2,
                    ltr_result_t *result);
+
+/* Maximum lateral acceleration magnitude before either turn direction reaches |LTR|. */
+bool ltr_max_safe_lateral_accel(const ltr_config_t *config,
+                               float roll_deg,
+                               float ltr_limit,
+                               float *max_accel_m_s2);
