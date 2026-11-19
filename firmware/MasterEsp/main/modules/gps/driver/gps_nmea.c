@@ -2,6 +2,7 @@
 
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #define NMEA_LINE_SIZE 128U
@@ -90,6 +91,17 @@ static bool parse_time_of_day(const char *text, uint32_t *time_ms){
     return true;
 }
 
+// Convierte la fecha RMC ddmmyy a componentes de calendario.
+static bool parse_date(const char *text, uint16_t *year, uint8_t *month, uint8_t *day){
+    unsigned d = 0, m = 0, y = 0;
+    if (text == NULL || strlen(text) != 6 || sscanf(text, "%2u%2u%2u", &d, &m, &y) != 3) return false;
+    if (d < 1 || d > 31 || m < 1 || m > 12) return false;
+    *day = (uint8_t)d;
+    *month = (uint8_t)m;
+    *year = (uint16_t)(y >= 80 ? 1900 + y : 2000 + y);
+    return true;
+}
+
 // Convierte coordenadas NMEA grados/minutos a grados decimales con signo.
 static bool coordinate_to_degrees(const char *value, const char *hemisphere, bool latitude, float *result){
     float raw = 0.0f;
@@ -172,7 +184,11 @@ bool gps_nmea_process_line( gps_sample_t *sample, const char *line, int64_t rece
                         coordinate_to_degrees(fields[5], fields[6], false, &lon), speed_ok = parse_float(fields[7], &speed_knots) && speed_knots >= 0.0f,
                         course_ok = fields[8][0] == '\0' || (parse_float(fields[8], &course) && course >= 0.0f && course <= 360.0f);
 
+        uint16_t year = 0;
+        uint8_t month = 0, day = 0;
+        const bool date_ok = count > 9 && parse_date(fields[9], &year, &month, &day);
         sample->has_rmc = time_ok;
+        sample->rmc_date_valid = date_ok;
         sample->rmc_status_valid = fields[2][0] == 'A' && fields[2][1] == '\0';
         sample->rmc_data_valid = time_ok && position_ok && speed_ok && course_ok;
         sample->rmc_received_us = received_us;
@@ -180,6 +196,11 @@ bool gps_nmea_process_line( gps_sample_t *sample, const char *line, int64_t rece
             sample->rmc_time_of_day_ms = tod_ms;
             result->has_time = true;
             result->time_of_day_ms = tod_ms;
+        }
+        if (date_ok) {
+            sample->rmc_year = year;
+            sample->rmc_month = month;
+            sample->rmc_day = day;
         }
         if (position_ok) {
             sample->latitude_deg = lat;

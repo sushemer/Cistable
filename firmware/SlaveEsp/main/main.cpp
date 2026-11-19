@@ -50,11 +50,12 @@
 #define SENSOR_ON_TIME_MS 5000U
 #define SENSOR_OFF_TIME_MS 60000U
 #define MODBUS_POLL_PERIOD_MS 1000U
-#define FULL_TANK_VALUE 117.0f
+#define FULL_TANK_VALUE 120.0f
 #define PENDULUM_UPPER_VALUE (FULL_TANK_VALUE * 0.75f)
 #define EMPTY_TANK_VALUE (FULL_TANK_VALUE * 0.10f)
 #define LEVEL_HYSTERESIS 5.0f
 #define REPORT_INTERVAL_US 10000UL
+#define ESPNOW_SEND_INTERVAL_MS 20U
 #define ESPNOW_CHANNEL 1
 
 static const char* TAG = "TANQUE";
@@ -271,6 +272,7 @@ static void rs485_task(void*)
 
 static void esp_now_task(void*)
 {
+    uint32_t log_counter = 0;
     while (true) {
         TankPayload payload = {};
         portENTER_CRITICAL(&state_mux);
@@ -283,17 +285,18 @@ static void esp_now_task(void*)
         payload.sensor_status_flags = (imu1_ok ? STATUS_IMU1_OK : 0) |
                                       (rs485_valid ? STATUS_RS485_OK : 0);
         portEXIT_CRITICAL(&state_mux);
-        ESP_LOGI(TAG,
-                 "Enviando sensores: IMU[roll=%.3f, pitch=%.3f, ay=%.3f] "
-                 "nivel=%.3f estado=0x%02X",
-                 payload.roll_1, payload.pitch_1, payload.ay_1,
-                 payload.water_level, payload.sensor_status_flags);
+        if (++log_counter % 100U == 0U) {
+            ESP_LOGI(TAG,
+                     "Enviando sensores: IMU[roll=%.3f, pitch=%.3f, ay=%.3f] "
+                     "nivel=%.3f estado=0x%02X",
+                     payload.roll_1, payload.pitch_1, payload.ay_1,
+                     payload.water_level, payload.sensor_status_flags);
+        }
         const esp_err_t result = esp_now_send(CABIN_MAC, reinterpret_cast<const uint8_t*>(&payload), sizeof(payload));
         if (result != ESP_OK) {
             ESP_LOGW(TAG, "ESP-NOW no pudo encolar payload: %s", esp_err_to_name(result));
         }
-        vTaskDelay(pdMS_TO_TICKS(250));
-        //vTaskDelay(pdMS_TO_TICKS(50));
+        vTaskDelay(pdMS_TO_TICKS(ESPNOW_SEND_INTERVAL_MS));
     }
 }
 

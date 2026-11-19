@@ -37,7 +37,7 @@ extern "C" bool imu_module_start(void){
     config.int_gpio = FRONT_IMU_INT;
     config.reset_gpio = FRONT_IMU_RESET;
     config.spi_clock_hz = 3000000;
-    config.report_period_us = 10000;
+    config.report_period_us = 20000;
     config.service_period_ms = 2;
     config.install_isr_service = true;
     config.name = "imu_front";

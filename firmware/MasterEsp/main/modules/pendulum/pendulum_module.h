@@ -39,6 +39,22 @@ bool pendulum_simulate_step(const pendulum_model_t *model,
                             float inertia_about_pivot_kg_m2,
                             float dt_s);
 
+/* Simulate tank-fluid motion under vehicle roll and lateral acceleration. */
+bool pendulum_simulate_vehicle_step(const pendulum_model_t *model,
+                                    pendulum_state_t *state,
+                                    float inertia_about_pivot_kg_m2,
+                                    float chassis_roll_rad,
+                                    float lateral_accel_m_s2,
+                                    float dt_s);
+
+/* Horizontal bob acceleration relative to the chassis, in m/s^2. */
+bool pendulum_lateral_acceleration(const pendulum_model_t *model,
+                                   const pendulum_state_t *state,
+                                   float inertia_about_pivot_kg_m2,
+                                   float chassis_roll_rad,
+                                   float lateral_accel_m_s2,
+                                   float *acceleration_m_s2);
+
 /* Small-angle period implied by a model and pivot inertia. */
 float pendulum_period_from_inertia(const pendulum_model_t *model,
                                    float inertia_about_pivot_kg_m2);
