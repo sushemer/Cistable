@@ -3,7 +3,7 @@
 // Valores editables directamente aquí; no se configuran desde menuconfig.
 #define GPS_UART_PORT                       UART_NUM_2 // UART usada para el GPS
 #define GPS_UART_BAUD_RATE                  9600       // Velocidad de comunicación GPS
-#define GPS_UART_RXD                        16         // TX del GPS6MV2 conectado al RX del ESP32 (prueba 04)
+#define GPS_UART_RXD                        18         // TX del GPS6MV2 conectado al RX del ESP32 (prueba 04)
 #define GPS_UART_TXD                        17         // GPIO que transmite hacia RX del GPS
 
 // Criterios iniciales para evaluar las lecturas; confirmar con los registros.

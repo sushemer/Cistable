@@ -3,13 +3,13 @@
 #include "esp_log.h"
 
 // Pines ESP32 DevKit V1 alineados con la prueba 04.
-#define FRONT_IMU_SPI_HOST SPI2_HOST
-#define FRONT_IMU_MOSI GPIO_NUM_23
-#define FRONT_IMU_MISO GPIO_NUM_19
-#define FRONT_IMU_SCLK GPIO_NUM_18
-#define FRONT_IMU_CS GPIO_NUM_5
-#define FRONT_IMU_INT GPIO_NUM_4
-#define FRONT_IMU_RESET GPIO_NUM_22
+#define FRONT_IMU_SPI_HOST SPI3_HOST
+#define FRONT_IMU_MOSI GPIO_NUM_11
+#define FRONT_IMU_MISO GPIO_NUM_13
+#define FRONT_IMU_SCLK GPIO_NUM_12
+#define FRONT_IMU_CS GPIO_NUM_14
+#define FRONT_IMU_INT GPIO_NUM_6
+#define FRONT_IMU_RESET GPIO_NUM_5
 // BNO085: PS0 = 1 y PS1 = 1, ambos conectados a VCC, para seleccionar SPI.
 
 static const char *TAG = "IMU_FRONT"; // Identifica mensajes de este módulo en UART0.
