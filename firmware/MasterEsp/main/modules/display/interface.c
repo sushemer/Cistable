@@ -1,7 +1,6 @@
 #include "interface.h"
 
 #include <math.h>
-
 #include "driver/gpio.h"
 #include "recursos/camiones.h"
 
@@ -68,7 +67,7 @@ void interface_init(lv_display_t *display)
     s_risk_text = lv_label_create(s_risk_panel);
     lv_obj_set_style_text_font(s_risk_text, LV_FONT_DEFAULT, 0);
     lv_obj_set_style_text_align(s_risk_text, LV_TEXT_ALIGN_CENTER, 0);
-    lv_obj_center(s_risk_text);
+    lv_obj_align(s_risk_text, LV_ALIGN_TOP_MID, 0, 25);
 
     s_truck_small = lv_image_create(screen);
     lv_image_set_src(s_truck_small, &camion_pequeno);
@@ -92,17 +91,23 @@ void interface_update(const gps_module_snapshot_t *gps,
 
     const bool has_sensor_data = telemetry->imu_local_ok || telemetry->imu_remote_ok;
     const float abs_ltr = fabsf(telemetry->ltr);
+    const float abs_predicted_ltr = fabsf(telemetry->predicted_ltr);
+    const float critical_ltr = telemetry->critical_ltr_threshold > 0.0f &&
+                               isfinite(telemetry->critical_ltr_threshold) ?
+                               telemetry->critical_ltr_threshold : 0.80f;
     const float abs_roll = fabsf(telemetry->roll_deg);
-    const bool moving = telemetry->speed_kmh >= 3.0f;
-
     lv_color_t panel_color = COLOR_NO_DATA;
     lv_color_t text_color = lv_color_white();
     const char *status = "SIN DATOS";
-    if (has_sensor_data) {
-        if ((moving && abs_ltr >= 0.60f) || abs_roll >= 15.0f) {
+    if (has_sensor_data || telemetry->speed_turn_risk || telemetry->dynamic_risk ||
+        telemetry->pitch_risk) {
+        if (abs_ltr >= critical_ltr || abs_predicted_ltr >= critical_ltr) {
             status = "PELIGRO";
             panel_color = COLOR_DANGER;
-        } else if ((moving && abs_ltr >= 0.35f) || abs_roll >= 8.0f || telemetry->static_risk) {
+        } else if (telemetry->static_risk || telemetry->dynamic_risk ||
+                   abs_ltr >= 0.35f || abs_predicted_ltr >= 0.35f ||
+                   abs_roll >= 8.0f || telemetry->pitch_risk ||
+                   telemetry->speed_turn_risk) {
             status = "PRECAUCION";
             panel_color = COLOR_CAUTION;
             text_color = lv_color_black();
