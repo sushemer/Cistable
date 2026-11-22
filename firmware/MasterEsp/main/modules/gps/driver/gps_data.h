@@ -9,7 +9,11 @@ typedef struct {
     bool has_rmc;
     bool rmc_status_valid;
     bool rmc_data_valid;
+    bool rmc_date_valid;
     uint32_t rmc_time_of_day_ms;
+    uint16_t rmc_year;
+    uint8_t rmc_month;
+    uint8_t rmc_day;
     int64_t rmc_received_us;
     float latitude_deg;
     float longitude_deg;

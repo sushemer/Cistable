@@ -21,6 +21,7 @@
 #include "esp_log.h"
 #include <assert.h>
 #include "display_port.h"
+#include "board_spi_pins.h"
 
 #ifndef CONFIG_EXAMPLE_LCD_TOUCH_ENABLED
 #define CONFIG_EXAMPLE_LCD_TOUCH_ENABLED 0
@@ -35,19 +36,16 @@
 static const char *TAG = "example";
 
 // Using SPI2 in the example
-#define LCD_HOST  SPI2_HOST
+#define LCD_HOST  BOARD_SHARED_SPI_HOST
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// Please update the following configuration according to your LCD spec //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (20 * 1000 * 1000)
 /* Pinout del LCD ST7796S en SPI2, libre de conflicto con GPS y la IMU frontal. */
-#define EXAMPLE_PIN_NUM_SCLK           12
-#define EXAMPLE_PIN_NUM_MOSI           11
-#define EXAMPLE_PIN_NUM_MISO           -1
 #define EXAMPLE_PIN_NUM_LCD_DC         9
 #define EXAMPLE_PIN_NUM_LCD_RST        8
-#define EXAMPLE_PIN_NUM_LCD_CS         10
+#define EXAMPLE_PIN_NUM_LCD_CS         BOARD_LCD_CS_GPIO
 #define EXAMPLE_PIN_NUM_TOUCH_CS       15
 
 // The pixel number in horizontal and vertical
@@ -164,17 +162,6 @@ static void example_lvgl_port_task(void *arg)
 
 lv_display_t *display_init(void)
 {
-    ESP_LOGI(TAG, "Initialize SPI bus");
-    spi_bus_config_t buscfg = {
-        .sclk_io_num = EXAMPLE_PIN_NUM_SCLK,
-        .mosi_io_num = EXAMPLE_PIN_NUM_MOSI,
-        .miso_io_num = EXAMPLE_PIN_NUM_MISO,
-        .quadwp_io_num = -1,
-        .quadhd_io_num = -1,
-        .max_transfer_sz = EXAMPLE_LCD_H_RES * 80 * sizeof(uint16_t),
-    };
-    ESP_ERROR_CHECK(spi_bus_initialize(LCD_HOST, &buscfg, SPI_DMA_CH_AUTO));
-
     ESP_LOGI(TAG, "Install panel IO");
     esp_lcd_panel_io_handle_t io_handle = NULL;
     esp_lcd_panel_io_spi_config_t io_config = {
