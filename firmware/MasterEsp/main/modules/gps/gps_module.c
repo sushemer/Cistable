@@ -1,5 +1,6 @@
 #include "gps_module.h"
 
+#include <inttypes.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
@@ -12,6 +13,7 @@
 #include "gps_config.h"
 #include "gps_device.h"
 #include "gps_nmea.h"
+#include "modules/sd_logger/sd_logger.h"
 
 static const char *TAG = "GPS";
 static gps_module_snapshot_t s_snapshot;
@@ -77,12 +79,12 @@ static void gps_reader_task(void *arg)
         gps_nmea_result_t parsed = {0};
         (void)gps_nmea_process_line(&sample, line, now_us, &parsed);
         sync_clock_from_gps(&sample);
-        ESP_LOGI(TAG, "NMEA %s parsed=%s checksum=%s fix=%d sats=%u lat=%.6f lon=%.6f speed=%.2f km/h hdop=%.2f",
-                 parsed.type[0] != '\0' ? parsed.type : "UNKNOWN",
-                 parsed.parsed ? "yes" : "no",
-                 parsed.checksum_valid ? "ok" : "bad",
-                 sample.fix_quality, (unsigned)sample.satellites,
-                 sample.latitude_deg, sample.longitude_deg, sample.speed_kmh, sample.hdop);
+        sd_logger_logf(TAG, "[GPS_NMEA] time_us=%" PRId64 ",type=%s,parsed=%u,checksum_valid=%u,fix=%d,satellites=%u,lat_deg=%.6f,lon_deg=%.6f,speed_kmh=%.3f,hdop=%.2f,sentence=%s",
+                       now_us, parsed.type[0] != '\0' ? parsed.type : "UNKNOWN",
+                       (unsigned)parsed.parsed, (unsigned)parsed.checksum_valid,
+                       sample.fix_quality, (unsigned)sample.satellites,
+                       sample.latitude_deg, sample.longitude_deg, sample.speed_kmh,
+                       sample.hdop, line);
         gps_module_snapshot_t next = {
             .sample = sample,
             .validation = gps_validation_evaluate(&sample, &s_validation_config, now_us),

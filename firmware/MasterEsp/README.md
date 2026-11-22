@@ -128,10 +128,35 @@ RAW_0020/
 - `IMU_A`: cálculo agregado de las IMUs realizado por el Master.
 - `GPS`: coordenadas, velocidad, fix, satélites, HDOP y LTR asociado.
 - `EVENT`: disponibilidad de GPS, IMU y recepción remota, LTR y estado de riesgo.
-- `OTRO`: líneas recibidas por el logger que no tienen un formato reconocido.
+- `OTRO`: líneas recibidas por el logger que no tienen un formato reconocido,
+  incluidas las sentencias NMEA originales con su resultado de checksum y parseo.
 - `.LOG`: copia de todas las líneas entregadas al logger, con tiempo y origen.
 
 Los CSV tienen títulos y una indicación `sep=,` para que Excel separe las
 columnas al abrirlos. El tiempo del ESP se guarda en microsegundos; fecha y
 hora local de Tijuana se completan después de una RMC válida del GPS.
 Antes de sincronizar, las columnas de calendario quedan vacías.
+
+## Prueba 04: GPS + IMU frontal
+
+La velocidad GPS pasa por los estados de calidad `SIN_DATOS`, `SIN_FIX`,
+`FIX_DEGRADADO`, `FIX_VALIDO` y `DATO_OBSOLETO`. Se comprueban checksum y
+campos NMEA durante el parseo; para aceptar velocidad se requieren RMC y GGA
+recientes, fix válido, al menos cuatro satélites, HDOP dentro del límite y
+épocas RMC/GGA compatibles. El log conserva edades y motivo de rechazo.
+
+La IMU BNO085 frontal aporta aceleración lineal. Cuando su magnitud se mantiene
+en `0.20 m/s²` o menos durante 1 segundo, una lectura GPS de hasta `1 km/h` se
+clasifica `ESTACIONARIO_IMU` y se corrige a cero. La corrección nunca pone a
+cero una lectura GPS mayor de `1 km/h`: con IMU quieta se conserva y se marca
+`GPS_SOSPECHOSO_IMU_QUIETA`, porque aceleración pequeña también ocurre al
+avanzar a velocidad constante. Otros estados incluyen `SIN_IMU`,
+`BAJA_VEL_IMU_MOVIMIENTO`, `VIBRACION_IMPACTO`, `INICIO_MOVIMIENTO`,
+`ACELERANDO`, `FRENANDO`, `MOVIMIENTO_CONSTANTE` y estados de GPS sin datos.
+
+`GPS.CSV` conserva velocidad cruda y agrega calidad, motivo, antigüedades,
+velocidad corregida y estado de fusión. `EVENT.CSV` registra esos estados una
+vez por segundo, incluso cuando el GPS o la IMU pierden vigencia. Los umbrales
+son iniciales para la prueba de ventana/patio; deben contrastarse con el
+registro y no constituyen navegación inercial ni una referencia absoluta de
+velocidad.
