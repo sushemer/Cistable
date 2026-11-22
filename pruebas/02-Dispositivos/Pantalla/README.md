@@ -1,0 +1,161 @@
+# Prueba de pantalla ST7796S con ESP-NOW
+
+Esta prueba permite mostrar en una pantalla los estados enviados por otro
+ESP32 mediante ESP-NOW. También incluye una medición temporal del tiempo
+de ida y vuelta de los mensajes (RTT).
+
+Los estados del emisor son simulados. Esta prueba todavía no calcula
+el riesgo de volcadura a partir de sensores.
+
+## Proyectos
+
+- `Pantalla_Interfaz`: recibe los estados y actualiza la pantalla.
+- `Emisor_Prueba`: genera los estados de prueba y muestra las estadísticas
+  de RTT en su monitor serie.
+
+## Equipo y entorno
+
+- Dos ESP32.
+- Pantalla TFT ST7796S de 3.5 pulgadas, SPI, sin touch.
+- Resolución nativa de 320 × 480; interfaz horizontal de 480 × 320.
+- ESP-IDF v6.1.
+
+## Conexiones de la pantalla
+
+| Pin de la pantalla | Conexión al ESP32 |
+|---|---|
+| SCLK | GPIO18 |
+| MOSI | GPIO19 |
+| CS | GPIO4 |
+| DC | GPIO21 |
+| RST | GPIO22 |
+| VCC | VIN |
+| BL | VIN |
+| GND | GND |
+| MISO | Sin conectar |
+
+VCC y BL se alimentaron desde VIN, con aproximadamente 4.8–4.9 V
+medidos en el montaje utilizado. Esta conexión corresponde al módulo
+probado; debe verificarse la alimentación si se utiliza otro módulo.
+
+La retroiluminación permanece encendida, sin control PWM.
+
+## Funcionamiento
+
+El emisor cambia de estado cada 5 segundos:
+
+- SEGURO.
+- PRECAUCION.
+- PELIGRO.
+- DETENIDO, con un nivel simulado de agua del 78 %.
+
+Los estados se transmiten cada 200 ms mediante broadcast, en el canal 1,
+con paquetes de 6 bytes.
+
+El receptor valida los paquetes y actualiza la interfaz. El timeout
+operativo de recepción es de 1500 ms; al perder comunicación se muestra
+el estado de falta de datos.
+
+## Dispositivos configurados
+
+| Dispositivo | MAC STA |
+|---|---|
+| Emisor | 8C:94:DF:48:E2:60 |
+| Receptor con pantalla | 8C:94:DF:48:36:98 |
+
+Si se utilizan otros ESP32, se deben revisar y actualizar las MAC
+configuradas en ambos proyectos.
+
+## Compilación
+
+Desde una terminal con ESP-IDF habilitado, entrar a cada proyecto
+y ejecutar:
+
+```powershell
+idf.py build
+```
+
+Ambos proyectos se compilaron correctamente después de copiarlos
+a esta ubicación del repositorio.
+
+Se incluyen `sdkconfig` para conservar la configuración utilizada
+y, en el proyecto de pantalla, `sdkconfig.defaults` y `dependencies.lock`.
+
+Las carpetas `build` y `managed_components` no se incluyen.
+ESP-IDF genera los archivos de compilación y descarga las dependencias
+declaradas. La primera compilación puede requerir conexión a Internet.
+
+## Carga y ejecución
+
+Primero cargar `Pantalla_Interfaz` en el ESP32 conectado a la pantalla.
+Después cargar `Emisor_Prueba` en el otro ESP32.
+
+Desde la carpeta del proyecto correspondiente:
+
+```powershell
+idf.py -p COMX flash monitor
+```
+
+Sustituir COMX por el puerto real de cada dispositivo. Seleccionar
+siempre el puerto explícitamente para evitar intercambiar los firmwares.
+
+Las estadísticas RTT aparecen en el monitor serie del emisor.
+
+## Medición temporal de RTT
+
+La prueba se controla con `PRUEBA_RTT` en:
+
+- `Emisor_Prueba/main/espnow_example_main.c`.
+- `Pantalla_Interfaz/main/comunicacion/espnow_receptor.h`.
+
+Usar `1` para activarla o `0` para desactivarla en ambos proyectos.
+Después de cambiarla, recompilar y cargar ambos firmwares.
+
+El receptor responde únicamente después de aceptar un estado nuevo.
+El ACK se envía por unicast antes del bloqueo de la pantalla.
+
+Formato del ACK de 3 bytes:
+
+- Byte 0: 0xA1.
+- Byte 1: secuencia, byte menos significativo.
+- Byte 2: secuencia, byte más significativo.
+
+El emisor utiliza ocho entradas pendientes y un timeout de ACK de
+500 ms. No retransmite estados y reporta estadísticas cada 100 ACK válidos.
+
+El RTT se mide desde justo antes de `esp_now_send()` hasta la llegada
+del ACK al callback del emisor. Incluye comunicación y procesamiento
+intermedio; no mide el tiempo hasta el cambio físico de los píxeles.
+
+## Resultados registrados
+
+Condiciones: separación aproximada de 4–5 metros, con una pared
+entre los dispositivos.
+
+| Métrica | Resultado |
+|---|---:|
+| Intentos de envío | 761 |
+| Envíos admitidos por esp_now_send | 761 |
+| Errores inmediatos | 0 |
+| ACK válidos | 500 |
+| ACK vencidos | 261 |
+| Porcentaje de ACK válidos | 65.7 % |
+| Porcentaje de ACK vencidos | 34.3 % |
+| RTT mínimo | 2.375 ms |
+| RTT promedio | 4.693 ms |
+| RTT máximo | 24.188 ms |
+| Una vía estimada, RTT promedio / 2 | Aproximadamente 2.35 ms |
+| ACK tardíos o duplicados registrados | 0 |
+| Saturaciones de tabla y cola del emisor | 0 |
+
+Los tiempos corresponden únicamente a respuestas válidas recibidas
+dentro del timeout. RTT/2 es una aproximación, no una medición directa
+de latencia unidireccional.
+
+Un ACK vencido no permite distinguir si se perdió el estado de ida,
+la respuesta de regreso o si ocurrió otro problema de procesamiento.
+
+En esta prueba las respuestas exitosas tuvieron tiempos bajos,
+pero se observó una proporción considerable de ACK vencidos.
+Se requieren más pruebas controladas y pruebas en el vehículo para
+evaluar la confiabilidad en las condiciones reales de uso.

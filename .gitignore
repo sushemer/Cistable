@@ -25,3 +25,6 @@ pruebas/03-Junto/02-IMUS/imu_cisterna_bomberos/firmware/components/esp32_BNO08x/
 
 # Pruebas personales de microSD: conservar solo en esta computadora
 /pruebas/02-Dispositivos/microSD_SPI/
+# Dependencias descargadas y respaldo de ESP-IDF
+managed_components/
+sdkconfig.old
