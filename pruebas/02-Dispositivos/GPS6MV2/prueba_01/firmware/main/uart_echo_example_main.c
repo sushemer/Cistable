@@ -30,7 +30,7 @@
 
 // Ajustar estos valores al módulo y a la placa utilizados.
 #define GPS_UART_PORT       UART_NUM_2
-#define GPS_UART_BAUD_RATE  9600
+#define GPS_UART_BAUD_RATE  9600//115200 //9600
 #define GPS_UART_RXD        16
 #define GPS_UART_TXD        17
 #define GPS_UART_RTS        UART_PIN_NO_CHANGE

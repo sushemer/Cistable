@@ -4,6 +4,7 @@
 #include "modules/display/display_module.h"
 #include "modules/imu/imu_module.h"
 #include "modules/gps/gps_module.h"
+#include "modules/gps/gps_imu_fusion.h"
 #include "modules/ltr/ltr_module.h"
 #include "modules/pendulum/pendulum_module.h"
 #include "modules/sd_logger/sd_logger.h"
@@ -60,6 +61,13 @@ static const char *TAG = "MASTER";
 static TankPayload s_rear_data;
 static imu_bno085_sample_t s_front_imu;
 static display_telemetry_t s_telemetry;
+static gps_imu_fusion_result_t s_gps_imu_fusion = {
+    .gps_speed_kmh = NAN,
+    .corrected_speed_kmh = NAN,
+    .speed_delta_kmh = NAN,
+    .acceleration_norm_m_s2 = NAN,
+    .state = "GPS_SIN_DATOS",
+};
 static ltr_result_t s_imu1_ltr;
 static ltr_result_t s_imu2_ltr;
 static pendulum_state_t s_water_pendulum_state;
@@ -573,13 +581,24 @@ static void sensor_task(void *arg)
         if (xSemaphoreTake(s_data_mutex, portMAX_DELAY) == pdTRUE) {
             gps_module_snapshot_t gps = {0};
             const bool have_gps = gps_module_get_snapshot(&gps);
-            const bool speed_valid = have_gps && gps.speed_valid &&
-                                     gps.validation.usable_for_speed;
-            const float speed_kmh = speed_valid ? gps.displayed_speed_kmh : 0.0f;
             if (got_imu_sample) {
                 s_front_imu = sample;
                 if (new_imu_sample) calibrate_front_mounting_offset(&sample);
             }
+            if (new_imu_sample && sample.has_linear_acceleration) {
+                gps_imu_fusion_update_acceleration(sample.linear_accel_m_s2[0],
+                                                   sample.linear_accel_m_s2[1],
+                                                   sample.linear_accel_m_s2[2],
+                                                   sample.sample_time_us);
+            }
+            const int64_t fusion_now_us = esp_timer_get_time();
+            s_gps_imu_fusion = gps_imu_fusion_evaluate(
+                gps.displayed_speed_kmh,
+                have_gps && gps.speed_valid && gps.validation.usable_for_speed,
+                gps.sample.rmc_received_us,
+                fusion_now_us);
+            const bool speed_valid = s_gps_imu_fusion.speed_usable;
+            const float speed_kmh = speed_valid ? s_gps_imu_fusion.corrected_speed_kmh : 0.0f;
             calculate_telemetry(esp_timer_get_time(), speed_kmh, speed_valid);
             if (new_imu_sample) {
                 sd_logger_logf(TAG, "[DATA] IMU1,time_us=%" PRId64 ",roll_deg=%.3f,pitch_deg=%.3f,yaw_deg=%.3f,accel_x=%.3f,accel_y=%.3f,accel_z=%.3f,gyro_x=%.4f,gyro_y=%.4f,gyro_z=%.4f,ltr=%.5f,valid=%u",
@@ -622,26 +641,37 @@ static void gui_task(void *arg)
     while (true) {
         gps_module_snapshot_t gps = {0};
         display_telemetry_t telemetry = {0};
+        gps_imu_fusion_result_t fusion = {0};
         const bool have_gps = gps_module_get_snapshot(&gps);
         if (xSemaphoreTake(s_data_mutex, portMAX_DELAY) == pdTRUE) {
             telemetry = s_telemetry;
+            fusion = s_gps_imu_fusion;
             xSemaphoreGive(s_data_mutex);
         }
-        telemetry.speed_kmh = have_gps && gps.speed_valid && gps.validation.usable_for_speed ? gps.displayed_speed_kmh : 0.0f;
-        telemetry.speed_valid = have_gps && gps.speed_valid &&
-                                gps.validation.usable_for_speed;
+        telemetry.speed_kmh = fusion.speed_usable ? fusion.corrected_speed_kmh : 0.0f;
+        telemetry.speed_valid = fusion.speed_usable;
         if (have_gps && gps.snapshot_us != s_last_gps_log_us) {
-        sd_logger_logf(TAG, "[DATA] GPS,time_us=%" PRId64 ",lat_deg=%.7f,lon_deg=%.7f,speed_kmh=%.3f,speed_mph=%.3f,fix=%d,satellites=%u,hdop=%.2f,ltr=%.5f,telemetry_roll_deg=%.3f",
-                     gps.snapshot_us, gps.sample.latitude_deg, gps.sample.longitude_deg,
-                     gps.displayed_speed_kmh, gps.displayed_speed_kmh * 0.6213711922f,
-                     gps.sample.fix_quality, (unsigned)gps.sample.satellites, gps.sample.hdop,
-                     telemetry.ltr, telemetry.roll_deg);
+            const char *gps_reason = gps.validation.reason != NULL ? gps.validation.reason : "sin_datos";
+            const char *fusion_state = fusion.state != NULL ? fusion.state : "GPS_SIN_DATOS";
+            sd_logger_logf(TAG, "[DATA] GPS,time_us=%" PRId64 ",lat_deg=%.7f,lon_deg=%.7f,speed_kmh=%.3f,speed_mph=%.3f,fix=%d,satellites=%u,hdop=%.2f,ltr=%.5f,telemetry_roll_deg=%.3f,gps_status=%s,gps_reason=%s,rmc_age_ms=%" PRIu32 ",gga_age_ms=%" PRIu32 ",epoch_skew_ms=%" PRIu32 ",speed_corrected_kmh=%.3f,fusion_state=%s,imu_accel_norm_m_s2=%.4f,imu_stationary_ms=%" PRIu32 ",imu_fresh=%u,speed_usable=%u",
+                           gps.snapshot_us, gps.sample.latitude_deg, gps.sample.longitude_deg,
+                           gps.displayed_speed_kmh, gps.displayed_speed_kmh * 0.6213711922f,
+                           gps.sample.fix_quality, (unsigned)gps.sample.satellites, gps.sample.hdop,
+                           telemetry.ltr, telemetry.roll_deg,
+                           gps_validation_state_name(gps.validation.state), gps_reason,
+                           gps.validation.rmc_age_ms, gps.validation.gga_age_ms,
+                           gps.validation.epoch_skew_ms, fusion.corrected_speed_kmh,
+                           fusion_state, fusion.acceleration_norm_m_s2, fusion.stationary_ms,
+                           (unsigned)fusion.imu_fresh, (unsigned)fusion.speed_usable);
             s_last_gps_log_us = gps.snapshot_us;
         }
         const int64_t now_us = esp_timer_get_time();
         if (now_us - s_last_event_us >= 1000000) {
-            sd_logger_logf(TAG, "[EVENT] time_us=%" PRId64 ",gps_status=%s,imu_status=%s,espnow_status=%s,ltr=%.5f,static_risk=%u,max_safe_speed_kmh=%.2f,min_turn_radius_m=%.2f,predicted_ltr=%.5f,speed_turn_risk=%u,dynamic_risk=%u,pitch_deg=%.3f,pitch_ltr=%.5f,predicted_pitch_ltr=%.5f,pitch_risk=%u",
+            const char *gps_reason = gps.validation.reason != NULL ? gps.validation.reason : "sin_datos";
+            const char *fusion_state = fusion.state != NULL ? fusion.state : "GPS_SIN_DATOS";
+            sd_logger_logf(TAG, "[EVENT] time_us=%" PRId64 ",gps_status=%s,gps_quality_state=%s,gps_reason=%s,fusion_state=%s,imu_status=%s,espnow_status=%s,ltr=%.5f,static_risk=%u,max_safe_speed_kmh=%.2f,min_turn_radius_m=%.2f,predicted_ltr=%.5f,speed_turn_risk=%u,dynamic_risk=%u,pitch_deg=%.3f,pitch_ltr=%.5f,predicted_pitch_ltr=%.5f,pitch_risk=%u",
                            now_us, have_gps && gps.validation.usable_for_speed ? "UTILIZABLE" : "SIN_FIX_UTIL",
+                           gps_validation_state_name(gps.validation.state), gps_reason, fusion_state,
                            telemetry.imu_local_ok ? "OK" : "NO_DISPONIBLE",
                            telemetry.rear_online ? "RX_ACTIVO" : "SIN_RX",
                            telemetry.ltr, (unsigned)telemetry.static_risk,
@@ -661,6 +691,7 @@ static void gui_task(void *arg)
 
 void app_main(void)
 {
+    gps_imu_fusion_reset();
     s_data_mutex = xSemaphoreCreateMutex();
     if (s_data_mutex == NULL) { ESP_LOGE(TAG, "No se pudo crear el mutex"); return; }
     ESP_ERROR_CHECK(board_shared_spi_init());

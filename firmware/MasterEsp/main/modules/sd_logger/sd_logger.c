@@ -162,9 +162,23 @@ static void write_structured_row(FILE *file, unsigned record, int64_t time_us,
         field_value(line, "hdop=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "telemetry_roll_deg=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "gps_status=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "gps_reason=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "rmc_age_ms=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "gga_age_ms=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "epoch_skew_ms=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "speed_corrected_kmh=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "fusion_state=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "imu_accel_norm_m_s2=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "imu_stationary_ms=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "imu_fresh=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "speed_usable=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
     } else if (strcmp(origin, "EVENT") == 0) {
         field_value(line, "SIM=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "gps_status=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "gps_quality_state=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "gps_reason=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
+        field_value(line, "fusion_state=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "imu_status=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "espnow_status=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
         field_value(line, "ltr=", value, sizeof(value)); fprintf(file, "%s%c", value, SD_LOGGER_CSV_SEPARATOR);
@@ -309,8 +323,8 @@ static bool open_log_file(void)
     fprintf(s_imu1_file, "registro,time_us,fecha,hora,imu_time_us,sim,roll_deg,pitch_deg,yaw_deg,accel_x,accel_y,accel_z,gyro_x,gyro_y,gyro_z,ltr,valid,linea_original\n");
     fprintf(s_imu2_file, "registro,time_us,fecha,hora,imu_time_us,sim,roll_deg,pitch_deg,ay_m_s2,water_level_cm,status_flags,ltr,valid,linea_original\n");
     fprintf(s_imu_a_file, "registro,time_us,fecha,hora,imu_time_us,sim,roll_deg,ay_m_s2,ltr,sensors_used,max_safe_speed_kmh,min_turn_radius_m,predicted_ltr,speed_turn_risk,dynamic_risk,pitch_deg,pitch_ltr,predicted_pitch_ltr,pitch_risk,linea_original\n");
-    fprintf(s_gps_file, "registro,time_us,fecha,hora,gps_time_us,sim,lat_deg,lon_deg,speed_kmh,speed_mph,fix,satellites,hdop,ltr,telemetry_roll_deg,linea_original\n");
-    fprintf(s_event_file, "registro,time_us,fecha,hora,sim,gps_status,imu_status,espnow_status,ltr,static_risk,max_safe_speed_kmh,min_turn_radius_m,predicted_ltr,speed_turn_risk,dynamic_risk,pitch_deg,pitch_ltr,predicted_pitch_ltr,pitch_risk,linea_original\n");
+    fprintf(s_gps_file, "registro,time_us,fecha,hora,gps_time_us,sim,lat_deg,lon_deg,speed_kmh,speed_mph,fix,satellites,hdop,ltr,telemetry_roll_deg,gps_status,gps_reason,rmc_age_ms,gga_age_ms,epoch_skew_ms,speed_corrected_kmh,fusion_state,imu_accel_norm_m_s2,imu_stationary_ms,imu_fresh,speed_usable,linea_original\n");
+    fprintf(s_event_file, "registro,time_us,fecha,hora,sim,gps_status,gps_quality_state,gps_reason,fusion_state,imu_status,espnow_status,ltr,static_risk,max_safe_speed_kmh,min_turn_radius_m,predicted_ltr,speed_turn_risk,dynamic_risk,pitch_deg,pitch_ltr,predicted_pitch_ltr,pitch_risk,linea_original\n");
     fprintf(s_other_file, "registro,time_us,fecha,hora,linea_original\n");
 
     FILE *all_files[] = {s_raw_file, s_imu1_file, s_imu2_file, s_imu_a_file,
