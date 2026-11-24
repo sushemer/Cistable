@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telemetria LTR</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>Telemetria LTR</h1>
+
+    <section class="cards" aria-label="Resumen de telemetria">
+      <article>
+        <span>LTR</span>
+        <strong id="ltr">--</strong>
+      </article>
+      <article>
+        <span>Riesgo</span>
+        <strong id="risk">--</strong>
+      </article>
+      <article>
+        <span>Velocidad</span>
+        <strong id="speed">--</strong>
+      </article>
+      <article>
+        <span>Agua</span>
+        <strong id="water">--</strong>
+      </article>
+    </section>
+
+    <section>
+      <h2>Nodos</h2>
+      <pre id="nodes">Cargando...</pre>
+    </section>
+
+    <section>
+      <h2>Historial</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nodo</th>
+              <th>LTR</th>
+              <th>Agua</th>
+              <th>Velocidad</th>
+            </tr>
+          </thead>
+          <tbody id="history"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Configuracion</h2>
+      <div class="controls">
+        <label>
+          Nodo
+          <select id="node">
+            <option value="1">Cabina</option>
+            <option value="2">Cisterna</option>
+          </select>
+        </label>
+        <label>
+          Reporte
+          <select id="rate">
+            <option value="2000">2 s</option>
+            <option value="5000">5 s</option>
+            <option value="10000">10 s</option>
+          </select>
+        </label>
+        <button id="enable" type="button">Habilitar reportes</button>
+        <button id="disable" type="button">Deshabilitar reportes</button>
+        <button id="sleep" type="button">Ahorro 10 s</button>
+      </div>
+      <p id="command-status" class="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
