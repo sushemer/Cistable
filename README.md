@@ -1,10 +1,8 @@
 # Sistema de alerta de volcadura para pipas de bomberos
-
 Esta carpeta concentra el avance técnico preparado y de los documentos existentes.
 
 
 ## Estructura del repositorio
-
 La organizacion separa firmware, sensores, comunicaciones, pruebas, resultados y documentacion.
 
 - firmware: codigo especifico de cada ESP32.
