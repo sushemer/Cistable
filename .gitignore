@@ -20,11 +20,8 @@ sdkconfig.old
 .idea/
 Thumbs.db
 
-_review_imu/
-pruebas/03-Junto/02-IMUS/imu_cisterna_bomberos/firmware/components/esp32_BNO08x/
-
-# Pruebas personales de microSD: conservar solo en esta computadora
-/pruebas/02-Dispositivos/microSD_SPI/
-# Dependencias descargadas y respaldo de ESP-IDF
-managed_components/
-sdkconfig.old
+sensores/IMU/Prueba lectura en C - 1 sensor/components/sh2/
+sensores/IMU/Prueba lectura en C/components/sh2/
+sensores/IMU/Pruebas1/components/esp32_BNO08x/
+sensores/IMU/DEF 1 IMU en C++ con Adafruit/components/esp32_BNO08x/
+/firmware/esp32-trasero/TEST esp Cisterna en C++/components

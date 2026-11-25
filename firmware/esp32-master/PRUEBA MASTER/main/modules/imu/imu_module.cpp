@@ -2,7 +2,17 @@
 
 #include "esp_log.h"
 
-// Pines ESP32 DevKit V1 alineados con la prueba 04.
+// Pines para ESP32 DevKit V1 :
+/*
+#define FRONT_IMU_SPI_HOST SPI3_HOST
+#define FRONT_IMU_MOSI GPIO_NUM_13
+#define FRONT_IMU_MISO GPIO_NUM_34
+#define FRONT_IMU_SCLK GPIO_NUM_14
+#define FRONT_IMU_CS GPIO_NUM_25
+#define FRONT_IMU_INT GPIO_NUM_26
+#define FRONT_IMU_RESET GPIO_NUM_27
+ */
+// Pines para S3 frontal.
 #define FRONT_IMU_SPI_HOST SPI3_HOST
 #define FRONT_IMU_MOSI GPIO_NUM_11
 #define FRONT_IMU_MISO GPIO_NUM_13

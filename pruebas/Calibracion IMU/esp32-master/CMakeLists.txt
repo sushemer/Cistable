@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.16)
+get_filename_component(COMMON_COMPONENTS "${CMAKE_CURRENT_LIST_DIR}/../Apoyo" ABSOLUTE)
+get_filename_component(EXTERNAL_COMPONENTS "${COMMON_COMPONENTS}/components/esp32_BNO08x" ABSOLUTE)
+set(EXTRA_COMPONENT_DIRS "${COMMON_COMPONENTS}" "${EXTERNAL_COMPONENTS}")
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+project(cistable_master)

@@ -1,0 +1,14 @@
+#define bno085_init bno085_2_init
+#define bno085_deinit bno085_2_deinit
+#define bno085_register_sensor_callback bno085_2_register_sensor_callback
+#define bno085_enable_sensor bno085_2_enable_sensor
+#define bno085_disable_sensor bno085_2_disable_sensor
+#define bno085_service bno085_2_service
+#define sh2_open sh2_2_open
+#define sh2_close sh2_2_close
+#define sh2_service sh2_2_service
+#define sh2_setSensorCallback sh2_2_setSensorCallback
+#define sh2_setSensorConfig sh2_2_setSensorConfig
+#define sh2_decodeSensorEvent sh2_2_decodeSensorEvent
+
+#include "bno085.c"

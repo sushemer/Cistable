@@ -1,0 +1,14 @@
+menu "Cisterna LTR"
+    config CISTERNA_TEST_MODE
+        bool "Activar simulacion del nivel de agua"
+        default n
+        help
+            Desactiva el sensor RS485 en el Slave y fuerza CISTERNA_TEST_VALUE.
+            No debe activarse en perfil operativo.
+
+    config CISTERNA_TEST_VALUE
+        int "Nivel simulado del tanque"
+        range 0 120
+        default 65
+        depends on CISTERNA_TEST_MODE
+endmenu
